@@ -1,0 +1,114 @@
+[
+  {
+    "id": "txt-lightstick-v2",
+    "name": "TXT Official Light Stick Ver.2",
+    "category": "Accessories",
+    "price": 55.00,
+    "currency": "USD",
+    "image": "/images/store/lightstick-v2.webp",
+    "description": "Official light stick featuring Bluetooth control mode, motion sensor synchronization, and high-intensity cross logo projection beam.",
+    "isFeatured": true,
+    "stock": 42,
+    "colors": ["Signature White/Cyan"],
+    "sizes": ["One Size"],
+    "details": [
+      "Material: ABS, Polycarbonate, Acrylic",
+      "Power: 3x AAA Batteries (not included)",
+      "Wireless control range: up to 10m in concert mode",
+      "Package includes: Light Stick, Strap, Dust Bag, Manual"
+    ]
+  },
+  {
+    "id": "txt-act-promise-hoodie",
+    "name": "ACT : PROMISE World Tour Oversized Hoodie",
+    "category": "Apparel",
+    "price": 85.00,
+    "currency": "USD",
+    "image": "/images/store/hoodie-tour.webp",
+    "description": "Heavyweight 450GSM premium French terry cotton hoodie with embroidered monochrome +x+ typography on back and tour crest on chest.",
+    "isFeatured": true,
+    "stock": 18,
+    "colors": ["Onyx Black", "Charcoal Grey"],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "details": [
+      "Material: 100% Combed Cotton, Pre-shrunk",
+      "Fit: Relaxed drop-shoulder silhouette",
+      "Kangaroo pocket and ribbed hem/cuffs",
+      "High-density tactile embroidery"
+    ]
+  },
+  {
+    "id": "album-minisode3-vinyl",
+    "name": "minisode 3: TOMORROW (Limited Vinyl Edition)",
+    "category": "Albums",
+    "price": 42.00,
+    "currency": "USD",
+    "image": "/images/store/vinyl-minisode3.webp",
+    "description": "12-inch heavyweight translucent amber vinyl featuring master audio pressing, with exclusive 64-page hardcover photobook and lyric poster.",
+    "isFeatured": true,
+    "stock": 10,
+    "colors": ["Translucent Amber"],
+    "sizes": ["12-inch LP 33 RPM"],
+    "details": [
+      "Pressed on premium 180-gram colored vinyl",
+      "Includes gatefold packaging with metallic foil embossing",
+      "Limited edition numbered hologram sticker",
+      "Includes 5 exclusive selfie photocards"
+    ]
+  },
+  {
+    "id": "txt-tour-slogan-towel",
+    "name": "ACT : PROMISE Reflective Slogan Towel",
+    "category": "Tour Merch",
+    "price": 28.00,
+    "currency": "USD",
+    "image": "/images/store/lightstick-v2.webp",
+    "description": "Double-sided microfibre cheering slogan with reflective prism typography that sparkles under stage lighting.",
+    "isFeatured": false,
+    "stock": 55,
+    "colors": ["Holographic Silver / Cyan"],
+    "sizes": ["80 x 20 cm"],
+    "details": [
+      "Material: High-density suede microfiber",
+      "Water resistant zip pouch included",
+      "Official concert cheering accessory"
+    ]
+  },
+  {
+    "id": "album-freefall-cd",
+    "name": "The Name Chapter: FREEFALL (Gravity Ver.)",
+    "category": "Albums",
+    "price": 26.00,
+    "currency": "USD",
+    "image": "/images/albums/freefall.webp",
+    "description": "Standard studio album package containing CD-R, photobook, sticker pack, lyric card, and random photocard (1 of 5).",
+    "isFeatured": false,
+    "stock": 30,
+    "colors": ["Blue Gravity"],
+    "sizes": ["Standard CD"],
+    "details": [
+      "56-page Photobook (145 x 205 mm)",
+      "CD-R & Envelope",
+      "Postcard & Mini Poster",
+      "Random Member Photocard (1 of 5)"
+    ]
+  },
+  {
+    "id": "txt-beanie-cross",
+    "name": "TXT Monochrome Cross Knit Beanie",
+    "category": "Apparel",
+    "price": 38.00,
+    "currency": "USD",
+    "image": "/images/store/hoodie-tour.webp",
+    "description": "Rib-knit beanie crafted with ultra-soft Merino wool blend featuring subtle woven +x+ cyan tag.",
+    "isFeatured": false,
+    "stock": 25,
+    "colors": ["Pitch Black", "Ashen White"],
+    "sizes": ["One Size (Unisex)"],
+    "details": [
+      "Material: 50% Merino Wool, 50% Acrylic",
+      "Fold-over cuff with rubberized logo patch",
+      "Thermal heat retention"
+    ]
+  }
+]

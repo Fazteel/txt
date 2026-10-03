@@ -1,0 +1,47 @@
+[
+  {
+    "id": "soobin",
+    "stageName": "SOOBIN",
+    "fullName": "Choi Soo-bin",
+    "role": "Leader, Vocalist",
+    "birthDate": "2000-12-05",
+    "image": "/images/members/soobin.webp",
+    "quote": "Let's find tomorrow together."
+  },
+  {
+    "id": "yeonjun",
+    "stageName": "YEONJUN",
+    "fullName": "Choi Yeon-jun",
+    "role": "Rapper, Dancer, Vocalist",
+    "birthDate": "1999-09-13",
+    "image": "/images/members/yeonjun.webp",
+    "quote": "Expressing stories that transcend boundaries."
+  },
+  {
+    "id": "beomgyu",
+    "stageName": "BEOMGYU",
+    "fullName": "Choi Beom-gyu",
+    "role": "Vocalist, Dancer",
+    "birthDate": "2001-03-13",
+    "image": "/images/members/beomgyu.webp",
+    "quote": "Lighting up dark memories with hope."
+  },
+  {
+    "id": "taehyun",
+    "stageName": "TAEHYUN",
+    "fullName": "Kang Tae-hyun",
+    "role": "Main Vocalist",
+    "birthDate": "2002-02-05",
+    "image": "/images/members/taehyun.webp",
+    "quote": "Passion translated into pitch and melody."
+  },
+  {
+    "id": "hueningkai",
+    "stageName": "HUENINGKAI",
+    "fullName": "Kai Kamal Huening",
+    "role": "Vocalist, Multi-instrumentalist",
+    "birthDate": "2002-08-14",
+    "image": "/images/members/hueningkai.webp",
+    "quote": "The youthful melody never fades."
+  }
+]

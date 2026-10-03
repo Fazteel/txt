@@ -1,0 +1,181 @@
+---
+---
+
+<div id="brand-preloader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a] text-white select-none overflow-hidden">
+  {/* Preloader background curtain layers for vertical split exit */}
+  <div id="preloader-curtain-top" class="absolute top-0 left-0 w-full h-1/2 bg-[#0a0a0a] z-0"></div>
+  <div id="preloader-curtain-bottom" class="absolute bottom-0 left-0 w-full h-1/2 bg-[#0a0a0a] z-0"></div>
+
+  {/* Ambient glowing aura */}
+  <div id="preloader-glow" class="absolute w-72 h-72 rounded-full bg-[#00e5ff] opacity-0 blur-[120px] pointer-events-none"></div>
+
+  <div class="relative z-10 flex flex-col items-center justify-center">
+    {/* Central TXT Kinetic Logo Stage (+ x +) */}
+    <div class="relative flex items-center justify-center h-28 w-72">
+      {/* Left Plus */}
+      <div id="txt-plus-left" class="absolute w-12 h-12 flex items-center justify-center opacity-0">
+        <svg viewBox="0 0 40 40" class="w-10 h-10 fill-white drop-shadow-[0_0_12px_rgba(0,229,255,0.7)]">
+          <rect x="16" y="4" width="8" height="32" rx="2" />
+          <rect x="4" y="16" width="32" height="8" rx="2" />
+        </svg>
+      </div>
+
+      {/* Center Symbol (starts as +, rotates 45 deg to x) */}
+      <div id="txt-symbol-center" class="absolute w-14 h-14 flex items-center justify-center opacity-0 scale-50">
+        <svg viewBox="0 0 40 40" class="w-12 h-12 fill-[#00e5ff] drop-shadow-[0_0_18px_rgba(0,229,255,0.9)]">
+          <rect x="16" y="4" width="8" height="32" rx="2" />
+          <rect x="4" y="16" width="32" height="8" rx="2" />
+        </svg>
+      </div>
+
+      {/* Right Plus */}
+      <div id="txt-plus-right" class="absolute w-12 h-12 flex items-center justify-center opacity-0">
+        <svg viewBox="0 0 40 40" class="w-10 h-10 fill-white drop-shadow-[0_0_12px_rgba(0,229,255,0.7)]">
+          <rect x="16" y="4" width="8" height="32" rx="2" />
+          <rect x="4" y="16" width="32" height="8" rx="2" />
+        </svg>
+      </div>
+    </div>
+
+    {/* Brand Title Text with letter tracking animation */}
+    <div id="preloader-text" class="mt-6 overflow-hidden">
+      <span class="inline-block text-xs sm:text-sm font-display font-bold tracking-[0.4em] text-neutral-300 opacity-0 transform translate-y-6">
+        +OMORROW <span class="text-[#00e5ff]">X</span> +OGETHER
+      </span>
+    </div>
+  </div>
+
+  {/* Skip Button for quick dev or user preference */}
+  <button
+    id="skip-preloader"
+    class="absolute bottom-8 text-[11px] font-mono tracking-widest text-neutral-500 hover:text-[#00e5ff] uppercase px-3 py-1.5 rounded-full border border-white/10 hover:border-[#00e5ff]/40 transition-all cursor-pointer z-20"
+  >
+    SKIP INTRO [ESC]
+  </button>
+</div>
+
+<script>
+  import gsap from 'gsap';
+
+  function initPreloader() {
+    const preloader = document.getElementById('brand-preloader');
+    const centerSymbol = document.getElementById('txt-symbol-center');
+    const leftPlus = document.getElementById('txt-plus-left');
+    const rightPlus = document.getElementById('txt-plus-right');
+    const text = document.querySelector('#preloader-text span');
+    const glow = document.getElementById('preloader-glow');
+    const curtainTop = document.getElementById('preloader-curtain-top');
+    const curtainBottom = document.getElementById('preloader-curtain-bottom');
+    const skipBtn = document.getElementById('skip-preloader');
+
+    if (!preloader || !centerSymbol) return;
+
+    // Check session flag to avoid repeated long intro during navigation
+    const hasSeenIntro = sessionStorage.getItem('txt_intro_seen');
+    if (hasSeenIntro) {
+      preloader.style.display = 'none';
+      return;
+    }
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        sessionStorage.setItem('txt_intro_seen', 'true');
+        gsap.to(preloader, {
+          autoAlpha: 0,
+          duration: 0.3,
+          onComplete: () => {
+            preloader.style.display = 'none';
+          },
+        });
+      },
+    });
+
+    // Phase 1: Simbol central + muncul di tengah (scale dari 0.4 ke 1.0, fade in)
+    tl.to(centerSymbol, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.7,
+      ease: 'back.out(1.7)',
+    })
+    .to(glow, {
+      opacity: 0.4,
+      duration: 0.5,
+    }, '-=0.4')
+
+    // Phase 2: Central + berputar 45° menjadi ×
+    .to(centerSymbol, {
+      rotate: 45,
+      duration: 0.6,
+      ease: 'power3.inOut',
+    })
+
+    // Phase 3: Dua simbol + keluar meluncur dari balik × menuju sisi kiri dan kanan secara bersamaan hingga membentuk pola + × +
+    .to(centerSymbol, {
+      scale: 0.9,
+      duration: 0.2,
+    }, '-=0.2')
+    .fromTo(leftPlus, 
+      { opacity: 0, x: 0, scale: 0.5 },
+      { opacity: 1, x: -70, scale: 1, duration: 0.6, ease: 'power3.out' }
+    )
+    .fromTo(rightPlus,
+      { opacity: 0, x: 0, scale: 0.5 },
+      { opacity: 1, x: 70, scale: 1, duration: 0.6, ease: 'power3.out' },
+      '<'
+    )
+
+    // Phase 4: Teks +OMORROW X +OGETHER muncul di bagian bawah dengan animasi tracking/fade-up
+    .to(text, {
+      opacity: 1,
+      y: 0,
+      letterSpacing: '0.45em',
+      duration: 0.6,
+      ease: 'power2.out',
+    })
+
+    // Hold for impact
+    .to({}, { duration: 0.4 })
+
+    // Phase 5: Preloader sliding up / membelah vertikal untuk membuka Hero Section
+    .to([centerSymbol, leftPlus, rightPlus, text, glow, skipBtn], {
+      opacity: 0,
+      scale: 0.9,
+      duration: 0.4,
+      ease: 'power2.in',
+    })
+    .to(curtainTop, {
+      yPercent: -100,
+      duration: 0.8,
+      ease: 'power4.inOut',
+    })
+    .to(curtainBottom, {
+      yPercent: 100,
+      duration: 0.8,
+      ease: 'power4.inOut',
+    }, '<');
+
+    const handleSkip = () => {
+      tl.kill();
+      sessionStorage.setItem('txt_intro_seen', 'true');
+      gsap.to(preloader, {
+        opacity: 0,
+        duration: 0.3,
+        onComplete: () => {
+          preloader.style.display = 'none';
+        },
+      });
+    };
+
+    skipBtn?.addEventListener('click', handleSkip);
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') handleSkip();
+    });
+  }
+
+  // Run when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPreloader);
+  } else {
+    initPreloader();
+  }
+</script>

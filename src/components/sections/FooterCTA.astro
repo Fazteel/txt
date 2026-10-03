@@ -1,0 +1,152 @@
+---
+---
+
+<footer class="relative bg-[#070709] border-t border-white/10 text-white overflow-hidden pt-20 pb-12">
+  {/* Ambient glow */}
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#00e5ff]/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
+    {/* Newsletter Section */}
+    <div class="bg-gradient-to-r from-[#121216] via-[#16161b] to-[#121216] border border-white/10 rounded-2xl p-8 sm:p-12 mb-16 text-center max-w-4xl mx-auto">
+      <span class="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#00e5ff] block mb-2">
+        +OMORROW X +OGETHER COMMUNITY
+      </span>
+      <h3 class="text-2xl sm:text-3xl font-display font-bold uppercase tracking-tight text-white mb-3">
+        BE THE FIRST TO KNOW
+      </h3>
+      <p class="text-xs sm:text-sm text-neutral-400 max-w-md mx-auto mb-6">
+        Subscribe for priority tour ticket presales, album drop notifications, and exclusive MOA member updates.
+      </p>
+
+      <form id="newsletter-form" class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        <input
+          type="email"
+          id="newsletter-email"
+          required
+          placeholder="Enter your email address"
+          class="w-full sm:w-auto flex-1 px-4 py-3 bg-black/60 border border-white/15 rounded-lg text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#00e5ff] transition-all"
+        />
+        <button
+          type="submit"
+          class="w-full sm:w-auto px-6 py-3 bg-[#00e5ff] hover:bg-[#79ffe1] text-black font-bold uppercase text-xs tracking-wider rounded-lg transition-all cursor-pointer whitespace-nowrap"
+        >
+          Subscribe
+        </button>
+      </form>
+      <div id="newsletter-msg" class="hidden text-xs text-emerald-400 mt-3 font-medium"></div>
+    </div>
+
+    {/* Social Media Matrix & Links */}
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-16 border-b border-white/10">
+      {/* Brand Column */}
+      <div class="md:col-span-2 space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl font-black text-[#00e5ff] font-display">+ × +</span>
+          <span class="text-base font-display font-bold tracking-wider">
+            TOMORROW X TOGETHER
+          </span>
+        </div>
+        <p class="text-xs text-neutral-400 max-w-sm leading-relaxed">
+          Official showcase and interactive archive for Tomorrow X Together (SOOBIN, YEONJUN, BEOMGYU, TAEHYUN, HUENINGKAI).
+        </p>
+        <div class="text-[11px] text-neutral-500 space-y-1">
+          <p>© BIGHIT MUSIC / HYBE. All Rights Reserved.</p>
+          <p>Powered by Astro Hybrid Architecture & Deezer/iTunes Public Music Stream.</p>
+        </div>
+      </div>
+
+      {/* Social Media Matrix */}
+      <div>
+        <h4 class="text-xs font-mono font-bold tracking-widest uppercase text-neutral-300 mb-4">
+          Official Channels
+        </h4>
+        <ul class="space-y-2 text-xs text-neutral-400 font-medium">
+          <li>
+            <a href="https://weverse.io/txt" target="_blank" rel="noopener noreferrer" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2">
+              <span>Weverse Global MOA</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/TXT_bighit" target="_blank" rel="noopener noreferrer" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2">
+              <span>X (Twitter) @TXT_bighit</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/txt_bighit" target="_blank" rel="noopener noreferrer" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2">
+              <span>Instagram @txt_bighit</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@txt.bighitent" target="_blank" rel="noopener noreferrer" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2">
+              <span>TikTok @txt.bighitent</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@TXT_bighit" target="_blank" rel="noopener noreferrer" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2">
+              <span>YouTube Official Channel</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Quick Navigation */}
+      <div>
+        <h4 class="text-xs font-mono font-bold tracking-widest uppercase text-neutral-300 mb-4">
+          Explore
+        </h4>
+        <ul class="space-y-2 text-xs text-neutral-400 font-medium">
+          <li>
+            <a href="/#hero-section" class="hover:text-[#00e5ff] transition-colors">
+              Showcase Hero
+            </a>
+          </li>
+          <li>
+            <a href="/#members-pinned-section" class="hover:text-[#00e5ff] transition-colors">
+              Member Profiles
+            </a>
+          </li>
+          <li>
+            <a href="/#discography-section" class="hover:text-[#00e5ff] transition-colors">
+              Vinyl Turntable
+            </a>
+          </li>
+          <li>
+            <a href="/#schedule-section" class="hover:text-[#00e5ff] transition-colors">
+              World Tour Schedule
+            </a>
+          </li>
+          <li>
+            <a href="/store" class="hover:text-[#00e5ff] transition-colors">
+              Merchandise Store
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Bottom Legal bar */}
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
+      <p>BIGHIT MUSIC Co., Ltd. & HYBE Labels. Designed for fans worldwide.</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-neutral-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-neutral-300 transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-neutral-300 transition-colors">Legal Notices</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('newsletter-form');
+  const input = document.getElementById('newsletter-email') as HTMLInputElement;
+  const msg = document.getElementById('newsletter-msg');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (input && input.value && msg) {
+      msg.textContent = `Welcome to the TXT MOA Community! (${input.value})`;
+      msg.classList.remove('hidden');
+      input.value = '';
+    }
+  });
+</script>

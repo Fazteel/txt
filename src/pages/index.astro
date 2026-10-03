@@ -1,0 +1,48 @@
+---
+import RootLayout from '../layouts/RootLayout.astro';
+import Preloader from '../components/sections/Preloader.astro';
+import Hero from '../components/sections/Hero.astro';
+import ProfilePinned from '../components/sections/ProfilePinned.astro';
+import VinylPlayer from '../components/islands/VinylPlayer';
+import ScheduleTimeline from '../components/sections/ScheduleTimeline.astro';
+import ShopPreview from '../components/sections/ShopPreview.astro';
+import FooterCTA from '../components/sections/FooterCTA.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+---
+
+<RootLayout title="TOMORROW X TOGETHER | Official Showcase & Store">
+  {/* Preloader Animation */}
+  <Preloader />
+
+  {/* Hero Parallax Section */}
+  <Hero />
+
+  {/* Member Profiles Horizontal Pinning */}
+  <ProfilePinned />
+
+  {/* Discography & Vinyl Turntable Player Section */}
+  <section id="discography-section" class="relative bg-[#0c0c0f] py-24 px-6 sm:px-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading
+        subtitle="Interactive Archive"
+        title="DISCOGRAPHY & TURNTABLE"
+        align="center"
+      />
+      <p class="max-w-xl mx-auto text-center text-neutral-400 text-xs sm:text-sm -mt-6 mb-12">
+        Spin the vinyl records and experience 30-second legal audio previews streamed directly via Public Music APIs with client-side time-slicing.
+      </p>
+
+      {/* Interactive Turntable Vinyl Island */}
+      <VinylPlayer client:visible />
+    </div>
+  </section>
+
+  {/* Schedule & World Tour Timeline */}
+  <ScheduleTimeline />
+
+  {/* Official Merchandise Preview */}
+  <ShopPreview />
+
+  {/* Management & Social Footer */}
+  <FooterCTA />
+</RootLayout>

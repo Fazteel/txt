@@ -1,0 +1,167 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section id="hero-section" class="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#0a0a0a] pt-20">
+  {/* Ambient gradient lights */}
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-b from-[#00e5ff]/15 via-transparent to-transparent rounded-full blur-[140px] pointer-events-none z-0"></div>
+
+  {/* Layer 1: Background Kinetic Typography (yPercent: -15) */}
+  <div id="hero-layer-bg" class="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 opacity-15 overflow-hidden">
+    <div class="whitespace-nowrap font-display font-black text-[12vw] tracking-tighter text-white leading-none">
+      TOMORROW X TOGETHER
+    </div>
+    <div class="whitespace-nowrap font-display font-black text-[10vw] tracking-tight text-white/50 leading-none">
+      THE NAME CHAPTER • PROMISE
+    </div>
+  </div>
+
+  {/* Layer 2: Midground TXT 5-Member Visual (yPercent: -35) */}
+  <div id="hero-layer-mid" class="relative z-10 w-full max-w-6xl px-4 flex flex-col items-center justify-center">
+    <div class="relative w-full max-w-4xl flex items-center justify-center">
+      {/* Background radial glow frame */}
+      <div class="absolute inset-0 rounded-3xl bg-radial from-[#00e5ff]/10 to-transparent blur-2xl"></div>
+
+      <img
+        src="/images/group-photo.png"
+        alt="Tomorrow X Together group photo"
+        class="w-full max-h-[70vh] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.9)] filter brightness-95 contrast-105 z-10 transition-transform duration-500"
+      />
+
+      {/* Cyber/Stage Grid Floor reflection */}
+      <div class="absolute -bottom-10 inset-x-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-20 pointer-events-none"></div>
+    </div>
+  </div>
+
+  {/* Layer 3: Foreground Dynamic Headings & Floating Cross Accents (yPercent: -60) */}
+  <div id="hero-layer-fore" class="absolute inset-0 z-30 pointer-events-none flex flex-col justify-between p-6 sm:p-12">
+    {/* Floating Cross 3D Accents */}
+    <div class="cross-accent absolute top-28 left-[10%] text-[#00e5ff] text-2xl font-bold opacity-60">
+      +
+    </div>
+    <div class="cross-accent absolute top-40 right-[12%] text-white text-3xl font-bold opacity-40">
+      +
+    </div>
+    <div class="cross-accent absolute bottom-44 left-[15%] text-white text-4xl font-bold opacity-30">
+      ×
+    </div>
+    <div class="cross-accent absolute bottom-36 right-[18%] text-[#00e5ff] text-2xl font-bold opacity-50">
+      +
+    </div>
+
+    {/* Top Brand Subtitle */}
+    <div class="w-full flex justify-between items-center text-xs font-mono tracking-[0.3em] uppercase text-neutral-400">
+      <span class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#00e5ff] animate-ping"></span>
+        ACT : PROMISE ERA
+      </span>
+      <span>BIG HIT MUSIC • HYBE</span>
+    </div>
+
+    {/* Bottom Hero Callout & Interactive Navigation CTA */}
+    <div class="w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-6 pointer-events-auto pb-8">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[11px] font-mono tracking-widest text-[#00e5ff]">
+        <span>+ × +</span>
+        <span>OFFICIAL INTERACTIVE SHOWCASE</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold tracking-tight text-white uppercase drop-shadow-[0_5px_20px_rgba(0,0,0,0.8)]">
+        WE FIND <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00e5ff] to-[#79ffe1]">TOMORROW</span> TOGETHER
+      </h1>
+
+      <p class="max-w-xl text-neutral-300 text-sm sm:text-base font-light leading-relaxed">
+        Experience the cinematic universe of Tomorrow X Together. Immerse yourself in the interactive discography turntable and shop exclusive collector merchandise.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <Button href="#discography-section" variant="primary" size="lg">
+          Explore Discography
+        </Button>
+        <Button href="/store" variant="outline" size="lg">
+          Visit Store
+        </Button>
+      </div>
+    </div>
+  </div>
+
+  {/* Scroll Down Indicator */}
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[10px] font-mono tracking-widest text-neutral-500 uppercase pointer-events-none z-30">
+    <span>SCROLL</span>
+    <span class="w-0.5 h-6 bg-gradient-to-b from-[#00e5ff] to-transparent animate-pulse"></span>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initHeroParallax() {
+    const heroSection = document.getElementById('hero-section');
+    const layerBg = document.getElementById('hero-layer-bg');
+    const layerMid = document.getElementById('hero-layer-mid');
+    const layerFore = document.getElementById('hero-layer-fore');
+    const crossAccents = document.querySelectorAll('.cross-accent');
+
+    if (!heroSection || !layerBg || !layerMid) return;
+
+    // Layer Background: Tipografi kinetik raksasa yang bergeser perlahan (yPercent: -15)
+    gsap.to(layerBg, {
+      yPercent: -15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: heroSection,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+
+    // Layer Midground: Foto kelima member terpotong rapi dengan kedalaman bayangan dinamis (yPercent: -35)
+    gsap.to(layerMid, {
+      yPercent: -35,
+      scale: 1.05,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: heroSection,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+
+    // Layer Foreground: Floating cross accents + dan heading judul bergerak lebih cepat (yPercent: -60)
+    if (layerFore) {
+      gsap.to(layerFore, {
+        yPercent: -60,
+        opacity: 0.3,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    }
+
+    // Micro floating rotation on cross accents
+    crossAccents.forEach((cross, i) => {
+      gsap.to(cross, {
+        y: i % 2 === 0 ? -15 : 15,
+        rotation: i % 2 === 0 ? 30 : -30,
+        duration: 3 + i,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroParallax);
+  } else {
+    initHeroParallax();
+  }
+</script>

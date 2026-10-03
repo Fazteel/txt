@@ -1,0 +1,102 @@
+[
+  {
+    "id": "deja-vu",
+    "title": "minisode 3: TOMORROW",
+    "releaseDate": "2024-04-01",
+    "type": "Mini Album",
+    "coverImage": "/images/albums/minisode3-tomorrow.webp",
+    "themeColor": "#e5a93c",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Deja Vu",
+        "startAtSecond": 45,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/e5/01/f7e50193-e4c1-7a2f-735f-91706d1615ea/mzaf_190274425751903517.plus.aac.p.m4a",
+        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/e5/01/f7e50193-e4c1-7a2f-735f-91706d1615ea/mzaf_190274425751903517.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Deja%20Vu",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Deja+Vu+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "I'll See You There Tomorrow",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/72/4c/2c/724c2c9e-8cb1-f197-6e3a-df6921f7d59b/mzaf_18175605995528578921.plus.aac.p.m4a",
+        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/72/4c/2c/724c2c9e-8cb1-f197-6e3a-df6921f7d59b/mzaf_18175605995528578921.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Ill%20See%20You%20There%20Tomorrow",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Ill+See+You+There+Tomorrow",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "chasing-that-feeling",
+    "title": "The Name Chapter: FREEFALL",
+    "releaseDate": "2023-10-13",
+    "type": "Studio Album",
+    "coverImage": "/images/albums/freefall.webp",
+    "themeColor": "#3b82f6",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Chasing That Feeling",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/fb/02/66fb022c-d0fe-7a28-bbed-c8745787176c/mzaf_958011410830014452.plus.aac.p.m4a",
+        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/fb/02/66fb022c-d0fe-7a28-bbed-c8745787176c/mzaf_958011410830014452.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Chasing%20That%20Feeling",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Chasing+That+Feeling+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "sugar-rush-ride",
+    "title": "The Name Chapter: TEMPTATION",
+    "releaseDate": "2023-01-27",
+    "type": "Mini Album",
+    "coverImage": "/images/albums/temptation.webp",
+    "themeColor": "#10b981",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Sugar Rush Ride",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/5f/41/1b5f41a2-ca62-45f4-073a-f4159ca38998/mzaf_10714123989841007440.plus.aac.p.m4a",
+        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/5f/41/1b5f41a2-ca62-45f4-073a-f4159ca38998/mzaf_10714123989841007440.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Sugar%20Rush%20Ride",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Sugar+Rush+Ride+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "0x1-lovesong",
+    "title": "The Chaos Chapter: FREEZE",
+    "releaseDate": "2021-05-31",
+    "type": "Studio Album",
+    "coverImage": "/images/albums/freeze.webp",
+    "themeColor": "#06b6d4",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "0X1=LOVESONG (I Know I Love You) feat. Seori",
+        "startAtSecond": 40,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/47/29/62/47296220-5303-e482-7072-7be59f6fe949/mzaf_9276633097456402519.plus.aac.p.m4a",
+        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/47/29/62/47296220-5303-e482-7072-7be59f6fe949/mzaf_9276633097456402519.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%200X1%3DLOVESONG",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+0X1+LOVESONG+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  }
+]

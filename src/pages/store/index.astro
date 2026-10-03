@@ -1,0 +1,29 @@
+---
+import RootLayout from '../../layouts/RootLayout.astro';
+import StoreCatalog from '../../components/islands/StoreCatalog';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import FooterCTA from '../../components/sections/FooterCTA.astro';
+---
+
+<RootLayout
+  title="TOMORROW X TOGETHER | Official Merch Store"
+  description="Official Tomorrow X Together merchandise store. Exclusive limited vinyl pressings, official lightstick, tour apparel, and accessories."
+>
+  <div class="pt-32 pb-24 px-6 sm:px-12 max-w-7xl mx-auto">
+    <div class="mb-12">
+      <SectionHeading
+        subtitle="Exclusive Collection"
+        title="TXT OFFICIAL STORE"
+        align="left"
+      />
+      <p class="max-w-2xl text-neutral-400 text-sm leading-relaxed -mt-6">
+        Discover official albums, tour merchandise, and lifestyle apparel curated directly for MOA. Worldwide shipping available with tracked dispatch.
+      </p>
+    </div>
+
+    {/* Store Catalog Island (Category filter, search, quick view modal, cart actions) */}
+    <StoreCatalog client:load />
+  </div>
+
+  <FooterCTA />
+</RootLayout>
