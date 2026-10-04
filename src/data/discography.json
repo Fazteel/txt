@@ -1,84 +1,310 @@
 [
   {
-    "id": "deja-vu",
-    "title": "minisode 3: TOMORROW",
-    "releaseDate": "2024-04-01",
-    "type": "Mini Album",
-    "coverImage": "/images/albums/minisode3-tomorrow.webp",
-    "themeColor": "#e5a93c",
+    "id": "the-dream-chapter-star",
+    "title": "The Dream Chapter: STAR",
+    "releaseDate": "2019-03-04",
+    "type": "Debut Mini Album",
+    "coverImage": "/images/albums/star.webp",
+    "themeColor": "#00b2fe",
     "tracks": [
       {
         "trackNo": 1,
-        "title": "Deja Vu",
-        "startAtSecond": 45,
-        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/e5/01/f7e50193-e4c1-7a2f-735f-91706d1615ea/mzaf_190274425751903517.plus.aac.p.m4a",
-        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/e5/01/f7e50193-e4c1-7a2f-735f-91706d1615ea/mzaf_190274425751903517.plus.aac.p.m4a",
+        "title": "Blue Orangeade",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/6d/29/bf6d29df-51e0-6a97-9e48-936666ecde28/mzaf_782419515902030066.plus.aac.p.m4a",
         "externalLinks": {
-          "spotify": "https://open.spotify.com/search/TXT%20Deja%20Vu",
-          "youtube": "https://www.youtube.com/results?search_query=TXT+Deja+Vu+MV",
+          "spotify": "https://open.spotify.com/search/TXT%20Blue%20Orangeade",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Blue+Orangeade",
           "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
         }
       },
       {
         "trackNo": 2,
-        "title": "I'll See You There Tomorrow",
+        "title": "CROWN",
         "startAtSecond": 30,
-        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/72/4c/2c/724c2c9e-8cb1-f197-6e3a-df6921f7d59b/mzaf_18175605995528578921.plus.aac.p.m4a",
-        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/72/4c/2c/724c2c9e-8cb1-f197-6e3a-df6921f7d59b/mzaf_18175605995528578921.plus.aac.p.m4a",
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d1/2b/9b/d12b9be2-4467-5ea0-5d55-8d5918ca1ef1/mzaf_10091398501258667520.plus.aac.p.m4a",
         "externalLinks": {
-          "spotify": "https://open.spotify.com/search/TXT%20Ill%20See%20You%20There%20Tomorrow",
-          "youtube": "https://www.youtube.com/results?search_query=TXT+Ill+See+You+There+Tomorrow",
+          "spotify": "https://open.spotify.com/search/TXT%20CROWN",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+CROWN+MV",
           "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
         }
-      }
-    ]
-  },
-  {
-    "id": "chasing-that-feeling",
-    "title": "The Name Chapter: FREEFALL",
-    "releaseDate": "2023-10-13",
-    "type": "Studio Album",
-    "coverImage": "/images/albums/freefall.webp",
-    "themeColor": "#3b82f6",
-    "tracks": [
+      },
       {
-        "trackNo": 1,
-        "title": "Chasing That Feeling",
+        "trackNo": 3,
+        "title": "Our Summer",
         "startAtSecond": 20,
-        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/fb/02/66fb022c-d0fe-7a28-bbed-c8745787176c/mzaf_958011410830014452.plus.aac.p.m4a",
-        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/fb/02/66fb022c-d0fe-7a28-bbed-c8745787176c/mzaf_958011410830014452.plus.aac.p.m4a",
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/44/2c/83/442c83ff-a128-d8bb-e794-399b244d0337/mzaf_1041938555260580796.plus.aac.p.m4a",
         "externalLinks": {
-          "spotify": "https://open.spotify.com/search/TXT%20Chasing%20That%20Feeling",
-          "youtube": "https://www.youtube.com/results?search_query=TXT+Chasing+That+Feeling+MV",
+          "spotify": "https://open.spotify.com/search/TXT%20Our%20Summer",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Our+Summer",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Cat & Dog",
+        "startAtSecond": 15,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/85/6d/46/856d4605-e3b9-1834-a1a1-f3b3923bb2e8/mzaf_17208945209355787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Cat%20%26%20Dog",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Cat+%26+Dog+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Nap of a star",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a4/09/bd/a409bd16-3677-2fcf-eb4c-ecf7bf08e018/mzaf_13508492025732159828.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Nap%20of%20a%20star",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Nap+of+a+star+MV",
           "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
         }
       }
     ]
   },
   {
-    "id": "sugar-rush-ride",
-    "title": "The Name Chapter: TEMPTATION",
-    "releaseDate": "2023-01-27",
-    "type": "Mini Album",
-    "coverImage": "/images/albums/temptation.webp",
-    "themeColor": "#10b981",
+    "id": "the-dream-chapter-magic",
+    "title": "The Dream Chapter: MAGIC",
+    "releaseDate": "2019-10-21",
+    "type": "Studio Album",
+    "coverImage": "/images/albums/magic.webp",
+    "themeColor": "#22c55e",
     "tracks": [
       {
         "trackNo": 1,
-        "title": "Sugar Rush Ride",
-        "startAtSecond": 35,
-        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/5f/41/1b5f41a2-ca62-45f4-073a-f4159ca38998/mzaf_10714123989841007440.plus.aac.p.m4a",
-        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/5f/41/1b5f41a2-ca62-45f4-073a-f4159ca38998/mzaf_10714123989841007440.plus.aac.p.m4a",
+        "title": "New Rules",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/c7/24/cfc72477-8025-a1c2-c511-2fa84ec452aa/mzaf_17724116231920743209.plus.aac.p.m4a",
         "externalLinks": {
-          "spotify": "https://open.spotify.com/search/TXT%20Sugar%20Rush%20Ride",
-          "youtube": "https://www.youtube.com/results?search_query=TXT+Sugar+Rush+Ride+MV",
+          "spotify": "https://open.spotify.com/search/TXT%20New%20Rules",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+New+Rules",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "9 and Three Quarters (Run Away)",
+        "startAtSecond": 40,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/07/04/b5/0704b506-696c-b9b2-3be9-ce3615eef150/mzaf_16480749005910606995.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Run%20Away",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Run+Away+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Roller Coaster",
+        "startAtSecond": 15,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/53/43/3153434d-e9ef-16df-be29-d59ad0749a60/mzaf_17290941324838685121.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Roller%20Coaster",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Roller+Coaster",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Poppin' Star",
+        "startAtSecond": 15,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6c/fb/8d/6cfb8d00-47b2-84da-aa17-a0e28e67a0e7/mzaf_15088232924151772655.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Poppin%20Star",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Poppin+Star",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Can't We Just Leave the Monster Alive?",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/cf/d6/05cfd6eb-950c-04c2-9014-a95781a8b948/mzaf_17443194593457997931.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Cant%20We%20Just%20Leave%20the%20Monster%20Alive",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Cant+We+Just+Leave+the+Monster+Alive",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "Magic Island",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e5/22/8b/e5228b3b-821b-db2a-89ee-fa58ce88e89e/mzaf_1020721245942460670.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Magic%20Island",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Magic+Island+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 7,
+        "title": "20cm",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e8/3b/b7/e83bb72f-410a-3131-0ea9-ea8d0b2841cf/mzaf_11306352988187834789.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%2020cm",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+20cm",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 8,
+        "title": "Angel Or Devil",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/71/34/ec/7134ec48-bb4e-7b78-ba96-2be538ea4947/mzaf_12708307613524675510.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Angel%20Or%20Devil",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Angel+Or+Devil+MV",
           "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
         }
       }
     ]
   },
   {
-    "id": "0x1-lovesong",
+    "id": "the-dream-chapter-eternity",
+    "title": "The Dream Chapter: ETERNITY",
+    "releaseDate": "2020-05-18",
+    "type": "Mini Album",
+    "coverImage": "/images/albums/eternity.webp",
+    "themeColor": "#9333ea",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Drama",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/27/12/05271295-8164-96fe-a28a-77e8a9386d4e/mzaf_17208945209355787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Drama",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Drama",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Can't You See Me?",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4e/d8/d5/4ed8d56b-4ca0-9886-c309-84724497e682/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Cant%20You%20See%20Me",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Cant+You+See+Me+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Fairy of Shampoo",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f4/09/bd/f409bd16-3677-2fcf-eb4c-ecf7bf08e018/mzaf_13508492025732159828.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Fairy%20of%20Shampoo",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Fairy+of+Shampoo",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Maze in the Mirror",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/6d/29/bf6d29df-51e0-6a97-9e48-936666ecde28/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Maze%20in%20the%20Mirror",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Maze+in+the+Mirror",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "PUMA",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/85/6d/46/856d4605-e3b9-1834-a1a1-f3b3923bb2e8/mzaf_17208945209355787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20PUMA",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+PUMA+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "Eternally",
+        "startAtSecond": 45,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d1/2b/9b/d12b9be2-4467-5ea0-5d55-8d5918ca1ef1/mzaf_10091398501258667520.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Eternally",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Eternally+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "minisode1-blue-hour",
+    "title": "minisode1 : Blue Hour",
+    "releaseDate": "2020-10-26",
+    "type": "Mini Album",
+    "coverImage": "/images/albums/blue-hour.webp",
+    "themeColor": "#38bdf8",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Ghosting",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/33/84/0d/33840dd6-b9ba-7f8e-d98c-87d9036987f6/mzaf_12408920409855787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Ghosting",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Ghosting",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Blue Hour",
+        "startAtSecond": 40,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4e/d8/d5/4ed8d56b-4ca0-9886-c309-84724497e682/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Blue%20Hour",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Blue+Hour+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "We Lost The Summer",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/85/6d/46/856d4605-e3b9-1834-a1a1-f3b3923bb2e8/mzaf_17208945209355787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20We%20Lost%20The%20Summer",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+We+Lost+The+Summer+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Wishlist",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/6d/29/bf6d29df-51e0-6a97-9e48-936666ecde28/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Wishlist",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Wishlist",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Way Home",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d1/2b/9b/d12b9be2-4467-5ea0-5d55-8d5918ca1ef1/mzaf_10091398501258667520.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Way%20Home",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Way+Home+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "the-chaos-chapter-freeze",
     "title": "The Chaos Chapter: FREEZE",
     "releaseDate": "2021-05-31",
     "type": "Studio Album",
@@ -87,13 +313,785 @@
     "tracks": [
       {
         "trackNo": 1,
+        "title": "Anti-Romantic",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/71/34/ec/7134ec48-bb4e-7b78-ba96-2be538ea4947/mzaf_12708307613524675510.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Anti%20Romantic",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Anti+Romantic",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
         "title": "0X1=LOVESONG (I Know I Love You) feat. Seori",
         "startAtSecond": 40,
         "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/47/29/62/47296220-5303-e482-7072-7be59f6fe949/mzaf_9276633097456402519.plus.aac.p.m4a",
-        "fallbackItunesUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/47/29/62/47296220-5303-e482-7072-7be59f6fe949/mzaf_9276633097456402519.plus.aac.p.m4a",
         "externalLinks": {
           "spotify": "https://open.spotify.com/search/TXT%200X1%3DLOVESONG",
           "youtube": "https://www.youtube.com/results?search_query=TXT+0X1+LOVESONG+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Magic",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/c7/24/cfc72477-8025-a1c2-c511-2fa84ec452aa/mzaf_17724116231920743209.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Magic",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Magic+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Ice Cream",
+        "startAtSecond": 15,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/53/43/3153434d-e9ef-16df-be29-d59ad0749a60/mzaf_17290941324838685121.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Ice%20Cream",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Ice+Cream",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "What if I had been that PUMA",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/cf/d6/05cfd6eb-950c-04c2-9014-a95781a8b948/mzaf_17443194593457997931.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20What%20if%20I%20had%20been%20that%20PUMA",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+What+if+I+had+been+that+PUMA",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "No Rules",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6c/fb/8d/6cfb8d00-47b2-84da-aa17-a0e28e67a0e7/mzaf_15088232924151772655.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20No%20Rules",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+No+Rules",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 7,
+        "title": "Dear Sputnik",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e5/22/8b/e5228b3b-821b-db2a-89ee-fa58ce88e89e/mzaf_1020721245942460670.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Dear%20Sputnik",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Dear+Sputnik",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 8,
+        "title": "Frost",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e8/3b/b7/e83bb72f-410a-3131-0ea9-ea8d0b2841cf/mzaf_11306352988187834789.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Frost",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Frost+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "the-chaos-chapter-fight-or-escape",
+    "title": "The Chaos Chapter: FIGHT OR ESCAPE",
+    "releaseDate": "2021-08-17",
+    "type": "Repackage Album",
+    "coverImage": "/images/albums/fight-or-escape.webp",
+    "themeColor": "#ec4899",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "LO$ER=LO♡ER",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/44/2c/83/442c83ff-a128-d8bb-e794-399b244d0337/mzaf_1041938555260580796.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20LOSER%20LOVER",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+LOSER+LOVER+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Anti-Romantic",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/71/34/ec/7134ec48-bb4e-7b78-ba96-2be538ea4947/mzaf_12708307613524675510.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Anti%20Romantic",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Anti+Romantic",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "0X1=LOVESONG (I Know I Love You) feat. Seori",
+        "startAtSecond": 40,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/47/29/62/47296220-5303-e482-7072-7be59f6fe949/mzaf_9276633097456402519.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%200X1%3DLOVESONG",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+0X1+LOVESONG+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Magic",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/c7/24/cfc72477-8025-a1c2-c511-2fa84ec452aa/mzaf_17724116231920743209.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Magic",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Magic+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Ice Cream",
+        "startAtSecond": 15,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/53/43/3153434d-e9ef-16df-be29-d59ad0749a60/mzaf_17290941324838685121.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Ice%20Cream",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Ice+Cream",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "What if I had been that PUMA",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/cf/d6/05cfd6eb-950c-04c2-9014-a95781a8b948/mzaf_17443194593457997931.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20What%20if%20I%20had%20been%20that%20PUMA",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+What+if+I+had+been+that+PUMA",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 7,
+        "title": "No Rules",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6c/fb/8d/6cfb8d00-47b2-84da-aa17-a0e28e67a0e7/mzaf_15088232924151772655.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20No%20Rules",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+No+Rules",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 8,
+        "title": "MOA Diary (Dubaddu Wari Wari)",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/6d/29/bf6d29df-51e0-6a97-9e48-936666ecde28/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20MOA%20Diary",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+MOA+Diary",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 9,
+        "title": "Dear Sputnik",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e5/22/8b/e5228b3b-821b-db2a-89ee-fa58ce88e89e/mzaf_1020721245942460670.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Dear%20Sputnik",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Dear+Sputnik",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 10,
+        "title": "Frost",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e8/3b/b7/e83bb72f-410a-3131-0ea9-ea8d0b2841cf/mzaf_11306352988187834789.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Frost",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Frost+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 11,
+        "title": "0X1=LOVESONG (feat. Seori) (Emocore Mix)",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/47/29/62/47296220-5303-e482-7072-7be59f6fe949/mzaf_9276633097456402519.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%200X1%3DLOVESONG%20Emocore%20Mix",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+0X1+LOVESONG+Emocore+Mix",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "minisode2-thursdays-child",
+    "title": "minisode 2: Thursday's Child",
+    "releaseDate": "2022-05-09",
+    "type": "Mini Album",
+    "coverImage": "/images/albums/thursdays-child.webp",
+    "themeColor": "#ef4444",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Opening Sequence",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/6d/29/bf6d29df-51e0-6a97-9e48-936666ecde28/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Opening%20Sequence",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Opening+Sequence",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Good Boy Gone Bad",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/44/2c/83/442c83ff-a128-d8bb-e794-399b244d0337/mzaf_1041938555260580796.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Good%20Boy%20Gone%20Bad",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Good+Boy+Gone+Bad+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Trust Fund Baby",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/85/6d/46/856d4605-e3b9-1834-a1a1-f3b3923bb2e8/mzaf_17208945209355787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Trust%20Fund%20Baby",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Trust+Fund+Baby",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Lonely Boy (The tattoo on my neck)",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d1/2b/9b/d12b9be2-4467-5ea0-5d55-8d5918ca1ef1/mzaf_10091398501258667520.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Lonely%20Boy",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Lonely+Boy",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Thursday's Child Has Far To Go",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a4/09/bd/a409bd16-3677-2fcf-eb4c-ecf7bf08e018/mzaf_13508492025732159828.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Thursdays%20Child%20Has%20Far%20To%20Go",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Thursdays+Child+Has+Far+To+Go",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "the-name-chapter-temptation",
+    "title": "The Name Chapter: TEMPTATION",
+    "releaseDate": "2023-01-27",
+    "type": "Mini Album",
+    "coverImage": "/images/albums/temptation.webp",
+    "themeColor": "#10b981",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Devil by the Window",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/c7/24/cfc72477-8025-a1c2-c511-2fa84ec452aa/mzaf_17724116231920743209.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Devil%20by%20the%20Window",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Devil+by+the+Window",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Sugar Rush Ride",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/5f/41/1b5f41a2-ca62-45f4-073a-f4159ca38998/mzaf_10714123989841007440.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Sugar%20Rush%20Ride",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Sugar+Rush+Ride+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Happy Fools (feat. Coi Leray)",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/53/43/3153434d-e9ef-16df-be29-d59ad0749a60/mzaf_17290941324838685121.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Happy%20Fools",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Happy+Fools",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Tinnitus (Wanna be a rock)",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/cf/d6/05cfd6eb-950c-04c2-9014-a95781a8b948/mzaf_17443194593457997931.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Tinnitus",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Tinnitus",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Farewell, Neverland",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6c/fb/8d/6cfb8d00-47b2-84da-aa17-a0e28e67a0e7/mzaf_15088232924151772655.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Farewell%20Neverland",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Farewell+Neverland",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "the-name-chapter-freefall",
+    "title": "The Name Chapter: FREEFALL",
+    "releaseDate": "2023-10-13",
+    "type": "Studio Album",
+    "coverImage": "/images/albums/freefall.webp",
+    "themeColor": "#3b82f6",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Growing Pain",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e8/3b/b7/e83bb72f-410a-3131-0ea9-ea8d0b2841cf/mzaf_11306352988187834789.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Growing%20Pain",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Growing+Pain",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Chasing That Feeling",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/fb/02/66fb022c-d0fe-7a28-bbed-c8745787176c/mzaf_958011410830014452.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Chasing%20That%20Feeling",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Chasing+That+Feeling+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Back for More (TXT Ver.)",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e5/22/8b/e5228b3b-821b-db2a-89ee-fa58ce88e89e/mzaf_1020721245942460670.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Back%20for%20More",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Back+for+More+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Dreamer",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/71/34/ec/7134ec48-bb4e-7b78-ba96-2be538ea4947/mzaf_12708307613524675510.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Dreamer",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Dreamer",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Deep Down",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/6d/29/bf6d29df-51e0-6a97-9e48-936666ecde28/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Deep%20Down",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Deep+Down",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "Happily Ever After",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/44/2c/83/442c83ff-a128-d8bb-e794-399b244d0337/mzaf_1041938555260580796.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Happily%20Ever%20After",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Happily+Ever+After",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 7,
+        "title": "Skipping Stones",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/85/6d/46/856d4605-e3b9-1834-a1a1-f3b3923bb2e8/mzaf_17208945209355787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Skipping%20Stones",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Skipping+Stones",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 8,
+        "title": "Blue Spring",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d1/2b/9b/d12b9be2-4467-5ea0-5d55-8d5918ca1ef1/mzaf_10091398501258667520.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Blue%20Spring",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Blue+Spring",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 9,
+        "title": "Do It Like That (feat. Jonas Brothers)",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a4/09/bd/a409bd16-3677-2fcf-eb4c-ecf7bf08e018/mzaf_13508492025732159828.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Do%20It%20Like%20That",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Do+It+Like+That+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "minisode3-tomorrow",
+    "title": "minisode 3: TOMORROW",
+    "releaseDate": "2024-04-01",
+    "type": "Mini Album",
+    "coverImage": "/images/albums/minisode3-tomorrow.webp",
+    "themeColor": "#e5a93c",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "I'll See You There Tomorrow",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/72/4c/2c/724c2c9e-8cb1-f197-6e3a-df6921f7d59b/mzaf_18175605995528578921.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Ill%20See%20You%20There%20Tomorrow",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Ill+See+You+There+Tomorrow",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "- --- -- --- .-. .-. --- .--",
+        "startAtSecond": 5,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/c7/24/cfc72477-8025-a1c2-c511-2fa84ec452aa/mzaf_17724116231920743209.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20TOMORROW",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Morse+Code+Tomorrow",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Deja Vu",
+        "startAtSecond": 45,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/e5/01/f7e50193-e4c1-7a2f-735f-91706d1615ea/mzaf_190274425751903517.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Deja%20Vu",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Deja+Vu+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Miracle",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/53/43/3153434d-e9ef-16df-be29-d59ad0749a60/mzaf_17290941324838685121.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Miracle",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Miracle",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "The Killa (I Belong to You)",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/cf/d6/05cfd6eb-950c-04c2-9014-a95781a8b948/mzaf_17443194593457997931.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20The%20Killa",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+The+Killa",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "Quarter Life",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6c/fb/8d/6cfb8d00-47b2-84da-aa17-a0e28e67a0e7/mzaf_15088232924151772655.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Quarter%20Life",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Quarter+Life",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 7,
+        "title": "Deja Vu (Anemoia Remix)",
+        "startAtSecond": 40,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/e5/01/f7e50193-e4c1-7a2f-735f-91706d1615ea/mzaf_190274425751903517.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Deja%20Vu%20Anemoia%20Remix",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Deja+Vu+Anemoia+Remix",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "the-star-chapter-sanctuary",
+    "title": "The Star Chapter: SANCTUARY",
+    "releaseDate": "2024-11-04",
+    "type": "Mini Album",
+    "coverImage": "/images/albums/sanctuary.webp",
+    "themeColor": "#0ea5e9",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Heaven",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/6d/29/bf6d29df-51e0-6a97-9e48-936666ecde28/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Heaven",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Heaven",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Over The Moon",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/44/2c/83/442c83ff-a128-d8bb-e794-399b244d0337/mzaf_1041938555260580796.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Over%20The%20Moon",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Over+The+Moon+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Danger",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/85/6d/46/856d4605-e3b9-1834-a1a1-f3b3923bb2e8/mzaf_17208945209355787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Danger",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Danger",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Resist (Not Gonna Run Away)",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d1/2b/9b/d12b9be2-4467-5ea0-5d55-8d5918ca1ef1/mzaf_10091398501258667520.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Resist%20Not%20Gonna%20Run%20Away",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Resist+Not+Gonna+Run+Away",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Forty One Winks",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a4/09/bd/a409bd16-3677-2fcf-eb4c-ecf7bf08e018/mzaf_13508492025732159828.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Forty%20One%20Winks",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Forty+One+Winks",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "Higher Than Heaven",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/c7/24/cfc72477-8025-a1c2-c511-2fa84ec452aa/mzaf_17724116231920743209.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Higher%20Than%20Heaven",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Higher+Than+Heaven",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "the-star-chapter-together",
+    "title": "The Star Chapter: TOGETHER",
+    "releaseDate": "2025-07-21",
+    "type": "Studio Album",
+    "coverImage": "/images/albums/together.webp",
+    "themeColor": "#6366f1",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Upside Down Kiss",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/53/43/3153434d-e9ef-16df-be29-d59ad0749a60/mzaf_17290941324838685121.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Upside%20Down%20Kiss",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Upside+Down+Kiss",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Beautiful Strangers",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/cf/d6/05cfd6eb-950c-04c2-9014-a95781a8b948/mzaf_17443194593457997931.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Beautiful%20Strangers",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Beautiful+Strangers+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Ghost Girl",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6c/fb/8d/6cfb8d00-47b2-84da-aa17-a0e28e67a0e7/mzaf_15088232924151772655.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Ghost%20Girl",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Ghost+Girl",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "Sunday Driver",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e8/3b/b7/e83bb72f-410a-3131-0ea9-ea8d0b2841cf/mzaf_11306352988187834789.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Sunday%20Driver",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Sunday+Driver",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "Dance with You",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e5/22/8b/e5228b3b-821b-db2a-89ee-fa58ce88e89e/mzaf_1020721245942460670.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Dance%20with%20You",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Dance+with+You",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "Take My Half",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/71/34/ec/7134ec48-bb4e-7b78-ba96-2be538ea4947/mzaf_12708307613524675510.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Take%20My%20Half",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Take+My+Half",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 7,
+        "title": "Bird of Night",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/6d/29/bf6d29df-51e0-6a97-9e48-936666ecde28/mzaf_782419515902030066.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Bird%20of%20Night",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Bird+of+Night",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      }
+    ]
+  },
+  {
+    "id": "7th-year-a-moment-of-stillness-in-the-thorns",
+    "title": "7TH YEAR: A Moment of Stillness in the Thorns",
+    "releaseDate": "2026-04-13",
+    "type": "Special Mini Album",
+    "coverImage": "/images/albums/stillness-in-the-thorns.webp",
+    "themeColor": "#a855f7",
+    "tracks": [
+      {
+        "trackNo": 1,
+        "title": "Bed of Thorns",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/44/2c/83/442c83ff-a128-d8bb-e794-399b244d0337/mzaf_1041938555260580796.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Bed%20of%20Thorns",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Bed+of+Thorns",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 2,
+        "title": "Stick With You",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/85/6d/46/856d4605-e3b9-1834-a1a1-f3b3923bb2e8/mzaf_17208945209355787680.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Stick%20With%20You",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Stick+With+You+MV",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 3,
+        "title": "Take Me to Nirvana (feat. Vinida Weng)",
+        "startAtSecond": 25,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d1/2b/9b/d12b9be2-4467-5ea0-5d55-8d5918ca1ef1/mzaf_10091398501258667520.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Take%20Me%20to%20Nirvana",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Take+Me+to+Nirvana",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 4,
+        "title": "So What",
+        "startAtSecond": 35,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a4/09/bd/a409bd16-3677-2fcf-eb4c-ecf7bf08e018/mzaf_13508492025732159828.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20So%20What",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+So+What",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 5,
+        "title": "21st Century Romance",
+        "startAtSecond": 20,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/c7/24/cfc72477-8025-a1c2-c511-2fa84ec452aa/mzaf_17724116231920743209.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%2021st%20Century%20Romance",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+21st+Century+Romance",
+          "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
+        }
+      },
+      {
+        "trackNo": 6,
+        "title": "Dream of Mine",
+        "startAtSecond": 30,
+        "previewAudioUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/53/43/3153434d-e9ef-16df-be29-d59ad0749a60/mzaf_17290941324838685121.plus.aac.p.m4a",
+        "externalLinks": {
+          "spotify": "https://open.spotify.com/search/TXT%20Dream%20of%20Mine",
+          "youtube": "https://www.youtube.com/results?search_query=TXT+Dream+of+Mine",
           "appleMusic": "https://music.apple.com/artist/tomorrow-x-together/1454642552"
         }
       }

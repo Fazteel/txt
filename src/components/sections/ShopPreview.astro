@@ -26,7 +26,7 @@ import productsData from '../../data/products.json';
         productsData.slice(0, 3).map((product) => (
           <a
             href="/store"
-            class="group relative bg-[#131317] border border-white/10 rounded-2xl overflow-hidden hover:border-[#00e5ff]/50 transition-all duration-300 hover:shadow-[0_15px_35px_rgba(0,0,0,0.8)] flex flex-col"
+            class="group relative bg-[#131317] border border-white/10 rounded-2xl overflow-hidden hover:border-[#F8138D]/50 transition-all duration-300 hover:shadow-[0_15px_35px_rgba(0,0,0,0.8)] flex flex-col"
           >
             {/* Image */}
             <div class="relative aspect-square w-full bg-black/50 overflow-hidden">
@@ -38,7 +38,7 @@ import productsData from '../../data/products.json';
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity" />
 
               <div class="absolute top-4 left-4">
-                <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-black/70 backdrop-blur-md text-[#00e5ff] border border-white/10">
+                <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-black/70 backdrop-blur-md text-[#F8138D] border border-white/10">
                   {product.category}
                 </span>
               </div>
@@ -47,7 +47,7 @@ import productsData from '../../data/products.json';
             {/* Info */}
             <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
               <div>
-                <h3 class="text-base font-semibold text-white group-hover:text-[#00e5ff] transition-colors">
+                <h3 class="text-base font-semibold text-white group-hover:text-[#F8138D] transition-colors">
                   {product.name}
                 </h3>
                 <p class="text-xs text-neutral-400 mt-1 line-clamp-2 leading-relaxed">
@@ -62,7 +62,7 @@ import productsData from '../../data/products.json';
                     ${product.price.toFixed(2)} USD
                   </span>
                 </div>
-                <span class="text-xs font-semibold text-[#00e5ff] group-hover:translate-x-1 transition-transform">
+                <span class="text-xs font-semibold text-[#F8138D] group-hover:translate-x-1 transition-transform">
                   View in Store →
                 </span>
               </div>

@@ -80,7 +80,7 @@ export default function ProductDetailModal({ product, onClose }: Props) {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute top-3 left-3">
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-[#00e5ff]/20 text-[#00e5ff] border border-[#00e5ff]/40">
+                <span className="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-[#F8138D]/20 text-[#F8138D] border border-[#F8138D]/40">
                   {product.category}
                 </span>
               </div>
@@ -94,13 +94,13 @@ export default function ProductDetailModal({ product, onClose }: Props) {
           {/* Product Specs & Purchasing */}
           <div className="p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div>
-              <span className="text-xs uppercase font-mono tracking-widest text-[#00e5ff]">
+              <span className="text-xs uppercase font-mono tracking-widest text-[#F8138D]">
                 Official Tomorrow X Together
               </span>
               <h2 className="text-xl sm:text-2xl font-display font-bold mt-1 text-white">
                 {product.name}
               </h2>
-              <div className="text-2xl font-bold font-mono text-[#00e5ff] mt-2">
+              <div className="text-2xl font-bold font-mono text-[#F8138D] mt-2">
                 ${product.price.toFixed(2)} {product.currency}
               </div>
 
@@ -121,7 +121,7 @@ export default function ProductDetailModal({ product, onClose }: Props) {
                         onClick={() => setSelectedColor(c)}
                         className={`px-3 py-1.5 rounded-md text-xs font-medium border transition-all cursor-pointer ${
                           selectedColor === c
-                            ? 'border-[#00e5ff] bg-[#00e5ff]/15 text-white'
+                            ? 'border-[#F8138D] bg-[#F8138D]/15 text-white'
                             : 'border-white/10 text-neutral-400 hover:border-white/30'
                         }`}
                       >
@@ -145,7 +145,7 @@ export default function ProductDetailModal({ product, onClose }: Props) {
                         onClick={() => setSelectedSize(s)}
                         className={`px-3.5 py-1.5 rounded-md text-xs font-medium border transition-all cursor-pointer ${
                           selectedSize === s
-                            ? 'border-[#00e5ff] bg-[#00e5ff]/15 text-white'
+                            ? 'border-[#F8138D] bg-[#F8138D]/15 text-white'
                             : 'border-white/10 text-neutral-400 hover:border-white/30'
                         }`}
                       >
@@ -161,7 +161,7 @@ export default function ProductDetailModal({ product, onClose }: Props) {
                 <div className="mt-5 pt-4 border-t border-white/10 space-y-1.5 text-xs text-neutral-400">
                   {product.details.map((d, i) => (
                     <div key={i} className="flex items-start gap-2">
-                      <span className="text-[#00e5ff] mt-0.5">•</span>
+                      <span className="text-[#F8138D] mt-0.5">•</span>
                       <span>{d}</span>
                     </div>
                   ))}
@@ -191,7 +191,7 @@ export default function ProductDetailModal({ product, onClose }: Props) {
                 <button
                   onClick={handleAdd}
                   disabled={addedNotice}
-                  className="flex-1 py-3 bg-[#00e5ff] hover:bg-[#79ffe1] text-black font-bold uppercase tracking-wider text-xs rounded-md shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
+                  className="flex-1 py-3 bg-[#F8138D] hover:bg-[#f570b7] text-white font-bold uppercase tracking-wider text-xs rounded-md shadow-[0_0_20px_rgba(248,19,141,0.4)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
                 >
                   {addedNotice ? (
                     <>
@@ -207,15 +207,15 @@ export default function ProductDetailModal({ product, onClose }: Props) {
 
               <div className="grid grid-cols-3 gap-2 pt-2 text-[10px] text-neutral-400 text-center">
                 <div className="flex flex-col items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#00e5ff]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#F8138D]" />
                   <span>100% Authentic</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <Truck className="w-3.5 h-3.5 text-[#00e5ff]" />
+                  <Truck className="w-3.5 h-3.5 text-[#F8138D]" />
                   <span>Global Dispatch</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <RefreshCw className="w-3.5 h-3.5 text-[#00e5ff]" />
+                  <RefreshCw className="w-3.5 h-3.5 text-[#F8138D]" />
                   <span>Official Weverse</span>
                 </div>
               </div>

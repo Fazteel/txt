@@ -3,68 +3,105 @@ import SectionHeading from '../ui/SectionHeading.astro';
 import membersData from '../../data/members.json';
 ---
 
-<section id="members-pinned-section" class="relative bg-[#0d0d10] py-24 overflow-hidden border-t border-white/5">
+<section id="members-pinned-section" class="relative bg-[#0d0d10] pt-8 pb-10 sm:pt-10 sm:pb-12 overflow-hidden border-t border-white/5">
   {/* Header & Lore container */}
-  <div class="max-w-7xl mx-auto px-6 mb-12">
-    <SectionHeading
-      subtitle="We are"
-      title="TOMORROW X TOGETHER"
-      align="left"
-    />
-    <p class="max-w-2xl text-neutral-400 text-sm sm:text-base leading-relaxed">
-      TOMORROW X TOGETHER, read as ‘tomorrow by together’, is a bright and youthful boyband aiming to become the next global breakthrough artist. The band is composed of five members, SOOBIN, YEONJUN, BEOMGYU, TAEHYUN, HUENINGKAI, where each member is different from one another, shining in their own way to create synergy.
-    </p>
+  <div class="max-w-7xl mx-auto px-6 mb-4 sm:mb-6 flex flex-col md:flex-row md:items-end justify-between gap-3">
+    <div>
+      <div class="flex items-center gap-2 text-xs font-mono font-semibold tracking-[0.25em] uppercase text-[#F8138D] mb-1">
+        <span class="w-2 h-0.5 bg-[#F8138D]"></span>
+        <span>We are</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-black tracking-tight text-white uppercase">
+        TOMORROW X TOGETHER
+      </h2>
+      <p class="max-w-xl text-neutral-400 text-xs sm:text-sm leading-relaxed mt-1 line-clamp-2">
+        TOMORROW X TOGETHER is a bright and youthful boyband composed of five members: SOOBIN, YEONJUN, BEOMGYU, TAEHYUN, and HUENINGKAI.
+      </p>
+    </div>
+
+    {/* Dynamic Member Indicator & Navigation Controls */}
+    <div class="hidden md:flex items-center gap-3 shrink-0 pb-1">
+      <span id="member-active-indicator" class="text-xs font-mono font-bold tracking-widest text-[#F8138D] bg-black/60 px-3.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-sm">
+        01 / 05 • SOOBIN
+      </span>
+      <div class="flex items-center gap-1.5">
+        <button
+          id="btn-prev-member"
+          class="p-2.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-white transition-all hover:border-[#F8138D]/50 hover:text-[#F8138D] cursor-pointer"
+          aria-label="Previous Member"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          id="btn-next-member"
+          class="p-2.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-white transition-all hover:border-[#F8138D]/50 hover:text-[#F8138D] cursor-pointer"
+          aria-label="Next Member"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 
   {/* Horizontal Scroll Track Wrapper */}
-  <div id="members-pin-container" class="relative w-full overflow-hidden">
+  <div id="members-pin-container" class="relative w-full overflow-x-auto md:overflow-hidden scrollbar-none">
     <div
       id="members-track"
-      class="flex gap-6 sm:gap-8 px-6 sm:px-12 w-max items-center py-6 select-none"
+      class="flex gap-5 sm:gap-6 px-6 sm:px-12 w-max items-center py-2 select-none"
     >
       {
         membersData.map((member, index) => (
           <div
-            class="member-card relative w-[300px] sm:w-[360px] h-[520px] sm:h-[580px] rounded-2xl bg-[#141418] border border-white/10 overflow-hidden flex flex-col justify-end p-6 sm:p-8 transition-all duration-500 hover:border-[#00e5ff]/50 hover:shadow-[0_15px_40px_rgba(0,229,255,0.15)] group cursor-pointer"
+            class="member-card relative w-[270px] sm:w-[300px] rounded-2xl bg-[#141418] border border-white/10 overflow-hidden flex flex-col transition-all duration-500 hover:border-[#F8138D]/60 hover:shadow-[0_20px_45px_rgba(248,19,141,0.25)] hover:-translate-y-1 group cursor-pointer"
             data-member-id={member.id}
+            data-member-name={member.stageName}
+            data-member-index={index}
           >
-            {/* Background Member Portrait with Zoom effect */}
-            <div class="absolute inset-0 z-0 overflow-hidden">
+            {/* 1:1 Aspect Ratio Member Photo Container */}
+            <div class="relative w-full aspect-square overflow-hidden bg-neutral-900">
               <img
                 src={member.image}
                 alt={member.stageName}
-                class="w-full h-full object-cover object-top filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                width="1000"
+                height="1000"
+                loading="lazy"
+                class="w-full h-full object-cover object-center filter grayscale-[0.2] contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#0e0e12] via-[#0e0e12]/60 to-transparent z-10" />
+              {/* Subtle bottom vignette to blend with card body */}
+              <div class="absolute inset-0 bg-gradient-to-t from-[#141418] via-transparent to-black/30 pointer-events-none" />
+
+              {/* Floating Badges */}
+              <div class="absolute top-3 inset-x-3 flex justify-between items-center z-10">
+                <span class="text-[10px] font-mono font-bold tracking-widest text-[#F8138D] uppercase px-2.5 py-1 bg-black/75 rounded-full border border-white/15 backdrop-blur-md shadow-sm">
+                  0{index + 1} // 05
+                </span>
+                <span class="w-7 h-7 rounded-full bg-black/75 border border-white/15 backdrop-blur-md flex items-center justify-center text-xs font-light text-white/50 group-hover:text-white group-hover:bg-[#F8138D] group-hover:border-[#F8138D] transition-all shadow-sm">
+                  +
+                </span>
+              </div>
             </div>
 
-            {/* Top Index & Accent */}
-            <div class="relative z-20 flex justify-between items-start mb-auto">
-              <span class="text-xs font-mono font-bold tracking-widest text-[#00e5ff] uppercase px-2.5 py-1 bg-black/60 rounded-full border border-white/10 backdrop-blur-md">
-                0{index + 1} // 05
-              </span>
-              <span class="text-2xl font-light text-white/30 group-hover:text-[#00e5ff] transition-colors">
-                +
-              </span>
-            </div>
-
-            {/* Member Details Overlay */}
-            <div class="relative z-20 space-y-3">
-              <div>
-                <span class="text-[11px] font-mono tracking-widest uppercase text-[#00e5ff]">
+            {/* Member Details Panel */}
+            <div class="relative p-4 sm:p-5 flex flex-col justify-between flex-1 bg-[#141418]">
+              <div class="space-y-1">
+                <span class="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-[#F8138D] font-semibold block">
                   {member.role}
                 </span>
-                <h3 class="text-3xl sm:text-4xl font-display font-black tracking-tight text-white uppercase group-hover:translate-x-1 transition-transform">
+                <h3 class="text-xl sm:text-2xl font-display font-black tracking-tight text-white uppercase group-hover:text-[#F8138D] transition-colors leading-none">
                   {member.stageName}
                 </h3>
-                <p class="text-xs text-neutral-400 font-medium">
-                  {member.fullName} • Born {member.birthDate}
+                <p class="text-xs text-neutral-400 font-medium pt-0.5">
+                  {member.fullName} <span class="text-white/20 mx-1">•</span> Born {member.birthDate}
                 </p>
               </div>
 
               {/* Quote signature */}
-              <div class="pt-3 border-t border-white/10">
-                <p class="text-xs text-neutral-300 italic font-light leading-relaxed">
+              <div class="pt-3 mt-3 border-t border-white/10">
+                <p class="text-xs text-neutral-300 italic font-light leading-relaxed line-clamp-2">
                   "{member.quote}"
                 </p>
               </div>
@@ -82,14 +119,27 @@ import membersData from '../../data/members.json';
 
   gsap.registerPlugin(ScrollTrigger);
 
+  const memberNames = ['SOOBIN', 'YEONJUN', 'BEOMGYU', 'TAEHYUN', 'HUENINGKAI'];
+  let currentActiveIndex = 0;
+
+  function updateMemberBadge(index: number) {
+    if (index === currentActiveIndex) return;
+    currentActiveIndex = Math.max(0, Math.min(memberNames.length - 1, index));
+    const badge = document.getElementById('member-active-indicator');
+    if (badge) {
+      badge.textContent = `0${currentActiveIndex + 1} / 05 • ${memberNames[currentActiveIndex]}`;
+    }
+  }
+
   function initHorizontalPin() {
     const section = document.getElementById('members-pinned-section');
     const container = document.getElementById('members-pin-container');
     const track = document.getElementById('members-track');
+    const prevBtn = document.getElementById('btn-prev-member');
+    const nextBtn = document.getElementById('btn-next-member');
 
     if (!section || !container || !track) return;
 
-    // Only apply horizontal scroll pinning on desktop/tablet where track exceeds container
     const updatePin = () => {
       ScrollTrigger.getAll().forEach((st) => {
         if (st.vars.id === 'members-horizontal-pin') {
@@ -99,21 +149,89 @@ import membersData from '../../data/members.json';
 
       const totalScrollWidth = track.scrollWidth - window.innerWidth;
       if (totalScrollWidth > 0 && window.innerWidth >= 768) {
-        gsap.to(track, {
-          x: () => -totalScrollWidth - 60,
-          ease: 'none',
+        // Create Timeline with an initial rest buffer so Card 01 remains stationary upon arrival
+        const tl = gsap.timeline({
           scrollTrigger: {
             id: 'members-horizontal-pin',
-            trigger: section,
-            pin: true,
+            trigger: container,
+            pin: section,
             scrub: 1,
             start: 'center center',
-            end: () => `+=${totalScrollWidth + 300}`,
+            end: () => `+=${totalScrollWidth + 1200}`,
             invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              // Calculate active member index from progress
+              // Buffer: 0 to 0.20 is Card 1 stationary rest; 0.85 to 1.0 is Card 5 stationary rest
+              const p = self.progress;
+              if (p < 0.20) {
+                updateMemberBadge(0);
+              } else if (p > 0.85) {
+                updateMemberBadge(4);
+              } else {
+                const activeProgress = (p - 0.20) / 0.65;
+                const idx = Math.min(4, Math.floor(activeProgress * 5));
+                updateMemberBadge(idx);
+              }
+            },
           },
         });
+
+        // 1. Initial Rest: Card 01 (Soobin) stays completely stationary at x: 0
+        tl.to(track, {
+          x: 0,
+          duration: 0.5,
+          ease: 'none',
+        })
+        // 2. Horizontal glide across member cards
+        .to(track, {
+          x: () => -totalScrollWidth - 60,
+          duration: 1.5,
+          ease: 'none',
+        })
+        // 3. Final Rest: Card 05 (Hueningkai) stays stationary before unpinning
+        .to(track, {
+          x: () => -totalScrollWidth - 60,
+          duration: 0.4,
+          ease: 'none',
+        });
+
+        // Button Click Handlers: Smoothly scroll to member position
+        const scrollToMember = (targetIdx: number) => {
+          const st = ScrollTrigger.getById('members-horizontal-pin');
+          if (!st) return;
+          const clampedIdx = Math.max(0, Math.min(4, targetIdx));
+          let targetProgress = 0;
+          if (clampedIdx === 0) {
+            targetProgress = 0.10;
+          } else if (clampedIdx === 4) {
+            targetProgress = 0.92;
+          } else {
+            targetProgress = 0.20 + (clampedIdx / 4) * 0.65;
+          }
+          const targetY = st.start + targetProgress * (st.end - st.start);
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        };
+
+        if (prevBtn) {
+          prevBtn.onclick = () => scrollToMember(currentActiveIndex - 1);
+        }
+        if (nextBtn) {
+          nextBtn.onclick = () => scrollToMember(currentActiveIndex + 1);
+        }
       } else {
         gsap.set(track, { clearProps: 'transform' });
+
+        // Mobile fallback for buttons
+        if (prevBtn) {
+          prevBtn.onclick = () => {
+            container.scrollBy({ left: -300, behavior: 'smooth' });
+          };
+        }
+        if (nextBtn) {
+          nextBtn.onclick = () => {
+            container.scrollBy({ left: 300, behavior: 'smooth' });
+          };
+        }
       }
     };
 

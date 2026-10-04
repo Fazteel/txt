@@ -67,9 +67,9 @@ export default function CartDrawer() {
           {/* Header */}
           <div className="p-6 border-b border-white/10 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <ShoppingBag className="w-5 h-5 text-[#00e5ff]" />
+              <ShoppingBag className="w-5 h-5 text-[#F8138D]" />
               <h2 className="text-lg font-display font-bold tracking-wider">YOUR BAG</h2>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-[#00e5ff] font-semibold">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-[#F8138D] font-semibold">
                 {items.reduce((s, i) => s + i.quantity, 0)}
               </span>
             </div>
@@ -86,14 +86,14 @@ export default function CartDrawer() {
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {checkoutComplete ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
-                <CheckCircle2 className="w-16 h-16 text-[#00e5ff] animate-bounce" />
+                <CheckCircle2 className="w-16 h-16 text-[#F8138D] animate-bounce" />
                 <h3 className="text-xl font-display font-bold">ORDER CONFIRMED!</h3>
                 <p className="text-sm text-neutral-400 max-w-xs">
                   Thank you for supporting Tomorrow X Together! Your simulated order has been processed successfully.
                 </p>
                 <button
                   onClick={closeCart}
-                  className="mt-4 px-6 py-2.5 bg-[#00e5ff] text-black font-semibold rounded-md text-xs uppercase tracking-widest hover:bg-[#79ffe1] transition-all cursor-pointer"
+                  className="mt-4 px-6 py-2.5 bg-[#F8138D] text-white font-semibold rounded-md text-xs uppercase tracking-widest hover:bg-[#f570b7] transition-all cursor-pointer"
                 >
                   Back to Showcase
                 </button>
@@ -134,20 +134,20 @@ export default function CartDrawer() {
                       </div>
                     </div>
                     <div className="flex items-center justify-between mt-2">
-                      <span className="text-sm font-bold text-[#00e5ff]">
+                      <span className="text-sm font-bold text-[#F8138D]">
                         ${(item.price * item.quantity).toFixed(2)}
                       </span>
                       <div className="flex items-center gap-2 bg-black/50 border border-white/10 rounded-md px-1.5 py-0.5">
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity - 1, item.size, item.color)}
-                          className="p-1 hover:text-[#00e5ff] text-neutral-400 transition-colors cursor-pointer"
+                          className="p-1 hover:text-[#F8138D] text-neutral-400 transition-colors cursor-pointer"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
                         <span className="text-xs font-semibold px-1">{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1, item.size, item.color)}
-                          className="p-1 hover:text-[#00e5ff] text-neutral-400 transition-colors cursor-pointer"
+                          className="p-1 hover:text-[#F8138D] text-neutral-400 transition-colors cursor-pointer"
                         >
                           <Plus className="w-3 h-3" />
                         </button>
@@ -181,7 +181,7 @@ export default function CartDrawer() {
               <button
                 onClick={handleCheckout}
                 disabled={isCheckingOut}
-                className="w-full py-3.5 bg-[#00e5ff] hover:bg-[#79ffe1] text-black font-bold uppercase tracking-wider text-xs rounded-md shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="w-full py-3.5 bg-[#F8138D] hover:bg-[#f570b7] text-white font-bold uppercase tracking-wider text-xs rounded-md shadow-[0_0_20px_rgba(248,19,141,0.4)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
               >
                 {isCheckingOut ? (
                   <>
