@@ -20,7 +20,7 @@ import membersData from '../../data/members.json';
 
   </div>
 
-  <div id="members-pin-container" class="relative w-full overflow-x-auto md:overflow-hidden scrollbar-none snap-x snap-mandatory scroll-smooth">
+  <div id="members-pin-container" data-lenis-prevent class="relative w-full overflow-x-auto md:overflow-hidden scrollbar-none overscroll-x-contain">
     <div
       id="members-track"
       class="flex gap-4 sm:gap-6 px-4 sm:px-12 w-max items-center py-2 select-none"
@@ -28,7 +28,7 @@ import membersData from '../../data/members.json';
       {
         membersData.map((member, index) => (
           <div
-            class="member-card snap-center shrink-0 relative w-[80vw] max-w-[280px] sm:w-[300px] rounded-2xl bg-[#141418] border border-white/10 overflow-hidden flex flex-col transition-all duration-500 hover:border-[#F8138D]/60 hover:shadow-[0_20px_45px_rgba(248,19,141,0.25)] hover:-translate-y-1 group cursor-pointer"
+            class="member-card shrink-0 relative w-[80vw] max-w-[280px] sm:w-[300px] rounded-2xl bg-[#141418] border border-white/10 overflow-hidden flex flex-col transition-all duration-500 hover:border-[#F8138D]/60 hover:shadow-[0_20px_45px_rgba(248,19,141,0.25)] hover:-translate-y-1 group cursor-pointer"
             data-member-id={member.id}
             data-member-name={member.stageName}
             data-member-index={index}
@@ -184,6 +184,33 @@ import membersData from '../../data/members.json';
         }
       }
     };
+
+    const cards = track.querySelectorAll('.member-card');
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (window.innerWidth >= 768) {
+          const st = ScrollTrigger.getById('members-horizontal-pin');
+          if (st) {
+            const clampedIdx = Math.max(0, Math.min(4, idx));
+            let targetProgress = 0;
+            if (clampedIdx === 0) {
+              targetProgress = 0.10;
+            } else if (clampedIdx === 4) {
+              targetProgress = 0.92;
+            } else {
+              targetProgress = 0.20 + (clampedIdx / 4) * 0.65;
+            }
+            const targetY = st.start + targetProgress * (st.end - st.start);
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+          }
+        } else {
+          const cardElem = card as HTMLElement;
+          const scrollLeft = cardElem.offsetLeft - container.offsetWidth / 2 + cardElem.offsetWidth / 2;
+          container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        }
+      });
+    });
 
     updatePin();
     window.addEventListener('resize', updatePin);

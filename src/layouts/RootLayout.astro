@@ -150,6 +150,12 @@ const {
       });
       gsap.ticker.lagSmoothing(0);
 
+      window.addEventListener('scroll', () => {
+        if (window.scrollX !== 0) {
+          window.scrollTo({ left: 0 });
+        }
+      });
+
       const badge = document.getElementById('cart-badge-count');
       totalCartCount.subscribe((count) => {
         if (badge) {
