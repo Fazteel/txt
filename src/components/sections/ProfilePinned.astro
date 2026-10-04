@@ -18,31 +18,6 @@ import membersData from '../../data/members.json';
       </p>
     </div>
 
-    <div class="hidden md:flex items-center gap-3 shrink-0 pb-1">
-      <span id="member-active-indicator" class="text-xs font-mono font-bold tracking-widest text-[#F8138D] bg-black/60 px-3.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-sm">
-        01 / 05 • SOOBIN
-      </span>
-      <div class="flex items-center gap-1.5">
-        <button
-          id="btn-prev-member"
-          class="p-2.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-white transition-all hover:border-[#F8138D]/50 hover:text-[#F8138D] cursor-pointer"
-          aria-label="Previous Member"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button
-          id="btn-next-member"
-          class="p-2.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-white transition-all hover:border-[#F8138D]/50 hover:text-[#F8138D] cursor-pointer"
-          aria-label="Next Member"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-    </div>
   </div>
 
   <div id="members-pin-container" class="relative w-full overflow-x-auto md:overflow-hidden scrollbar-none snap-x snap-mandatory scroll-smooth">
@@ -68,15 +43,6 @@ import membersData from '../../data/members.json';
                 class="w-full h-full object-cover object-center filter grayscale-[0.2] contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-[#141418] via-transparent to-black/30 pointer-events-none" />
-
-              <div class="absolute top-3 inset-x-3 flex justify-between items-center z-10">
-                <span class="text-[10px] font-mono font-bold tracking-widest text-[#F8138D] uppercase px-2.5 py-1 bg-black/75 rounded-full border border-white/15 backdrop-blur-md shadow-sm">
-                  0{index + 1} // 05
-                </span>
-                <span class="w-7 h-7 rounded-full bg-black/75 border border-white/15 backdrop-blur-md flex items-center justify-center text-xs font-light text-white/50 group-hover:text-white group-hover:bg-[#F8138D] group-hover:border-[#F8138D] transition-all shadow-sm">
-                  +
-                </span>
-              </div>
             </div>
 
             <div class="relative p-4 sm:p-5 flex flex-col justify-between flex-1 bg-[#141418]">
