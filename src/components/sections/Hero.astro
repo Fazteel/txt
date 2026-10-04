@@ -75,7 +75,6 @@
 
     if (!heroSection || !layerBg || !layerMid) return;
 
-    // Layer Background: Tipografi kinetik raksasa yang bergeser perlahan (yPercent: -15)
     gsap.to(layerBg, {
       yPercent: -15,
       ease: 'none',
@@ -87,7 +86,6 @@
       },
     });
 
-    // Layer Midground: Foto kelima member terpotong rapi dengan kedalaman bayangan dinamis (yPercent: -35)
     gsap.to(layerMid, {
       yPercent: -35,
       scale: 1.05,
@@ -100,7 +98,6 @@
       },
     });
 
-    // Layer Foreground: Floating cross accents + dan heading judul bergerak lebih cepat (yPercent: -60)
     if (layerFore) {
       gsap.to(layerFore, {
         yPercent: -60,
@@ -115,7 +112,6 @@
       });
     }
 
-    // Micro floating rotation on cross accents
     crossAccents.forEach((cross, i) => {
       gsap.to(cross, {
         y: i % 2 === 0 ? -15 : 15,

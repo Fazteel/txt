@@ -11,7 +11,6 @@ export interface CartItem {
   color?: string;
 }
 
-// Persist cart to localStorage if available
 const loadInitialCart = (): CartItem[] => {
   if (typeof window !== 'undefined') {
     try {
@@ -32,7 +31,6 @@ if (typeof window !== 'undefined') {
     try {
       localStorage.setItem('txt_cart', JSON.stringify(items));
     } catch (e) {
-      // ignore
     }
   });
 }

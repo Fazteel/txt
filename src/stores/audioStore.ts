@@ -84,7 +84,6 @@ export function playTrack(track: PlayingTrack, snippetDuration: number = 4) {
     isVinylSpinning.set(false);
   });
 
-  // Client-side time-slice snippet (e.g. 4s snippet or full preview if requested)
   if (snippetDuration > 0) {
     stopSnippetTimer();
     snippetTimeout = setTimeout(() => {

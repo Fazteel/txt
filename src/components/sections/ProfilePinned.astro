@@ -107,7 +107,6 @@ import membersData from '../../data/members.json';
 
       const totalScrollWidth = track.scrollWidth - window.innerWidth;
       if (totalScrollWidth > 0 && window.innerWidth >= 768) {
-        // Create Timeline with an initial rest buffer so Card 01 remains stationary upon arrival
         const tl = gsap.timeline({
           scrollTrigger: {
             id: 'members-horizontal-pin',
@@ -118,8 +117,6 @@ import membersData from '../../data/members.json';
             end: () => `+=${totalScrollWidth + 1200}`,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
-              // Calculate active member index from progress
-              // Buffer: 0 to 0.20 is Card 1 stationary rest; 0.85 to 1.0 is Card 5 stationary rest
               const p = self.progress;
               if (p < 0.20) {
                 updateMemberBadge(0);
@@ -134,26 +131,22 @@ import membersData from '../../data/members.json';
           },
         });
 
-        // 1. Initial Rest: Card 01 (Soobin) stays completely stationary at x: 0
         tl.to(track, {
           x: 0,
           duration: 0.5,
           ease: 'none',
         })
-        // 2. Horizontal glide across member cards
         .to(track, {
           x: () => -totalScrollWidth - 60,
           duration: 1.5,
           ease: 'none',
         })
-        // 3. Final Rest: Card 05 (Hueningkai) stays stationary before unpinning
         .to(track, {
           x: () => -totalScrollWidth - 60,
           duration: 0.4,
           ease: 'none',
         });
 
-        // Button Click Handlers: Smoothly scroll to member position
         const scrollToMember = (targetIdx: number) => {
           const st = ScrollTrigger.getById('members-horizontal-pin');
           if (!st) return;
@@ -179,7 +172,6 @@ import membersData from '../../data/members.json';
       } else {
         gsap.set(track, { clearProps: 'transform' });
 
-        // Mobile fallback for buttons
         if (prevBtn) {
           prevBtn.onclick = () => {
             container.scrollBy({ left: -300, behavior: 'smooth' });

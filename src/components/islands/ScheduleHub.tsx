@@ -41,19 +41,17 @@ export default function ScheduleHub() {
     { id: 'media', label: 'Media & Live' },
   ];
 
-  // Default to nearest upcoming month
   const [selectedMonth, setSelectedMonth] = useState<string>('OCT 2026');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [selectedDate, setSelectedDate] = useState<string>('2026-10-24'); // Default highlight date (Jakarta)
+  const [selectedDate, setSelectedDate] = useState<string>('2026-10-24');
   const [calendarAdded, setCalendarAdded] = useState<boolean>(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Generate all days in the selected month
   const daysInMonth = useMemo(() => {
     const [monthName, yearStr] = selectedMonth.split(' ');
     const year = parseInt(yearStr, 10);
-    const monthIndex = monthName === 'OCT' ? 9 : monthName === 'NOV' ? 10 : 11; // 0-indexed
+    const monthIndex = monthName === 'OCT' ? 9 : monthName === 'NOV' ? 10 : 11;
     const numDays = new Date(year, monthIndex + 1, 0).getDate();
 
     const days = [];
@@ -75,7 +73,6 @@ export default function ScheduleHub() {
     return days;
   }, [selectedMonth]);
 
-  // Events filtered by category
   const filteredEvents = useMemo(() => {
     return (schedulesData as ScheduleEvent[]).filter((ev) => {
       const matchesCategory = selectedCategory === 'all' || ev.category === selectedCategory;
@@ -83,7 +80,6 @@ export default function ScheduleHub() {
     });
   }, [selectedCategory]);
 
-  // Map events by ISO date string for rapid lookup
   const eventsByDate = useMemo(() => {
     const map = new Map<string, ScheduleEvent>();
     filteredEvents.forEach((ev) => {
@@ -92,23 +88,19 @@ export default function ScheduleHub() {
     return map;
   }, [filteredEvents]);
 
-  // Automatically select the nearest event when changing month or category
   useEffect(() => {
     const currentMonthEvents = filteredEvents.filter((ev) => ev.monthYear === selectedMonth);
     if (currentMonthEvents.length > 0) {
-      // If currently selected date is not in this month's events, select the first one
       if (!currentMonthEvents.some((ev) => ev.date === selectedDate)) {
         setSelectedDate(currentMonthEvents[0].date);
       }
     } else {
-      // Fallback to first day of month if no events match filter
       const [monthName, yearStr] = selectedMonth.split(' ');
       const mStr = monthName === 'OCT' ? '10' : monthName === 'NOV' ? '11' : '12';
       setSelectedDate(`${yearStr}-${mStr}-01`);
     }
   }, [selectedMonth, selectedCategory]);
 
-  // Currently selected event (if any on this date)
   const currentEvent = eventsByDate.get(selectedDate);
 
   const scrollStrip = (direction: 'left' | 'right') => {
@@ -407,7 +399,6 @@ export default function ScheduleHub() {
             </div>
           </div>
         ) : (
-          /* 3. Empty State (Rest Day / Studio Rehearsal) */
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-4 relative z-10">
             <div className="max-w-xl space-y-3">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-[#f570b7] uppercase tracking-widest">

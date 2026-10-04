@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useStore } from '@nanostores/react';
 import {
   currentTrack,
@@ -11,7 +11,7 @@ import {
   type PlayingTrack
 } from '../../stores/audioStore';
 import discographyData from '../../data/discography.json';
-import { Play, Pause, Disc3, Music2, ExternalLink, Volume2, Sparkles } from 'lucide-react';
+import { Play, Pause, Disc3, Music2, ExternalLink, Volume2, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function VinylPlayer() {
   const activeTrack = useStore(currentTrack);
@@ -20,14 +20,15 @@ export default function VinylPlayer() {
   const currentTime = useStore(audioCurrentTime);
   const duration = useStore(audioDuration);
 
-  // Active selected album
   const [selectedAlbumIndex, setSelectedAlbumIndex] = useState(0);
-  const [snippetDuration, setSnippetDuration] = useState(4); // 4 seconds preview as requested in PRD
+  const [snippetDuration, setSnippetDuration] = useState(4);
+
+  const albumTabsRef = useRef<HTMLDivElement>(null);
+  const tracklistRef = useRef<HTMLDivElement>(null);
 
   const currentAlbum = discographyData[selectedAlbumIndex] || discographyData[0];
   const displayedTrack = (activeTrack && activeTrack.albumId === currentAlbum.id) ? activeTrack : currentAlbum.tracks[0];
 
-  // Auto-select first track of first album on initial mount if none selected
   useEffect(() => {
     if (!activeTrack && currentAlbum.tracks.length > 0) {
       const firstT = currentAlbum.tracks[0];
@@ -42,10 +43,69 @@ export default function VinylPlayer() {
         previewAudioUrl: firstT.previewAudioUrl,
         externalLinks: firstT.externalLinks,
       };
-      // Set current track state without auto-playing (user must press play)
       currentTrack.set(trackObj);
     }
   }, []);
+
+  useEffect(() => {
+    const el = albumTabsRef.current;
+    if (!el) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.stopPropagation();
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (maxScroll <= 0) return;
+
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      const canScrollLeft = el.scrollLeft > 0 && delta < 0;
+      const canScrollRight = el.scrollLeft < maxScroll - 1 && delta > 0;
+
+      if (canScrollLeft || canScrollRight) {
+        e.preventDefault();
+        el.scrollLeft += delta;
+      }
+    };
+
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      el.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = tracklistRef.current;
+    if (!el) return;
+
+    el.scrollTop = 0;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.stopPropagation();
+      const maxScroll = el.scrollHeight - el.clientHeight;
+      if (maxScroll <= 0) return;
+
+      const canScrollUp = el.scrollTop > 0 && e.deltaY < 0;
+      const canScrollDown = el.scrollTop < maxScroll - 1 && e.deltaY > 0;
+
+      if (canScrollUp || canScrollDown) {
+        e.preventDefault();
+        el.scrollTop += e.deltaY;
+      }
+    };
+
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      el.removeEventListener('wheel', handleWheel);
+    };
+  }, [selectedAlbumIndex]);
+
+  const scrollAlbums = (direction: 'left' | 'right') => {
+    if (albumTabsRef.current) {
+      albumTabsRef.current.scrollBy({
+        left: direction === 'left' ? -240 : 240,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const handleTrackSelect = (track: any) => {
     const trackObj: PlayingTrack = {
@@ -63,8 +123,17 @@ export default function VinylPlayer() {
     playTrack(trackObj, snippetDuration);
   };
 
-  const handleAlbumSelect = (idx: number) => {
+  const handleAlbumSelect = (idx: number, e?: React.MouseEvent) => {
     setSelectedAlbumIndex(idx);
+    if (albumTabsRef.current && e?.currentTarget) {
+      const container = albumTabsRef.current;
+      const target = e.currentTarget as HTMLElement;
+      const scrollLeft = target.offsetLeft - container.offsetWidth / 2 + target.offsetWidth / 2;
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth',
+      });
+    }
     const newAlbum = discographyData[idx];
     if (newAlbum && newAlbum.tracks.length > 0) {
       const firstT = newAlbum.tracks[0];
@@ -106,27 +175,51 @@ export default function VinylPlayer() {
         style={{ backgroundColor: '#F8138D' }}
       />
 
-      <div className="flex items-center overflow-x-auto whitespace-nowrap gap-2 sm:gap-3 mb-6 sm:mb-12 border-b border-white/10 pb-3 scrollbar-none -mx-1 px-1 sm:mx-0 sm:px-0">
-        {discographyData.map((album, idx) => {
-          const isSelected = selectedAlbumIndex === idx;
-          return (
-            <button
-              key={album.id}
-              onClick={() => handleAlbumSelect(idx)}
-              className={`shrink-0 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer ${
-                isSelected
-                  ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)] scale-[1.02]'
-                  : 'bg-white/5 text-neutral-400 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              <span
-                className="w-2 h-2 rounded-full"
-                style={{ backgroundColor: album.themeColor }}
-              />
-              {album.title.split(':')[0]}
-            </button>
-          );
-        })}
+      <div className="relative mb-6 sm:mb-12 group/albums">
+        <button
+          type="button"
+          onClick={() => scrollAlbums('left')}
+          aria-label="Scroll left to view previous albums"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/80 border border-white/20 text-white flex items-center justify-center hover:border-[#F8138D] hover:text-[#F8138D] transition-all opacity-0 group-hover/albums:opacity-100 shadow-xl cursor-pointer"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <div
+          ref={albumTabsRef}
+          data-lenis-prevent
+          className="flex items-center overflow-x-auto whitespace-nowrap gap-2 sm:gap-3 border-b border-white/10 pb-3 scrollbar-none overscroll-contain select-none -mx-1 px-1 sm:mx-0 sm:px-3 scroll-smooth"
+        >
+          {discographyData.map((album, idx) => {
+            const isSelected = selectedAlbumIndex === idx;
+            return (
+              <button
+                key={album.id}
+                onClick={(e) => handleAlbumSelect(idx, e)}
+                className={`shrink-0 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+                  isSelected
+                    ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)] scale-[1.02]'
+                    : 'bg-white/5 text-neutral-400 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                <span
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: album.themeColor }}
+                />
+                {album.title.split(':')[0]}
+              </button>
+            );
+          })}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => scrollAlbums('right')}
+          aria-label="Scroll right to view next albums"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/80 border border-white/20 text-white flex items-center justify-center hover:border-[#F8138D] hover:text-[#F8138D] transition-all opacity-0 group-hover/albums:opacity-100 shadow-xl cursor-pointer"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
@@ -224,7 +317,11 @@ export default function VinylPlayer() {
               )}
             </div>
 
-            <div className="space-y-2 max-h-[290px] overflow-y-auto pr-1.5">
+            <div
+              ref={tracklistRef}
+              data-lenis-prevent
+              className="space-y-2 max-h-[290px] overflow-y-auto pr-1.5 overscroll-contain scroll-smooth"
+            >
               {currentAlbum.tracks.map((track) => {
                 const isCurrent = activeTrack?.albumId === currentAlbum.id && activeTrack?.title === track.title;
                 return (

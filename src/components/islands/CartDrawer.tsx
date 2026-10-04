@@ -42,9 +42,7 @@ export default function CartDrawer() {
           spread: 70,
           origin: { y: 0.6 }
         });
-      } catch (e) {
-        // ignore
-      }
+      } catch (e) {}
       setTimeout(() => {
         clearCart();
       }, 1500);

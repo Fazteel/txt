@@ -80,7 +80,6 @@
       },
     });
 
-    // Phase 1: Simbol central + (pink) muncul di tengah (scale dari 0.4 ke 1.0, fade in)
     tl.to(centerSymbol, {
       opacity: 1,
       scale: 1,
@@ -91,15 +90,11 @@
       opacity: 0.45,
       duration: 0.5,
     }, '-=0.4')
-
-    // Phase 2: Central + (pink) berputar 45° menjadi ×
     .to(centerSymbol, {
       rotate: 45,
       duration: 0.6,
       ease: 'power3.inOut',
     })
-
-    // Phase 3: Dua simbol + (white) keluar meluncur dari balik × menuju sisi kiri dan kanan secara bersamaan hingga membentuk pola + × +
     .to(centerSymbol, {
       scale: 0.9,
       duration: 0.2,
@@ -113,19 +108,13 @@
       { opacity: 1, x: 75, scale: 1, duration: 0.6, ease: 'power3.out' },
       '<'
     )
-
-    // Phase 4: Teks nama group SVG muncul di bagian bawah dengan animasi fade-up
     .to(groupNameImg, {
       opacity: 1,
       y: 0,
       duration: 0.7,
       ease: 'power2.out',
     })
-
-    // Hold for impact
     .to({}, { duration: 0.5 })
-
-    // Phase 5: Preloader sliding up / membelah vertikal untuk membuka Hero Section
     .to([centerSymbol, leftPlus, rightPlus, groupNameImg, glow, skipBtn], {
       opacity: 0,
       scale: 0.9,
@@ -161,7 +150,6 @@
     });
   }
 
-  // Run when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initPreloader);
   } else {

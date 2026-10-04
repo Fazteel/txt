@@ -2,34 +2,28 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Monochrome & Accent Colors */
   --color-bg-primary: #0a0a0a;
   --color-bg-secondary: #141414;
   --color-bg-surface: #1f1f1f;
   --color-border: rgba(255, 255, 255, 0.12);
   --color-text-primary: #f5f5f5;
   --color-text-muted: #8e8e93;
-  /* Brand Pink Accent Colors (Replaces previous blue, neon, mint) */
   --color-accent-pink: #F8138D;
   --color-accent-pink-neon: #f570b7;
   --color-accent-pink-deep: #962a64;
 
-  /* Backward-compatible aliases for existing components */
   --color-accent-blue: var(--color-accent-pink);
   --color-accent-neon: var(--color-accent-pink-neon);
   --color-accent-mint: var(--color-accent-pink-deep);
 
-  /* Typography Scale */
   --font-display: 'Syncopate', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Geometry & Layout */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-full: 9999px;
   --container-max: 1280px;
 
-  /* Transition Speeds */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 200ms;
   --duration-normal: 400ms;
@@ -39,8 +33,9 @@ html {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
-  scroll-behavior: auto; /* Handled smoothly by Lenis */
+  scroll-behavior: auto;
   overflow-x: hidden;
+  zoom: 0.9;
 }
 
 body {
@@ -61,7 +56,6 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -77,7 +71,6 @@ body {
   background: var(--color-accent-pink);
 }
 
-/* Hide scrollbar for touch-swipe containers */
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -86,7 +79,6 @@ body {
   display: none;
 }
 
-/* Glassmorphism utility */
 .glass-panel {
   background: rgba(20, 20, 20, 0.7);
   backdrop-filter: blur(16px);
@@ -102,7 +94,6 @@ body {
   box-shadow: 0 0 25px rgba(248, 19, 141, 0.2);
 }
 
-/* Neon Glow Accents */
 .glow-pink,
 .glow-cyan {
   text-shadow: 0 0 15px rgba(248, 19, 141, 0.7);
@@ -113,7 +104,6 @@ body {
   box-shadow: 0 0 20px rgba(248, 19, 141, 0.3);
 }
 
-/* Turntable Vinyl Spin Keyframe */
 @keyframes vinylSpin {
   from {
     transform: rotate(0deg);
@@ -127,7 +117,6 @@ body {
   animation: vinylSpin 3s linear infinite;
 }
 
-/* Equalizer Bars Animation */
 @keyframes barBounce {
   0%, 100% {
     height: 4px;
