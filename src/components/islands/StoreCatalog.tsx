@@ -40,7 +40,6 @@ export default function StoreCatalog() {
 
   return (
     <div className="w-full">
-      {/* Category Tabs & Search Bar */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 sm:mb-12">
         <div className="flex flex-wrap items-center gap-2">
           {categories.map((cat) => (
@@ -70,7 +69,6 @@ export default function StoreCatalog() {
         </div>
       </div>
 
-      {/* Products Grid */}
       {filteredProducts.length === 0 ? (
         <div className="text-center py-20 bg-neutral-950/40 rounded-2xl border border-white/5">
           <p className="text-neutral-400 text-sm">No merchandise found matching your criteria.</p>
@@ -94,7 +92,6 @@ export default function StoreCatalog() {
                 onClick={() => setSelectedProduct(product)}
                 className="group relative bg-[#131316] border border-white/10 rounded-xl overflow-hidden hover:border-[#F8138D]/50 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex flex-col cursor-pointer"
               >
-                {/* Image stage */}
                 <div className="relative aspect-square w-full overflow-hidden bg-black/60">
                   <img
                     src={product.image}
@@ -103,7 +100,6 @@ export default function StoreCatalog() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
 
-                  {/* Category Badge */}
                   <div className="absolute top-3 left-3">
                     <span className="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-black/70 backdrop-blur-md text-[#F8138D] border border-white/10">
                       {product.category}
@@ -118,7 +114,6 @@ export default function StoreCatalog() {
                     </div>
                   )}
 
-                  {/* Hover Quick Actions */}
                   <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-xs">
                     <button
                       onClick={(e) => {
@@ -140,7 +135,6 @@ export default function StoreCatalog() {
                   </div>
                 </div>
 
-                {/* Details */}
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                   <div>
                     <h3 className="text-base font-semibold text-white group-hover:text-[#F8138D] transition-colors line-clamp-1">
@@ -186,7 +180,6 @@ export default function StoreCatalog() {
         </div>
       )}
 
-      {/* Quick View Modal */}
       <ProductDetailModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}

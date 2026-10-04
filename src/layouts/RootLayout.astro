@@ -26,17 +26,14 @@ const {
     <title>{title}</title>
   </head>
   <body class="bg-[#0a0a0a] text-white selection:bg-[#F8138D] selection:text-white">
-    {/* Global Header / Navbar */}
     <header class="fixed top-0 inset-x-0 z-40 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Brand Logo */}
         <a href="/" class="flex items-center group" aria-label="TXT Home">
           <span class="text-2xl font-black text-[#F8138D] font-display tracking-wider transition-transform group-hover:scale-110">
             + × +
           </span>
         </a>
 
-        {/* Navigation Menu */}
         <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-neutral-400">
           <a href="/#members-pinned-section" class="hover:text-[#F8138D] transition-colors">
             Members
@@ -52,7 +49,6 @@ const {
           </a>
         </nav>
 
-        {/* Right actions: Store Bag & Mobile Link */}
         <div class="flex items-center gap-4">
           <a
             href="/store"
@@ -61,7 +57,6 @@ const {
             ACT : PROMISE MERCH
           </a>
 
-          {/* Cart Drawer Trigger Button */}
           <button
             id="nav-cart-btn"
             class="relative p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all cursor-pointer flex items-center justify-center group"
@@ -77,19 +72,62 @@ const {
               0
             </span>
           </button>
+
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all cursor-pointer flex items-center justify-center group"
+            aria-label="Toggle Mobile Navigation"
+          >
+            <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-neutral-300 group-hover:text-[#F8138D] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-neutral-300 group-hover:text-[#F8138D] transition-colors hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
       </div>
     </header>
 
-    {/* Main Content */}
+    <div
+      id="mobile-nav-drawer"
+      class="fixed inset-x-0 top-20 z-30 bg-[#0a0a0a]/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-300 ease-in-out -translate-y-full opacity-0 pointer-events-none md:hidden"
+    >
+      <div class="px-6 py-6 flex flex-col space-y-5">
+        <nav class="flex flex-col space-y-3 text-sm font-semibold uppercase tracking-widest text-neutral-300">
+          <a href="/#members-pinned-section" class="mobile-nav-link flex items-center justify-between py-2.5 border-b border-white/5 hover:text-[#F8138D] transition-colors">
+            <span>Members</span>
+            <span class="text-xs font-mono text-[#F8138D]">01</span>
+          </a>
+          <a href="/#discography-section" class="mobile-nav-link flex items-center justify-between py-2.5 border-b border-white/5 hover:text-[#F8138D] transition-colors">
+            <span>Discography</span>
+            <span class="text-xs font-mono text-[#F8138D]">02</span>
+          </a>
+          <a href="/#schedule-section" class="mobile-nav-link flex items-center justify-between py-2.5 border-b border-white/5 hover:text-[#F8138D] transition-colors">
+            <span>Tour Schedule</span>
+            <span class="text-xs font-mono text-[#F8138D]">03</span>
+          </a>
+          <a href="/store" class="mobile-nav-link flex items-center justify-between py-2.5 border-b border-white/5 hover:text-[#F8138D] transition-colors text-white">
+            <span>Official Store</span>
+            <span class="text-xs font-mono text-[#F8138D]">04</span>
+          </a>
+        </nav>
+
+        <a
+          href="/store"
+          class="mobile-nav-link text-center text-xs font-mono py-3 px-4 rounded-xl bg-gradient-to-r from-[#F8138D] to-[#f570b7] text-white font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(248,19,141,0.4)]"
+        >
+          ACT : PROMISE MERCH
+        </a>
+      </div>
+    </div>
+
     <main class="min-h-screen">
       <slot />
     </main>
 
-    {/* Cart Drawer React Island */}
     <CartDrawer client:load />
 
-    {/* Lenis Smooth Scroll Script */}
     <script>
       import Lenis from 'lenis';
       import gsap from 'gsap';
@@ -127,6 +165,35 @@ const {
       const cartBtn = document.getElementById('nav-cart-btn');
       cartBtn?.addEventListener('click', () => {
         openCart();
+      });
+
+      // Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileDrawer = document.getElementById('mobile-nav-drawer');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const closeIcon = document.getElementById('close-icon');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      let isMobileMenuOpen = false;
+
+      function toggleMobileMenu(open?: boolean) {
+        isMobileMenuOpen = open !== undefined ? open : !isMobileMenuOpen;
+        if (isMobileMenuOpen) {
+          mobileDrawer?.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+          mobileDrawer?.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+          hamburgerIcon?.classList.add('hidden');
+          closeIcon?.classList.remove('hidden');
+        } else {
+          mobileDrawer?.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+          mobileDrawer?.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+          hamburgerIcon?.classList.remove('hidden');
+          closeIcon?.classList.add('hidden');
+        }
+      }
+
+      mobileBtn?.addEventListener('click', () => toggleMobileMenu());
+      mobileLinks.forEach((link) => {
+        link.addEventListener('click', () => toggleMobileMenu(false));
       });
     </script>
   </body>

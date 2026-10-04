@@ -77,6 +77,15 @@ body {
   background: var(--color-accent-pink);
 }
 
+/* Hide scrollbar for touch-swipe containers */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* Glassmorphism utility */
 .glass-panel {
   background: rgba(20, 20, 20, 0.7);

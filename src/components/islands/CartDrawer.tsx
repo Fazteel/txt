@@ -55,16 +55,13 @@ export default function CartDrawer() {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden transition-all duration-300">
-      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity cursor-pointer"
         onClick={closeCart}
       />
 
-      {/* Drawer */}
-      <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
+      <div className="absolute inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
         <div className="w-screen max-w-md bg-[#111113] border-l border-white/10 text-white shadow-2xl flex flex-col">
-          {/* Header */}
           <div className="p-6 border-b border-white/10 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <ShoppingBag className="w-5 h-5 text-[#F8138D]" />
@@ -82,7 +79,6 @@ export default function CartDrawer() {
             </button>
           </div>
 
-          {/* Body */}
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {checkoutComplete ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
@@ -166,7 +162,6 @@ export default function CartDrawer() {
             )}
           </div>
 
-          {/* Footer */}
           {!checkoutComplete && items.length > 0 && (
             <div className="p-6 border-t border-white/10 bg-neutral-950/70 space-y-4">
               <div className="flex justify-between items-center text-sm">

@@ -179,9 +179,7 @@ export default function ScheduleHub() {
 
   return (
     <div className="w-full max-w-6xl mx-auto space-y-8 select-none">
-      {/* 2.A. Month & Filter Selector Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-4 border-b border-white/10">
-        {/* Month Switcher Pills */}
         <div className="flex items-center gap-2">
           <div className="flex items-center p-1 bg-[#121215] border border-white/10 rounded-full shadow-inner">
             {months.map((m) => {
@@ -203,7 +201,6 @@ export default function ScheduleHub() {
           </div>
         </div>
 
-        {/* Category Filter Pills */}
         <div className="flex flex-wrap items-center gap-2">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat.id;
@@ -224,9 +221,7 @@ export default function ScheduleHub() {
         </div>
       </div>
 
-      {/* 2.B. Interactive Date Strip (Horizontal Bar) */}
       <div className="relative group">
-        {/* Scroll Left Button */}
         <button
           onClick={() => scrollStrip('left')}
           className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/80 border border-white/20 text-white flex items-center justify-center hover:border-[#F8138D] hover:text-[#F8138D] transition-all opacity-0 group-hover:opacity-100 shadow-xl cursor-pointer"
@@ -235,7 +230,6 @@ export default function ScheduleHub() {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Horizontal Track */}
         <div
           ref={scrollRef}
           className="flex items-center gap-3 overflow-x-auto py-4 px-2 no-scrollbar scroll-smooth"
@@ -258,7 +252,6 @@ export default function ScheduleHub() {
                     : 'bg-[#0f0f12]/60 border-white/5 opacity-55 hover:opacity-100 hover:border-white/20 hover:-translate-y-0.5'
                 }`}
               >
-                {/* Day of Week */}
                 <span
                   className={`text-[11px] font-mono font-bold tracking-widest uppercase ${
                     isSelected ? 'text-[#f570b7]' : 'text-neutral-400'
@@ -267,7 +260,6 @@ export default function ScheduleHub() {
                   {dayObj.dayName}
                 </span>
 
-                {/* Day Number */}
                 <span
                   className={`text-2xl sm:text-3xl font-display font-black tracking-tight ${
                     isSelected ? 'text-white scale-105' : 'text-neutral-200'
@@ -276,7 +268,6 @@ export default function ScheduleHub() {
                   {dayObj.dayNumber}
                 </span>
 
-                {/* Status Dot / Indicator */}
                 <div className="h-2 flex items-center justify-center">
                   {hasEvent ? (
                     <span
@@ -295,7 +286,6 @@ export default function ScheduleHub() {
           })}
         </div>
 
-        {/* Scroll Right Button */}
         <button
           onClick={() => scrollStrip('right')}
           className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/80 border border-white/20 text-white flex items-center justify-center hover:border-[#F8138D] hover:text-[#F8138D] transition-all opacity-0 group-hover:opacity-100 shadow-xl cursor-pointer"
@@ -305,14 +295,11 @@ export default function ScheduleHub() {
         </button>
       </div>
 
-      {/* 2.C. Selected Event Detail Showcase (Split-Card Layout) */}
       <div className="relative rounded-2xl bg-gradient-to-b from-[#141418] to-[#0c0c0f] border border-white/10 p-6 sm:p-10 shadow-2xl overflow-hidden transition-all duration-500">
-        {/* Ambient mint glow */}
         <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#962a64]/15 blur-[100px] pointer-events-none" />
 
         {currentEvent ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            {/* Left Column: Visual & Location */}
             <div className="lg:col-span-7 flex flex-col space-y-4">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="px-3 py-1 rounded-md text-[10px] font-mono font-bold tracking-widest uppercase bg-white/10 text-white border border-white/15">
@@ -344,7 +331,6 @@ export default function ScheduleHub() {
               </div>
             </div>
 
-            {/* Right Column: Information & Actions */}
             <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-xl bg-black/50 border border-white/10 space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
@@ -378,7 +364,6 @@ export default function ScheduleHub() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="space-y-3 pt-2">
                 {currentEvent.ticketStatus === 'sold_out' ? (
                   <button
@@ -440,7 +425,6 @@ export default function ScheduleHub() {
               </div>
             </div>
 
-            {/* Polaroid style BTS visual card */}
             <div className="shrink-0 w-64 p-3 bg-neutral-900 border border-white/15 rounded-xl shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-300">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-black/60">
                 <img

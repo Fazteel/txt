@@ -53,15 +53,13 @@ export default function ProductDetailModal({ product, onClose }: Props) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6 animate-fade-in">
-      {/* Backdrop */}
+    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-3 sm:p-6 animate-fade-in">
       <div
         className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity cursor-pointer"
         onClick={onClose}
       />
 
-      {/* Modal Dialog */}
-      <div className="relative bg-[#111114] border border-white/15 rounded-2xl max-w-3xl w-full text-white shadow-2xl overflow-hidden z-10">
+      <div className="relative bg-[#111114] border border-white/15 rounded-2xl max-w-3xl w-full text-white shadow-2xl overflow-hidden z-10 max-h-[92vh] flex flex-col my-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-20 p-2 text-neutral-400 hover:text-white rounded-full bg-black/40 hover:bg-black/80 transition-colors cursor-pointer"
@@ -70,8 +68,7 @@ export default function ProductDetailModal({ product, onClose }: Props) {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Image Gallery Stage */}
+        <div className="grid grid-cols-1 md:grid-cols-2 overflow-y-auto">
           <div className="bg-neutral-950 p-6 flex flex-col items-center justify-center relative border-b md:border-b-0 md:border-r border-white/10">
             <div className="relative w-full aspect-square rounded-xl overflow-hidden group">
               <img
@@ -91,7 +88,6 @@ export default function ProductDetailModal({ product, onClose }: Props) {
             </div>
           </div>
 
-          {/* Product Specs & Purchasing */}
           <div className="p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div>
               <span className="text-xs uppercase font-mono tracking-widest text-[#F8138D]">
@@ -108,7 +104,6 @@ export default function ProductDetailModal({ product, onClose }: Props) {
                 {product.description}
               </p>
 
-              {/* Color variant */}
               {product.colors && product.colors.length > 0 && (
                 <div className="mt-5">
                   <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400 block mb-2">
@@ -132,7 +127,6 @@ export default function ProductDetailModal({ product, onClose }: Props) {
                 </div>
               )}
 
-              {/* Size variant */}
               {product.sizes && product.sizes.length > 0 && (
                 <div className="mt-4">
                   <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400 block mb-2">
@@ -156,7 +150,6 @@ export default function ProductDetailModal({ product, onClose }: Props) {
                 </div>
               )}
 
-              {/* Material Details bullet points */}
               {product.details && (
                 <div className="mt-5 pt-4 border-t border-white/10 space-y-1.5 text-xs text-neutral-400">
                   {product.details.map((d, i) => (
@@ -169,7 +162,6 @@ export default function ProductDetailModal({ product, onClose }: Props) {
               )}
             </div>
 
-            {/* Action Buttons */}
             <div className="pt-4 border-t border-white/10 space-y-3">
               <div className="flex items-center gap-4">
                 <div className="flex items-center border border-white/10 rounded-md bg-black/40">
