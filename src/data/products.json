@@ -2,32 +2,75 @@
   {
     "id": "txt-lightstick-v2",
     "name": "TXT Official Light Stick Ver.2",
+    "tagline": "Next-Gen Concert Synced Bluetooth Light Device",
     "category": "Accessories",
     "price": 55.00,
     "currency": "USD",
+    "rating": 4.9,
+    "reviewCount": 384,
     "image": "/images/store/lightstick-v2.webp",
-    "description": "Official light stick featuring Bluetooth control mode, motion sensor synchronization, and high-intensity cross logo projection beam.",
+    "gallery": [
+      "/images/store/lightstick-v2.webp",
+      "/images/store/lightstick-v2-glow.webp"
+    ],
+    "description": "The official Tomorrow X Together Light Stick Ver.2 connects you directly to the heartbeat of every concert. Engineered with wireless stadium synchronization, dual RGB color spectrums, and a high-intensity cross logo beam projection, this essential concert companion turns every stadium into an enchanted constellation.",
     "isFeatured": true,
     "stock": 42,
+    "sku": "TXT-LS-V2-001",
+    "releaseDate": "May 2024",
+    "manufacturer": "HYBE 360 / BIGHIT MUSIC",
+    "origin": "Republic of Korea",
     "colors": ["Signature White/Cyan"],
     "sizes": ["One Size"],
     "details": [
       "Material: ABS, Polycarbonate, Acrylic",
-      "Power: 3x AAA Batteries (not included)",
+      "Power: 3x AAA Alkaline Batteries (not included)",
       "Wireless control range: up to 10m in concert mode",
       "Package includes: Light Stick, Strap, Dust Bag, Manual"
-    ]
+    ],
+    "features": [
+      "Official Stadium Wireless Bluetooth 5.0 synchronization",
+      "High-output dual LED optics with signature +x+ projection beam",
+      "Dynamic acoustic motion sensor for gesture-activated light patterns",
+      "Ergonomic matte handle with tactile grip and lanyard eyelet",
+      "Official Weverse App integration for concert seat pairing"
+    ],
+    "packageContents": [
+      "1x TXT Official Light Stick Ver.2",
+      "1x Custom Embroidered Wrist Strap",
+      "1x Non-woven Dust Storage Bag",
+      "1x Comprehensive User Guide & Safety Manual",
+      "1x Official BIGHIT Hologram Authenticity Card"
+    ],
+    "specifications": {
+      "Dimensions": "239 x 100 x 50 mm",
+      "Weight": "Approx. 150g (excluding batteries)",
+      "Battery Type": "3x AAA Alkaline Batteries (not included)",
+      "Operating Time": "Approx. 4 - 6 hours continuously",
+      "Wireless Mode": "Bluetooth Low Energy 5.0"
+    }
   },
   {
     "id": "txt-act-promise-hoodie",
     "name": "ACT : PROMISE World Tour Oversized Hoodie",
+    "tagline": "Heavyweight 450GSM Tour Streetwear Hoodie",
     "category": "Apparel",
     "price": 85.00,
     "currency": "USD",
+    "rating": 5.0,
+    "reviewCount": 219,
     "image": "/images/store/hoodie-tour.webp",
-    "description": "Heavyweight 450GSM premium French terry cotton hoodie with embroidered monochrome +x+ typography on back and tour crest on chest.",
+    "gallery": [
+      "/images/store/hoodie-tour.webp",
+      "/images/store/hoodie-back.webp"
+    ],
+    "description": "Crafted exclusively for the ACT : PROMISE World Tour, this relaxed drop-shoulder hoodie combines luxury heavyweight French terry cotton with tactile multi-layer embroidery. Featuring the iconic +x+ typography emblazoned across the back and subtle tour coordinates on the chest pocket, it delivers both all-day concert warmth and sleek modern streetwear aesthetics.",
     "isFeatured": true,
     "stock": 18,
+    "sku": "TXT-APP-HOD-023",
+    "releaseDate": "April 2024",
+    "manufacturer": "BIGHIT MUSIC Merch Div.",
+    "origin": "Republic of Korea",
     "colors": ["Onyx Black", "Charcoal Grey"],
     "sizes": ["S", "M", "L", "XL", "XXL"],
     "details": [
@@ -35,18 +78,47 @@
       "Fit: Relaxed drop-shoulder silhouette",
       "Kangaroo pocket and ribbed hem/cuffs",
       "High-density tactile embroidery"
-    ]
+    ],
+    "features": [
+      "Heavyweight 450GSM French terry cotton with brushed interior fleece",
+      "High-density tonal back embroidery featuring ACT : PROMISE typography",
+      "Double-layered structured hood with custom branded gunmetal aglets",
+      "Reinforced bartack stitching at stress points and kangaroo pocket",
+      "Pre-shrunk fabric treatment to prevent shrinkage after cold washing"
+    ],
+    "packageContents": [
+      "1x ACT : PROMISE World Tour Oversized Hoodie",
+      "1x Official Merch Collectible Hangtag",
+      "1x Tour Commemorative Hologram Sticker"
+    ],
+    "specifications": {
+      "Fabric": "100% Combed Heavyweight Cotton (450 GSM)",
+      "Silhouette": "Oversized / Boxy Drop Shoulder",
+      "Care Instructions": "Machine wash cold inside-out, tumble dry low or hang dry",
+      "Hardware": "Custom engraved metal drawcord tips"
+    }
   },
   {
     "id": "album-minisode3-vinyl",
     "name": "minisode 3: TOMORROW (Limited Vinyl Edition)",
+    "tagline": "Collector's 180g Translucent Amber Vinyl Edition",
     "category": "Albums",
     "price": 42.00,
     "currency": "USD",
+    "rating": 5.0,
+    "reviewCount": 512,
     "image": "/images/store/vinyl-minisode3.webp",
-    "description": "12-inch heavyweight translucent amber vinyl featuring master audio pressing, with exclusive 64-page hardcover photobook and lyric poster.",
+    "gallery": [
+      "/images/store/vinyl-minisode3.webp",
+      "/images/albums/minisode3-tomorrow.webp"
+    ],
+    "description": "Experience the sonic journey of minisode 3: TOMORROW in pure audiophile warmth. Pressed on 180-gram heavyweight translucent amber wax, this collector's gatefold LP includes master lacquer disc cutting, an exclusive 64-page large-format photo booklet, a fold-out lyric poster, and five exclusive limited selfie photocards of SOOBIN, YEONJUN, BEOMGYU, TAEHYUN, and HUENINGKAI.",
     "isFeatured": true,
     "stock": 10,
+    "sku": "TXT-ALB-VN3-007",
+    "releaseDate": "April 2024",
+    "manufacturer": "BIGHIT MUSIC / Republic Records",
+    "origin": "Germany (Lacquer Cut) / Korea",
     "colors": ["Translucent Amber"],
     "sizes": ["12-inch LP 33 RPM"],
     "details": [
@@ -54,36 +126,94 @@
       "Includes gatefold packaging with metallic foil embossing",
       "Limited edition numbered hologram sticker",
       "Includes 5 exclusive selfie photocards"
-    ]
+    ],
+    "features": [
+      "Mastered specifically for vinyl at 33 1/3 RPM for optimal dynamic fidelity",
+      "Heavyweight 180-gram virgin audiophile-grade translucent vinyl pressing",
+      "Deluxe tip-on gatefold jacket with soft-touch lamination and holographic foil",
+      "Includes 64-page editorial photobook with unreleased concept photography",
+      "Complete set of 5 member selfie photocards inside sealed envelope"
+    ],
+    "packageContents": [
+      "1x 12-inch 180g Translucent Amber Vinyl LP",
+      "1x Premium Foil-Embossed Gatefold Jacket",
+      "1x 64-Page Hardcover Concept Photobook (300 x 300 mm)",
+      "1x Large Double-Sided Lyric Poster",
+      "5x Member Exclusive Selfie Photocards"
+    ],
+    "specifications": {
+      "Format": "12-inch Vinyl LP (33 1/3 RPM)",
+      "Weight": "180g Audiophile Vinyl",
+      "Tracks": "7 Master Audio Tracks (including Deja Vu, Miracle)",
+      "Packaging": "Gatefold Sleeve with Poly-lined Inner Dust Sleeve"
+    }
   },
   {
     "id": "txt-tour-slogan-towel",
     "name": "ACT : PROMISE Reflective Slogan Towel",
+    "tagline": "Prism Reflective Stage Cheering Towel",
     "category": "Tour Merch",
     "price": 28.00,
     "currency": "USD",
-    "image": "/images/store/lightstick-v2.webp",
-    "description": "Double-sided microfibre cheering slogan with reflective prism typography that sparkles under stage lighting.",
+    "rating": 4.8,
+    "reviewCount": 167,
+    "image": "/images/store/slogan-towel.webp",
+    "gallery": [
+      "/images/store/slogan-towel.webp"
+    ],
+    "description": "Light up the venue with the ACT : PROMISE Reflective Slogan Towel. Crafted from ultra-dense suede microfiber, the bold typography utilizes prism-grade reflective film that flashes under concert spotlights and camera flashes. Designed to be lightweight and portable, it includes a moisture-resistant PVC travel pouch.",
     "isFeatured": false,
     "stock": 55,
+    "sku": "TXT-MRCH-SLG-012",
+    "releaseDate": "May 2024",
+    "manufacturer": "BIGHIT MUSIC Merch Div.",
+    "origin": "Republic of Korea",
     "colors": ["Holographic Silver / Cyan"],
     "sizes": ["80 x 20 cm"],
     "details": [
       "Material: High-density suede microfiber",
       "Water resistant zip pouch included",
       "Official concert cheering accessory"
-    ]
+    ],
+    "features": [
+      "High-intensity prism retroreflective heat-transfer typography",
+      "Plush ultra-absorbent double-faced microfiber suede material",
+      "Durable non-fraying edge overlock stitching",
+      "Includes transparent matte protective zipper case with lanyard clip"
+    ],
+    "packageContents": [
+      "1x ACT : PROMISE Reflective Slogan Towel",
+      "1x Waterproof PVC Carry Pouch with Slide Zipper",
+      "1x Official Concert Tour Tag"
+    ],
+    "specifications": {
+      "Dimensions": "800 x 200 mm",
+      "Material": "80% Polyester, 20% Polyamide Microfiber",
+      "Weight": "Approx. 95g",
+      "Care": "Hand wash gently in lukewarm water, do not iron over reflective print"
+    }
   },
   {
     "id": "album-freefall-cd",
     "name": "The Name Chapter: FREEFALL (Gravity Ver.)",
+    "tagline": "The Complete 3rd Studio Album Package",
     "category": "Albums",
     "price": 26.00,
     "currency": "USD",
+    "rating": 4.9,
+    "reviewCount": 420,
     "image": "/images/albums/freefall.webp",
-    "description": "Standard studio album package containing CD-R, photobook, sticker pack, lyric card, and random photocard (1 of 5).",
+    "gallery": [
+      "/images/albums/freefall.webp",
+      "/images/albums/sanctuary.webp"
+    ],
+    "description": "The third studio album from Tomorrow X Together chronicles the raw reality of falling towards growth. The Gravity Edition features a sleek metallic-tinted digipak housing the official CD-R, a 56-page concept photobook, sticker set, folded mini poster, and 1 random selfie photocard out of 5 member variants.",
     "isFeatured": false,
     "stock": 30,
+    "sku": "TXT-ALB-FFG-003",
+    "releaseDate": "October 2023",
+    "manufacturer": "BIGHIT MUSIC / HYBE",
+    "origin": "Republic of Korea",
     "colors": ["Blue Gravity"],
     "sizes": ["Standard CD"],
     "details": [
@@ -91,24 +221,70 @@
       "CD-R & Envelope",
       "Postcard & Mini Poster",
       "Random Member Photocard (1 of 5)"
-    ]
+    ],
+    "features": [
+      "Full 10-track studio album with hit title tracks Chasing That Feeling and Back for More",
+      "56-page high-definition conceptual photobook with textured metallic cover",
+      "Folded double-sided lyrical mini poster",
+      "Random 1 of 5 collectible member photocards with holographic reverse side"
+    ],
+    "packageContents": [
+      "1x The Name Chapter: FREEFALL CD-R",
+      "1x 56-page Photobook (145 x 205 mm)",
+      "1x Postcard & Mini Poster",
+      "1x Graphic Sticker Pack (5 stickers)",
+      "1x Random Member Photocard (1 of 5)"
+    ],
+    "specifications": {
+      "Format": "Audio CD-R",
+      "Dimensions": "145 x 205 x 12 mm",
+      "Weight": "Approx. 280g",
+      "Audio Tracks": "10 Tracks (Master Audio Edition)"
+    }
   },
   {
     "id": "txt-beanie-cross",
     "name": "TXT Monochrome Cross Knit Beanie",
+    "tagline": "Streetwear Merino Blend Ribbed Beanie",
     "category": "Apparel",
     "price": 38.00,
     "currency": "USD",
-    "image": "/images/store/hoodie-tour.webp",
-    "description": "Rib-knit beanie crafted with ultra-soft Merino wool blend featuring subtle woven +x+ cyan tag.",
+    "rating": 4.9,
+    "reviewCount": 182,
+    "image": "/images/store/beanie-cross.webp",
+    "gallery": [
+      "/images/store/beanie-cross.webp"
+    ],
+    "description": "Stay warm in effortless idol off-duty style. Knitted from an ultra-soft premium Australian Merino wool and acrylic blend, this chunky ribbed beanie features a folded cuff accented with a subtle silicone-welded +x+ badge. Breathable, thermal-regulating, and tailored with a clean unisex crown shape.",
     "isFeatured": false,
     "stock": 25,
+    "sku": "TXT-APP-BNI-019",
+    "releaseDate": "November 2024",
+    "manufacturer": "BIGHIT MUSIC Merch Div.",
+    "origin": "Republic of Korea",
     "colors": ["Pitch Black", "Ashen White"],
     "sizes": ["One Size (Unisex)"],
     "details": [
       "Material: 50% Merino Wool, 50% Acrylic",
       "Fold-over cuff with rubberized logo patch",
       "Thermal heat retention"
-    ]
+    ],
+    "features": [
+      "Chunky 7-gauge rib knit engineered for optimal stretch and shape retention",
+      "Soft, non-itch Australian Merino wool blend with natural moisture management",
+      "Precision heat-welded silicone +x+ emblem on turn-up cuff",
+      "Seamless round top construction for a flattering slouch-free profile"
+    ],
+    "packageContents": [
+      "1x TXT Monochrome Cross Knit Beanie",
+      "1x Recyclable Frosted EVA Zipper Merch Bag",
+      "1x Official Authenticity Certificate Card"
+    ],
+    "specifications": {
+      "Composition": "50% Fine Merino Wool, 50% Acrylic",
+      "Fit": "One Size Fits Most (Unisex, stretch circumference 54 - 60 cm)",
+      "Weight": "Approx. 85g",
+      "Care Instructions": "Hand wash cold with wool detergent, reshape and dry flat"
+    }
   }
 ]

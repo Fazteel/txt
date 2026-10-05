@@ -326,11 +326,11 @@ export default function MemberModal() {
             </div>
 
             <div className="lg:col-span-3 lg:px-6 relative min-w-0">
-              <div className="rounded-xl overflow-hidden bg-neutral-950 border border-white/10 aspect-[16/10] max-h-[160px] sm:max-h-[180px] mb-4 shadow-lg group">
+              <div className="w-full rounded-xl overflow-hidden bg-neutral-950 border border-white/10 aspect-video sm:aspect-[16/10] mb-4 shadow-lg group">
                 <img
                   src={member.photoStory1 || member.photoThumb}
                   alt={`${member.stageName} Story 01`}
-                  className="w-full h-full object-cover object-top filter grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center filter grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
@@ -338,7 +338,7 @@ export default function MemberModal() {
                 <h3 className="text-3xl font-display font-black text-white tracking-tight leading-none">
                   01
                 </h3>
-                <p className="text-xs sm:text-sm font-light text-neutral-300 leading-relaxed font-sans text-justify opacity-95">
+                <p className="text-xs sm:text-sm font-light text-neutral-300 leading-relaxed font-sans text-left sm:text-justify opacity-95">
                   {member.story01 || member.vocalRole}
                 </p>
               </div>
@@ -347,7 +347,7 @@ export default function MemberModal() {
             </div>
 
             <div className="lg:col-span-3 lg:px-6 relative min-w-0">
-              <div className="rounded-xl overflow-hidden bg-neutral-950 border border-white/10 aspect-[16/10] max-h-[160px] sm:max-h-[180px] mb-4 shadow-lg group">
+              <div className="w-full rounded-xl overflow-hidden bg-neutral-950 border border-white/10 aspect-video sm:aspect-[16/10] mb-4 shadow-lg group">
                 <img
                   src={member.photoCloseup || member.photoThumb}
                   alt={`${member.stageName} Close-up 02`}
@@ -359,7 +359,7 @@ export default function MemberModal() {
                 <h3 className="text-3xl font-display font-black text-white tracking-tight leading-none">
                   02
                 </h3>
-                <p className="text-xs sm:text-sm font-light text-neutral-300 leading-relaxed font-sans text-justify opacity-95">
+                <p className="text-xs sm:text-sm font-light text-neutral-300 leading-relaxed font-sans text-left sm:text-justify opacity-95">
                   {member.story02 || member.tmi?.join(' ')}
                 </p>
               </div>

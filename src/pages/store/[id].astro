@@ -1,0 +1,48 @@
+---
+import RootLayout from '../../layouts/RootLayout.astro';
+import ProductPurchaseIsland from '../../components/islands/ProductPurchaseIsland';
+import FooterCTA from '../../components/sections/FooterCTA.astro';
+import productsData from '../../data/products.json';
+
+export async function getStaticPaths() {
+  return productsData.map((product) => ({
+    params: { id: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+
+const relatedProducts = productsData.filter((p) => p.id !== product.id);
+---
+
+<RootLayout
+  title={`${product.name} | TXT Official Store`}
+  description={product.description}
+>
+  <div class="bg-[#0a0a0a] min-h-screen text-white pt-28 pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-8">
+      <nav class="flex items-center gap-2 text-xs text-neutral-400 py-3 mb-6 border-b border-white/10">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <a href="/store" class="hover:text-white transition-colors">Store</a>
+        <span>/</span>
+        <a href={`/store?cat=${product.category}`} class="hover:text-[#00c5c8] transition-colors">
+          {product.category}
+        </a>
+        <span>/</span>
+        <span class="text-white font-medium truncate max-w-[200px] sm:max-w-none">
+          {product.name}
+        </span>
+      </nav>
+
+      <ProductPurchaseIsland
+        client:load
+        product={product as any}
+        relatedProducts={relatedProducts as any}
+      />
+    </div>
+  </div>
+
+  <FooterCTA />
+</RootLayout>

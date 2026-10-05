@@ -6,11 +6,13 @@ import MemberModal from '../components/islands/MemberModal';
 interface Props {
   title?: string;
   description?: string;
+  solidHeader?: boolean;
 }
 
 const {
   title = 'TOMORROW X TOGETHER | Official Showcase & Store',
   description = 'Experience the cinematic universe of Tomorrow X Together (TXT). Interactive vinyl turntable player, lore, tour dates, and official merchandise.',
+  solidHeader = false,
 } = Astro.props;
 ---
 
@@ -29,7 +31,8 @@ const {
   <body class="bg-[#0a0a0a] text-white selection:bg-[#F8138D] selection:text-white">
     <header
       id="main-header"
-      class="fixed top-0 inset-x-0 z-40 navbar-visible navbar-transparent border-b"
+      class={`fixed top-0 inset-x-0 z-40 navbar-visible border-b ${solidHeader ? 'bg-[#0a0a0a] border-white/10' : 'navbar-transparent'}`}
+      data-solid-header={solidHeader ? 'true' : 'false'}
     >
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="/" class="flex items-center group" aria-label="TXT Home">
@@ -180,12 +183,22 @@ const {
 
         if (currentY <= 60) {
           header.classList.remove('navbar-hidden', 'navbar-scrolled');
-          header.classList.add('navbar-visible', 'navbar-transparent');
-          header.style.transform = 'translateY(0)';
-          header.style.backgroundColor = 'transparent';
-          header.style.borderBottomColor = 'transparent';
-          header.style.backdropFilter = 'none';
-          (header.style as any).webkitBackdropFilter = 'none';
+          const isSolid = header.getAttribute('data-solid-header') === 'true';
+          if (isSolid) {
+            header.classList.add('navbar-visible');
+            header.style.transform = 'translateY(0)';
+            header.style.backgroundColor = '#0a0a0a';
+            header.style.borderBottomColor = 'rgba(255, 255, 255, 0.1)';
+            header.style.backdropFilter = 'none';
+            (header.style as any).webkitBackdropFilter = 'none';
+          } else {
+            header.classList.add('navbar-visible', 'navbar-transparent');
+            header.style.transform = 'translateY(0)';
+            header.style.backgroundColor = 'transparent';
+            header.style.borderBottomColor = 'transparent';
+            header.style.backdropFilter = 'none';
+            (header.style as any).webkitBackdropFilter = 'none';
+          }
           isHeaderHidden = false;
           lastScrollY = currentY;
           return;

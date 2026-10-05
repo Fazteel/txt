@@ -143,7 +143,13 @@ export default function CartDrawer() {
                   />
                   <div className="flex-1 min-w-0 flex flex-col justify-between">
                     <div>
-                      <h4 className="text-sm font-semibold truncate text-white">{item.name}</h4>
+                      <a
+                        href={`/store/${item.id}`}
+                        onClick={closeCart}
+                        className="text-sm font-semibold truncate text-white hover:text-[#F8138D] transition-colors block"
+                      >
+                        {item.name}
+                      </a>
                       <div className="flex items-center gap-2 mt-1 text-xs text-neutral-400">
                         {item.size && <span>Size: {item.size}</span>}
                         {item.color && <span>• Color: {item.color}</span>}

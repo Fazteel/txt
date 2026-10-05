@@ -3,17 +3,17 @@ import SectionHeading from '../ui/SectionHeading.astro';
 import membersData from '../../data/members.json';
 ---
 
-<section id="members-pinned-section" class="relative bg-[#0d0d10] pt-8 pb-10 sm:pt-10 sm:pb-12 overflow-hidden border-t border-white/5">
-  <div class="max-w-7xl mx-auto px-6 mb-4 sm:mb-6 flex flex-col md:flex-row md:items-end justify-between gap-3">
+<section id="members-pinned-section" class="relative bg-[#0d0d10] min-h-screen flex flex-col justify-center overflow-hidden border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full mb-2 sm:mb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
     <div>
-      <div class="flex items-center gap-2 text-xs font-mono font-semibold tracking-[0.25em] uppercase text-[#F8138D] mb-1">
+      <div class="flex items-center gap-2 text-xs font-mono font-semibold tracking-[0.25em] uppercase text-[#F8138D] mb-1.5">
         <span class="w-2 h-0.5 bg-[#F8138D]"></span>
         <span>We are</span>
       </div>
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-black tracking-tight text-white uppercase">
         TOMORROW X TOGETHER
       </h2>
-      <p class="max-w-xl text-neutral-400 text-xs sm:text-sm leading-relaxed mt-1 line-clamp-2">
+      <p class="max-w-xl text-neutral-400 text-xs sm:text-sm leading-relaxed mt-1.5 line-clamp-2">
         TOMORROW X TOGETHER is composed of five shining members: SOOBIN, YEONJUN, BEOMGYU, TAEHYUN, and HUENINGKAI. Select any member to explore their complete deep-dive profile.
       </p>
     </div>
@@ -28,7 +28,7 @@ import membersData from '../../data/members.json';
       {
         membersData.map((member, index) => (
           <div
-            class="member-card shrink-0 relative w-[80vw] max-w-[280px] sm:w-[300px] h-full rounded-2xl bg-[#141418] border border-white/10 overflow-hidden flex flex-col justify-between transition-all duration-500 hover:border-[#F8138D]/60 hover:shadow-[0_20px_45px_rgba(248,19,141,0.25)] hover:-translate-y-1.5 group cursor-pointer"
+            class="member-card shrink-0 relative w-[80vw] max-w-[280px] sm:max-w-none sm:w-[280px] md:w-[300px] lg:w-[320px] rounded-2xl bg-[#141418] border border-white/10 overflow-hidden flex flex-col justify-between transition-all duration-500 hover:border-[#F8138D]/60 hover:shadow-[0_20px_45px_rgba(248,19,141,0.25)] hover:-translate-y-1.5 group cursor-pointer"
             data-member-id={member.id}
             data-member-name={member.stageName}
             data-member-index={index}
@@ -58,19 +58,6 @@ import membersData from '../../data/members.json';
                 <p class="text-xs text-neutral-400 font-medium">
                   {member.fullName}
                 </p>
-              </div>
-
-              <div class="pt-4 mt-4 border-t border-white/10">
-                <button
-                  type="button"
-                  data-btn-explore={member.id}
-                  class="btn-explore-member w-full inline-flex items-center justify-between px-3.5 py-2 rounded-xl bg-white/[0.04] group-hover:bg-[#F8138D]/15 border border-white/10 group-hover:border-[#F8138D]/50 text-xs font-medium text-neutral-300 group-hover:text-white transition-all duration-300 shadow-sm"
-                >
-                  <span class="font-mono tracking-wider font-semibold">Explore Profile</span>
-                  <span class="w-5 h-5 rounded-full bg-white/10 group-hover:bg-[#F8138D] text-white flex items-center justify-center text-xs font-bold transition-all transform group-hover:rotate-45">
-                    +
-                  </span>
-                </button>
               </div>
             </div>
           </div>
@@ -105,6 +92,8 @@ import membersData from '../../data/members.json';
 
     if (!section || !container || !track) return;
 
+    const getScrollDistance = () => Math.max(0, track.scrollWidth - window.innerWidth);
+
     const updatePin = () => {
       ScrollTrigger.getAll().forEach((st) => {
         if (st.vars.id === 'members-horizontal-pin') {
@@ -112,45 +101,30 @@ import membersData from '../../data/members.json';
         }
       });
 
-      const totalScrollWidth = track.scrollWidth - window.innerWidth;
+      const totalScrollWidth = getScrollDistance();
       if (totalScrollWidth > 0 && window.innerWidth >= 768) {
+        gsap.set(track, { clearProps: 'transform' });
+
         const tl = gsap.timeline({
           scrollTrigger: {
             id: 'members-horizontal-pin',
-            trigger: container,
-            pin: section,
+            trigger: section,
+            pin: true,
             scrub: 1,
-            start: 'center center',
-            end: () => `+=${totalScrollWidth + 1200}`,
+            start: 'top top',
+            end: () => `+=${Math.max(totalScrollWidth * 1.5, 1200)}`,
+            anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               const p = self.progress;
-              if (p < 0.20) {
-                updateMemberBadge(0);
-              } else if (p > 0.85) {
-                updateMemberBadge(4);
-              } else {
-                const activeProgress = (p - 0.20) / 0.65;
-                const idx = Math.min(4, Math.floor(activeProgress * 5));
-                updateMemberBadge(idx);
-              }
+              const idx = Math.min(4, Math.floor(p * 5));
+              updateMemberBadge(idx);
             },
           },
         });
 
         tl.to(track, {
-          x: 0,
-          duration: 0.5,
-          ease: 'none',
-        })
-        .to(track, {
-          x: () => -totalScrollWidth - 60,
-          duration: 1.5,
-          ease: 'none',
-        })
-        .to(track, {
-          x: () => -totalScrollWidth - 60,
-          duration: 0.4,
+          x: () => -getScrollDistance(),
           ease: 'none',
         });
       } else {
@@ -160,8 +134,7 @@ import membersData from '../../data/members.json';
 
     const cards = track.querySelectorAll('.member-card');
     cards.forEach((card, idx) => {
-      card.addEventListener('click', (e) => {
-        const target = e.target as HTMLElement;
+      card.addEventListener('click', () => {
         const memberId = card.getAttribute('data-member-id');
 
         if (memberId) {
@@ -172,16 +145,14 @@ import membersData from '../../data/members.json';
           const st = ScrollTrigger.getById('members-horizontal-pin');
           if (st) {
             const clampedIdx = Math.max(0, Math.min(4, idx));
-            let targetProgress = 0;
-            if (clampedIdx === 0) {
-              targetProgress = 0.10;
-            } else if (clampedIdx === 4) {
-              targetProgress = 0.92;
-            } else {
-              targetProgress = 0.20 + (clampedIdx / 4) * 0.65;
-            }
+            const targetProgress = (clampedIdx + 0.5) / 5;
             const targetY = st.start + targetProgress * (st.end - st.start);
-            window.scrollTo({ top: targetY, behavior: 'smooth' });
+            const lenis = (window as any).__lenis;
+            if (lenis && typeof lenis.scrollTo === 'function') {
+              lenis.scrollTo(targetY);
+            } else {
+              window.scrollTo({ top: targetY, behavior: 'smooth' });
+            }
           }
         }
       });
@@ -189,6 +160,7 @@ import membersData from '../../data/members.json';
 
     updatePin();
     window.addEventListener('resize', updatePin);
+    window.addEventListener('load', () => ScrollTrigger.refresh());
   }
 
   if (document.readyState === 'loading') {

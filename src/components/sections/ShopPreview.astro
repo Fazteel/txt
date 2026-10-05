@@ -24,7 +24,7 @@ import productsData from '../../data/products.json';
       {
         productsData.slice(0, 3).map((product) => (
           <a
-            href="/store"
+            href={`/store/${product.id}`}
             class="group relative bg-[#131317] border border-white/10 rounded-2xl overflow-hidden hover:border-[#F8138D]/50 transition-all duration-300 hover:shadow-[0_15px_35px_rgba(0,0,0,0.8)] flex flex-col"
           >
             <div class="relative aspect-square w-full bg-black/50 overflow-hidden">
@@ -60,7 +60,7 @@ import productsData from '../../data/products.json';
                   </span>
                 </div>
                 <span class="text-xs font-semibold text-[#F8138D] group-hover:translate-x-1 transition-transform">
-                  View in Store →
+                  Explore Details →
                 </span>
               </div>
             </div>
