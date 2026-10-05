@@ -5,7 +5,7 @@ export interface PlayingTrack {
   albumTitle: string;
   coverImage: string;
   themeColor: string;
-  trackNo: number;
+  trackNo?: number;
   title: string;
   startAtSecond: number;
   previewAudioUrl: string;

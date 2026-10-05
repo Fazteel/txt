@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import CartDrawer from '../components/islands/CartDrawer';
+import MemberModal from '../components/islands/MemberModal';
 
 interface Props {
   title?: string;
@@ -26,7 +27,10 @@ const {
     <title>{title}</title>
   </head>
   <body class="bg-[#0a0a0a] text-white selection:bg-[#F8138D] selection:text-white">
-    <header class="fixed top-0 inset-x-0 z-40 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <header
+      id="main-header"
+      class="fixed top-0 inset-x-0 z-40 navbar-visible navbar-transparent border-b"
+    >
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="/" class="flex items-center group" aria-label="TXT Home">
           <span class="text-2xl font-black text-[#F8138D] font-display tracking-wider transition-transform group-hover:scale-110">
@@ -127,6 +131,7 @@ const {
     </main>
 
     <CartDrawer client:load />
+    <MemberModal client:load />
 
     <script>
       import Lenis from 'lenis';
@@ -143,6 +148,8 @@ const {
         smoothWheel: true,
       });
 
+      (window as any).__lenis = lenis;
+
       lenis.on('scroll', ScrollTrigger.update);
 
       gsap.ticker.add((time) => {
@@ -150,13 +157,75 @@ const {
       });
       gsap.ticker.lagSmoothing(0);
 
+      const header = document.getElementById('main-header');
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileDrawer = document.getElementById('mobile-nav-drawer');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const closeIcon = document.getElementById('close-icon');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      const badge = document.getElementById('cart-badge-count');
+      const cartBtn = document.getElementById('nav-cart-btn');
+
+      let isMobileMenuOpen = false;
+      let lastScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+      let isHeaderHidden = false;
+
+      function updateNavbar(scrollY: number, forceDirection?: number) {
+        if (!header) return;
+        if (isMobileMenuOpen) return;
+
+        const currentY = Math.max(0, scrollY);
+        const delta = currentY - lastScrollY;
+        const direction = forceDirection !== undefined ? forceDirection : delta > 2 ? 1 : delta < -2 ? -1 : 0;
+
+        if (currentY <= 60) {
+          header.classList.remove('navbar-hidden', 'navbar-scrolled');
+          header.classList.add('navbar-visible', 'navbar-transparent');
+          header.style.transform = 'translateY(0)';
+          header.style.backgroundColor = 'transparent';
+          header.style.borderBottomColor = 'transparent';
+          header.style.backdropFilter = 'none';
+          (header.style as any).webkitBackdropFilter = 'none';
+          isHeaderHidden = false;
+          lastScrollY = currentY;
+          return;
+        }
+
+        header.classList.remove('navbar-transparent');
+        header.classList.add('navbar-scrolled');
+        header.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+        header.style.borderBottomColor = 'rgba(255, 255, 255, 0.1)';
+        header.style.backdropFilter = 'blur(16px)';
+        (header.style as any).webkitBackdropFilter = 'blur(16px)';
+
+        if (direction === 1 && !isHeaderHidden) {
+          header.classList.remove('navbar-visible');
+          header.classList.add('navbar-hidden');
+          header.style.transform = 'translateY(-100%)';
+          isHeaderHidden = true;
+        } else if (direction === -1 && isHeaderHidden) {
+          header.classList.remove('navbar-hidden');
+          header.classList.add('navbar-visible');
+          header.style.transform = 'translateY(0)';
+          isHeaderHidden = false;
+        }
+
+        lastScrollY = currentY;
+      }
+
+      lenis.on('scroll', (e: any) => {
+        updateNavbar(e.scroll, e.direction);
+      });
+
       window.addEventListener('scroll', () => {
         if (window.scrollX !== 0) {
           window.scrollTo({ left: 0 });
         }
-      });
+        updateNavbar(window.scrollY);
+      }, { passive: true });
 
-      const badge = document.getElementById('cart-badge-count');
+      updateNavbar(window.scrollY);
+
       totalCartCount.subscribe((count) => {
         if (badge) {
           badge.textContent = count.toString();
@@ -164,22 +233,21 @@ const {
         }
       });
 
-      const cartBtn = document.getElementById('nav-cart-btn');
       cartBtn?.addEventListener('click', () => {
         openCart();
       });
 
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const mobileDrawer = document.getElementById('mobile-nav-drawer');
-      const hamburgerIcon = document.getElementById('hamburger-icon');
-      const closeIcon = document.getElementById('close-icon');
-      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-      let isMobileMenuOpen = false;
-
       function toggleMobileMenu(open?: boolean) {
         isMobileMenuOpen = open !== undefined ? open : !isMobileMenuOpen;
         if (isMobileMenuOpen) {
+          header?.classList.remove('navbar-hidden', 'navbar-transparent');
+          header?.classList.add('navbar-visible', 'navbar-scrolled');
+          if (header) {
+            header.style.transform = 'translateY(0)';
+            header.style.backgroundColor = 'rgba(0, 0, 0, 0.85)';
+            header.style.backdropFilter = 'blur(16px)';
+            (header.style as any).webkitBackdropFilter = 'blur(16px)';
+          }
           mobileDrawer?.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
           mobileDrawer?.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
           hamburgerIcon?.classList.add('hidden');
@@ -189,6 +257,7 @@ const {
           mobileDrawer?.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
           hamburgerIcon?.classList.remove('hidden');
           closeIcon?.classList.add('hidden');
+          updateNavbar(window.scrollY);
         }
       }
 

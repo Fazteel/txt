@@ -1,6 +1,6 @@
 ---
 import SectionHeading from '../ui/SectionHeading.astro';
-import ScheduleHub from '../islands/ScheduleHub';
+import ScheduleSplitGrid from '../islands/ScheduleSplitGrid';
 ---
 
 <section id="schedule-section" class="relative bg-[#0a0a0c] py-24 px-6 sm:px-12 border-t border-white/5 overflow-hidden">
@@ -8,14 +8,14 @@ import ScheduleHub from '../islands/ScheduleHub';
 
   <div class="max-w-7xl mx-auto relative z-10">
     <SectionHeading
-      subtitle="Interactive Tour Calendar"
+      subtitle="ACT : PROMISE World Tour"
       title="SCHEDULE & ITINERARY"
       align="center"
     />
     <p class="max-w-2xl mx-auto text-center text-neutral-400 text-xs sm:text-sm -mt-6 mb-12">
-      Explore official world tour stages, fan meetings, and media premieres. Select any date from the interactive strip to inspect venue details and ticket status.
+      Experience TOMORROW X TOGETHER live on stage. Explore confirmed stadium & arena dates, countdown to upcoming shows, and secure official concert tickets.
     </p>
 
-    <ScheduleHub client:visible />
+    <ScheduleSplitGrid client:visible />
   </div>
 </section>

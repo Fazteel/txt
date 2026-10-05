@@ -20,3 +20,7 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+## Code Style & Cleanliness
+- DO NOT write decorative, aesthetic, or section divider comments (e.g., `{/* ================= ... ================= */}` or `{/* Subtle Ambient Color Glow */}`).
+- Never add unnecessary explanatory comments inside JSX/markup. Code should be clean and self-documenting.
+- Write code only. No fluff, no banner comments, no visual noise.

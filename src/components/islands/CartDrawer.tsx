@@ -20,14 +20,36 @@ export default function CartDrawer() {
   const [checkoutComplete, setCheckoutComplete] = useState(false);
 
   useEffect(() => {
+    const lenisInstance = (window as any).__lenis;
     if (isOpen) {
+      if (lenisInstance) {
+        try {
+          lenisInstance.stop();
+        } catch (err) {}
+      }
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
     } else {
+      if (lenisInstance) {
+        try {
+          lenisInstance.start();
+        } catch (err) {}
+      }
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
+      document.body.style.touchAction = '';
       setCheckoutComplete(false);
     }
     return () => {
+      if (lenisInstance) {
+        try {
+          lenisInstance.start();
+        } catch (err) {}
+      }
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     };
   }, [isOpen]);
 
@@ -52,7 +74,7 @@ export default function CartDrawer() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden transition-all duration-300">
+    <div data-lenis-prevent className="fixed inset-0 z-50 overflow-hidden transition-all duration-300">
       <div
         className="absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity cursor-pointer"
         onClick={closeCart}
@@ -77,7 +99,7 @@ export default function CartDrawer() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+          <div data-lenis-prevent className="flex-1 overflow-y-auto overscroll-contain touch-pan-y p-6 space-y-4">
             {checkoutComplete ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
                 <CheckCircle2 className="w-16 h-16 text-[#F8138D] animate-bounce" />

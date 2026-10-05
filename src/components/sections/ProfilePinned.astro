@@ -14,7 +14,7 @@ import membersData from '../../data/members.json';
         TOMORROW X TOGETHER
       </h2>
       <p class="max-w-xl text-neutral-400 text-xs sm:text-sm leading-relaxed mt-1 line-clamp-2">
-        TOMORROW X TOGETHER is a bright and youthful boyband composed of five members: SOOBIN, YEONJUN, BEOMGYU, TAEHYUN, and HUENINGKAI.
+        TOMORROW X TOGETHER is composed of five shining members: SOOBIN, YEONJUN, BEOMGYU, TAEHYUN, and HUENINGKAI. Select any member to explore their complete deep-dive profile.
       </p>
     </div>
 
@@ -23,19 +23,19 @@ import membersData from '../../data/members.json';
   <div id="members-pin-container" data-lenis-prevent class="relative w-full overflow-x-auto md:overflow-hidden scrollbar-none overscroll-x-contain">
     <div
       id="members-track"
-      class="flex gap-4 sm:gap-6 px-4 sm:px-12 w-max items-center py-2 select-none"
+      class="flex gap-4 sm:gap-6 px-4 sm:px-12 w-max items-stretch py-4 select-none"
     >
       {
         membersData.map((member, index) => (
           <div
-            class="member-card shrink-0 relative w-[80vw] max-w-[280px] sm:w-[300px] rounded-2xl bg-[#141418] border border-white/10 overflow-hidden flex flex-col transition-all duration-500 hover:border-[#F8138D]/60 hover:shadow-[0_20px_45px_rgba(248,19,141,0.25)] hover:-translate-y-1 group cursor-pointer"
+            class="member-card shrink-0 relative w-[80vw] max-w-[280px] sm:w-[300px] h-full rounded-2xl bg-[#141418] border border-white/10 overflow-hidden flex flex-col justify-between transition-all duration-500 hover:border-[#F8138D]/60 hover:shadow-[0_20px_45px_rgba(248,19,141,0.25)] hover:-translate-y-1.5 group cursor-pointer"
             data-member-id={member.id}
             data-member-name={member.stageName}
             data-member-index={index}
           >
-            <div class="relative w-full aspect-square overflow-hidden bg-neutral-900">
+            <div class="relative w-full aspect-square overflow-hidden bg-neutral-900 shrink-0">
               <img
-                src={member.image}
+                src={member.photoThumb || member.photoFull}
                 alt={member.stageName}
                 width="1000"
                 height="1000"
@@ -45,23 +45,32 @@ import membersData from '../../data/members.json';
               <div class="absolute inset-0 bg-gradient-to-t from-[#141418] via-transparent to-black/30 pointer-events-none" />
             </div>
 
-            <div class="relative p-4 sm:p-5 flex flex-col justify-between flex-1 bg-[#141418]">
-              <div class="space-y-1">
-                <span class="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-[#F8138D] font-semibold block">
-                  {member.role}
-                </span>
-                <h3 class="text-xl sm:text-2xl font-display font-black tracking-tight text-white uppercase group-hover:text-[#F8138D] transition-colors leading-none">
+            <div class="relative p-5 flex flex-col justify-between flex-1 bg-[#141418]">
+              <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-[#F8138D] font-bold block">
+                    {member.role}
+                  </span>
+                </div>
+                <h3 class="text-2xl font-display font-black tracking-tight text-white uppercase group-hover:text-[#F8138D] transition-colors leading-none">
                   {member.stageName}
                 </h3>
-                <p class="text-xs text-neutral-400 font-medium pt-0.5">
-                  {member.fullName} <span class="text-white/20 mx-1">•</span> Born {member.birthDate}
+                <p class="text-xs text-neutral-400 font-medium">
+                  {member.fullName}
                 </p>
               </div>
 
-              <div class="pt-3 mt-3 border-t border-white/10">
-                <p class="text-xs text-neutral-300 italic font-light leading-relaxed line-clamp-2">
-                  "{member.quote}"
-                </p>
+              <div class="pt-4 mt-4 border-t border-white/10">
+                <button
+                  type="button"
+                  data-btn-explore={member.id}
+                  class="btn-explore-member w-full inline-flex items-center justify-between px-3.5 py-2 rounded-xl bg-white/[0.04] group-hover:bg-[#F8138D]/15 border border-white/10 group-hover:border-[#F8138D]/50 text-xs font-medium text-neutral-300 group-hover:text-white transition-all duration-300 shadow-sm"
+                >
+                  <span class="font-mono tracking-wider font-semibold">Explore Profile</span>
+                  <span class="w-5 h-5 rounded-full bg-white/10 group-hover:bg-[#F8138D] text-white flex items-center justify-center text-xs font-bold transition-all transform group-hover:rotate-45">
+                    +
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -93,8 +102,6 @@ import membersData from '../../data/members.json';
     const section = document.getElementById('members-pinned-section');
     const container = document.getElementById('members-pin-container');
     const track = document.getElementById('members-track');
-    const prevBtn = document.getElementById('btn-prev-member');
-    const nextBtn = document.getElementById('btn-next-member');
 
     if (!section || !container || !track) return;
 
@@ -146,49 +153,21 @@ import membersData from '../../data/members.json';
           duration: 0.4,
           ease: 'none',
         });
-
-        const scrollToMember = (targetIdx: number) => {
-          const st = ScrollTrigger.getById('members-horizontal-pin');
-          if (!st) return;
-          const clampedIdx = Math.max(0, Math.min(4, targetIdx));
-          let targetProgress = 0;
-          if (clampedIdx === 0) {
-            targetProgress = 0.10;
-          } else if (clampedIdx === 4) {
-            targetProgress = 0.92;
-          } else {
-            targetProgress = 0.20 + (clampedIdx / 4) * 0.65;
-          }
-          const targetY = st.start + targetProgress * (st.end - st.start);
-          window.scrollTo({ top: targetY, behavior: 'smooth' });
-        };
-
-        if (prevBtn) {
-          prevBtn.onclick = () => scrollToMember(currentActiveIndex - 1);
-        }
-        if (nextBtn) {
-          nextBtn.onclick = () => scrollToMember(currentActiveIndex + 1);
-        }
       } else {
         gsap.set(track, { clearProps: 'transform' });
-
-        if (prevBtn) {
-          prevBtn.onclick = () => {
-            container.scrollBy({ left: -300, behavior: 'smooth' });
-          };
-        }
-        if (nextBtn) {
-          nextBtn.onclick = () => {
-            container.scrollBy({ left: 300, behavior: 'smooth' });
-          };
-        }
       }
     };
 
     const cards = track.querySelectorAll('.member-card');
     cards.forEach((card, idx) => {
       card.addEventListener('click', (e) => {
-        e.preventDefault();
+        const target = e.target as HTMLElement;
+        const memberId = card.getAttribute('data-member-id');
+
+        if (memberId) {
+          window.dispatchEvent(new CustomEvent('open-member-modal', { detail: memberId }));
+        }
+
         if (window.innerWidth >= 768) {
           const st = ScrollTrigger.getById('members-horizontal-pin');
           if (st) {
@@ -204,10 +183,6 @@ import membersData from '../../data/members.json';
             const targetY = st.start + targetProgress * (st.end - st.start);
             window.scrollTo({ top: targetY, behavior: 'smooth' });
           }
-        } else {
-          const cardElem = card as HTMLElement;
-          const scrollLeft = cardElem.offsetLeft - container.offsetWidth / 2 + cardElem.offsetWidth / 2;
-          container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
         }
       });
     });
