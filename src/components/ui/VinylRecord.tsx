@@ -42,11 +42,9 @@ export default function VinylRecord({
         }`}
       >
         <div
-          className={`w-full h-full relative rounded-full ${
-            isPlaying ? 'animate-[spin_4s_linear_infinite]' : ''
-          }`}
+          className="w-full h-full relative rounded-full animate-[spin_4s_linear_infinite]"
           style={{
-            animationPlayState: isPlaying ? 'running' : 'paused',
+            animationPlayState: isHovered || isPlaying ? 'running' : 'paused',
           }}
         >
           <img
