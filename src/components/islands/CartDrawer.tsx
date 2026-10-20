@@ -9,15 +9,22 @@ import {
   removeFromCart,
   clearCart
 } from '../../stores/cartStore';
-import { X, Trash2, ShoppingBag, Plus, Minus, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { X, Trash2, ShoppingBag, Plus, Minus, ArrowRight, CheckCircle2, MapPin } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { currentUser } from '../../stores/authStore';
 
 export default function CartDrawer() {
   const isOpen = useStore(isCartOpen);
   const items = useStore(cartItems);
   const subtotal = useStore(cartSubtotal);
+  const user = useStore(currentUser);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [checkoutComplete, setCheckoutComplete] = useState(false);
+
+  const selectedAddress =
+    user?.addresses?.find((a) => a.id === user?.selectedAddressId) ||
+    user?.addresses?.find((a) => a.isDefault) ||
+    user?.addresses?.[0];
 
   useEffect(() => {
     const lenisInstance = (window as any).__lenis;
@@ -189,7 +196,39 @@ export default function CartDrawer() {
           </div>
 
           {!checkoutComplete && items.length > 0 && (
-            <div className="p-6 border-t border-white/10 bg-neutral-950/70 space-y-4">
+            <div className="p-6 border-t border-white/10 bg-neutral-950/70 space-y-3.5">
+              {selectedAddress ? (
+                <div className="bg-black/50 border border-white/10 rounded-xl p-3 text-xs">
+                  <div className="flex items-center justify-between text-neutral-400 mb-1">
+                    <span className="flex items-center gap-1.5 text-neutral-200 font-semibold">
+                      <MapPin className="w-3.5 h-3.5 text-[#F8138D]" />
+                      <span>Kirim ke: {selectedAddress.label}</span>
+                    </span>
+                    <a
+                      href="/address"
+                      onClick={closeCart}
+                      className="text-[#F8138D] text-[11px] hover:underline"
+                    >
+                      Ubah Alamat
+                    </a>
+                  </div>
+                  <p className="text-[11px] text-neutral-400 truncate">
+                    {selectedAddress.street}, {selectedAddress.city}
+                  </p>
+                </div>
+              ) : (
+                <div className="bg-black/40 border border-white/10 rounded-xl p-3 text-xs flex items-center justify-between">
+                  <span className="text-neutral-400 text-[11px]">Belum ada alamat pengiriman</span>
+                  <a
+                    href="/address"
+                    onClick={closeCart}
+                    className="text-[#F8138D] font-semibold text-xs hover:underline"
+                  >
+                    + Atur Alamat
+                  </a>
+                </div>
+              )}
+
               <div className="flex justify-between items-center text-sm">
                 <span className="text-neutral-400">Subtotal</span>
                 <span className="text-xl font-bold font-display text-white">

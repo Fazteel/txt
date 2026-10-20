@@ -1,0 +1,35 @@
+---
+import RootLayout from '../layouts/RootLayout.astro';
+import AuthShowcaseIsland from '../components/islands/AuthShowcaseIsland';
+import HeroBackground from '../components/ui/HeroBackground.astro';
+---
+
+<RootLayout
+  title="Buat Akun & Alamat Pengiriman | TOMORROW X TOGETHER"
+  description="Daftar akun official MOA dan atur alamat pengiriman untuk checkout merchandise resmi TOMORROW X TOGETHER."
+  hideNavbar={true}
+>
+  <div class="relative min-h-screen py-12 px-4 sm:px-6 flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]">
+    <HeroBackground
+      topSubtitle="OFFICIAL MOA REGISTRATION"
+      largeTextPrimary="TOMORROW X TOGETHER"
+      largeTextSecondary="THE NAME CHAPTER • PROMISE"
+    />
+
+    <div class="relative z-10 w-full max-w-4xl mx-auto">
+      <div class="mb-4 flex items-center justify-between text-xs text-neutral-400">
+        <a href="/" class="inline-flex items-center gap-1.5 hover:text-white transition-colors group">
+          <span class="group-hover:-translate-x-1 transition-transform">←</span>
+          <span>Kembali ke Beranda</span>
+        </a>
+        <div class="flex items-center gap-3">
+          <a href="/address" class="hover:text-[#F8138D] transition-colors">Kelola Alamat</a>
+          <span class="text-neutral-600">•</span>
+          <a href="/login" class="hover:text-[#F8138D] transition-colors">Masuk</a>
+        </div>
+      </div>
+
+      <AuthShowcaseIsland client:load />
+    </div>
+  </div>
+</RootLayout>

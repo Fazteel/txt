@@ -2,17 +2,20 @@
 import '../styles/global.css';
 import CartDrawer from '../components/islands/CartDrawer';
 import MemberModal from '../components/islands/MemberModal';
+import UserNavIsland from '../components/islands/UserNavIsland';
 
 interface Props {
   title?: string;
   description?: string;
   solidHeader?: boolean;
+  hideNavbar?: boolean;
 }
 
 const {
   title = 'TOMORROW X TOGETHER | Official Showcase & Store',
   description = 'Experience the cinematic universe of Tomorrow X Together (TXT). Interactive vinyl turntable player, lore, tour dates, and official merchandise.',
   solidHeader = false,
+  hideNavbar = false,
 } = Astro.props;
 ---
 
@@ -29,6 +32,7 @@ const {
     <title>{title}</title>
   </head>
   <body class="bg-[#0a0a0a] text-white selection:bg-[#F8138D] selection:text-white">
+    {!hideNavbar && (
     <header
       id="main-header"
       class={`fixed top-0 inset-x-0 z-40 navbar-visible border-b ${solidHeader ? 'bg-[#0a0a0a] border-white/10' : 'navbar-transparent'}`}
@@ -56,13 +60,15 @@ const {
           </a>
         </nav>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3 sm:gap-4">
           <a
             href="/store"
-            class="hidden sm:inline-flex text-xs font-mono px-3 py-1.5 rounded-full border border-white/10 hover:border-[#F8138D]/50 text-neutral-300 hover:text-white transition-all"
+            class="hidden lg:inline-flex text-xs font-mono px-3 py-1.5 rounded-full border border-white/10 hover:border-[#F8138D]/50 text-neutral-300 hover:text-white transition-all"
           >
             ACT : PROMISE MERCH
           </a>
+
+          <UserNavIsland client:load />
 
           <button
             id="nav-cart-btn"
@@ -118,6 +124,14 @@ const {
             <span>Official Store</span>
             <span class="text-xs font-mono text-[#F8138D]">04</span>
           </a>
+          <a href="/login" class="mobile-nav-link flex items-center justify-between py-2.5 border-b border-white/5 hover:text-[#F8138D] transition-colors text-white">
+            <span>MOA Account / Sign In</span>
+            <span class="text-xs font-mono text-[#F8138D]">05</span>
+          </a>
+          <a href="/address" class="mobile-nav-link flex items-center justify-between py-2.5 border-b border-white/5 hover:text-[#F8138D] transition-colors text-white">
+            <span>Alamat Pengiriman</span>
+            <span class="text-xs font-mono text-[#F8138D]">06</span>
+          </a>
         </nav>
 
         <a
@@ -128,6 +142,7 @@ const {
         </a>
       </div>
     </div>
+    )}
 
     <main class="min-h-screen">
       <slot />
