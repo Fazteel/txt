@@ -249,6 +249,21 @@ export function addUserAddress(addressData: Omit<UserAddress, 'id'>): UserAddres
   };
 
   if (!user) {
+    const guestUser: User = {
+      id: `guest_${Date.now()}`,
+      name: addressData.recipientName || 'MOA Guest',
+      email: 'guest@moa.txt',
+      phone: addressData.phone,
+      username: 'guest_moa',
+      bias: 'Yeonjun',
+      biasEmoji: '🦊',
+      membershipTier: 'Guest Fan Access',
+      membershipNumber: `MOA-GUEST-${Math.floor(1000 + Math.random() * 9000)}`,
+      joinedAt: new Date().toLocaleDateString('id-ID'),
+      addresses: [{ ...newAddr, isDefault: true }],
+      selectedAddressId: newAddr.id,
+    };
+    currentUser.set(guestUser);
     return newAddr;
   }
 
@@ -264,7 +279,7 @@ export function addUserAddress(addressData: Omit<UserAddress, 'id'>): UserAddres
   const updatedUser: User = {
     ...user,
     addresses: updatedList,
-    selectedAddressId: newAddr.isDefault ? newAddr.id : user.selectedAddressId || newAddr.id,
+    selectedAddressId: newAddr.id,
   };
 
   currentUser.set(updatedUser);

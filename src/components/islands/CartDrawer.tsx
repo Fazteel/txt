@@ -61,21 +61,8 @@ export default function CartDrawer() {
   }, [isOpen]);
 
   const handleCheckout = () => {
-    setIsCheckingOut(true);
-    setTimeout(() => {
-      setIsCheckingOut(false);
-      setCheckoutComplete(true);
-      try {
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 }
-        });
-      } catch (e) {}
-      setTimeout(() => {
-        clearCart();
-      }, 1500);
-    }, 1200);
+    closeCart();
+    window.location.href = '/checkout';
   };
 
   if (!isOpen) return null;

@@ -107,11 +107,15 @@ export default function ProductPurchaseIsland({ product, relatedProducts = [] }:
       color: selectedColor,
       quantity,
     });
+    if (instantPurchase) {
+      window.location.href = '/checkout';
+      return;
+    }
     setAddedNotice(true);
     setTimeout(() => {
       setAddedNotice(false);
       openCart();
-    }, instantPurchase ? 200 : 500);
+    }, 500);
   };
 
   const handleShare = async () => {

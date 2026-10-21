@@ -70,13 +70,13 @@ export default function UserNavIsland() {
 
           <div className="py-2 space-y-1">
             <a
-              href="/profile"
+              href="/checkout"
               onClick={() => setDropdownOpen(false)}
               className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white/5 text-xs text-neutral-200 hover:text-white transition-colors"
             >
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#F8138D]" />
-                <span>MOA Digital Pass</span>
+                <span>Checkout & Ringkasan Belanja</span>
               </div>
             </a>
             <a
@@ -88,7 +88,7 @@ export default function UserNavIsland() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#F8138D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
                 </svg>
-                <span>Alamat Pengiriman</span>
+                <span>Kelola Alamat</span>
               </div>
             </a>
             <a

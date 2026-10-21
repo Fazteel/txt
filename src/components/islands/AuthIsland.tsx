@@ -44,7 +44,7 @@ const MEMBERS = [
 
 export default function AuthIsland({
   initialMode = 'login',
-  redirectPath = '/address',
+  redirectPath = '/',
   showCheckoutPreview = false
 }: AuthIslandProps) {
   const user = useStore(currentUser);
@@ -71,7 +71,12 @@ export default function AuthIsland({
 
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [successPayload, setSuccessPayload] = useState<{ title: string; subtitle: string; user: User } | null>(null);
+
+  React.useEffect(() => {
+    if (user) {
+      window.location.href = redirectPath || '/';
+    }
+  }, [user, redirectPath]);
 
   const triggerCelebration = () => {
     try {
@@ -100,15 +105,11 @@ export default function AuthIsland({
 
       if (result.success && result.user) {
         triggerCelebration();
-        setSuccessPayload({
-          title: 'Selamat Datang Kembali, MOA!',
-          subtitle: `Berhasil masuk sebagai ${result.user.name}.`,
-          user: result.user,
-        });
+        window.location.href = redirectPath || '/';
       } else {
         setErrorMessage(result.error || 'Autentikasi gagal. Periksa kembali email dan kata sandi Anda.');
       }
-    }, 500);
+    }, 400);
   };
 
   const handleRegisterSubmit = (e: React.FormEvent) => {
@@ -161,15 +162,11 @@ export default function AuthIsland({
 
       if (result.success && result.user) {
         triggerCelebration();
-        setSuccessPayload({
-          title: 'Akun Berhasil Dibuat!',
-          subtitle: 'Data Anda telah tersimpan dan siap digunakan untuk checkout.',
-          user: result.user,
-        });
+        window.location.href = redirectPath || '/';
       } else {
         setErrorMessage(result.error || 'Gagal mendaftar akun.');
       }
-    }, 600);
+    }, 500);
   };
 
   const fillMockupData = () => {
@@ -189,70 +186,6 @@ export default function AuthIsland({
     setLoginPassword('password123');
     setErrorMessage(null);
   };
-
-  if (successPayload) {
-    const u = successPayload.user;
-    const addr = u.addresses?.[0];
-    return (
-      <div className="w-full max-w-lg mx-auto bg-neutral-900/90 backdrop-blur-2xl border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden text-center animate-in fade-in zoom-in-95 duration-200">
-        <div className="absolute top-0 right-1/4 w-48 h-48 bg-[#F8138D]/20 rounded-full blur-[80px] pointer-events-none" />
-
-        <div className="inline-flex p-3 rounded-2xl bg-[#F8138D]/15 border border-[#F8138D]/30 text-[#F8138D] mb-4">
-          <Sparkles className="w-8 h-8" />
-        </div>
-
-        <h2 className="text-xl sm:text-2xl font-bold font-display text-white tracking-wider mb-2">
-          {successPayload.title}
-        </h2>
-        <p className="text-xs text-neutral-400 mb-6 max-w-sm mx-auto">
-          {successPayload.subtitle}
-        </p>
-
-        <div className="bg-black/60 border border-white/10 rounded-2xl p-5 text-left text-xs space-y-3 mb-6">
-          <div className="flex items-center justify-between pb-2 border-b border-white/10">
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#F8138D] font-bold">
-              PROFIL DATA PEMBELI
-            </span>
-            <span className="text-[10px] font-mono text-emerald-400">● Terverifikasi</span>
-          </div>
-
-          <div className="space-y-1">
-            <div className="text-sm font-bold text-white">{u.name}</div>
-            <div className="text-neutral-400">{u.email}</div>
-            <div className="text-neutral-400 font-mono">{u.phone || '+62 812 3456 7890'}</div>
-          </div>
-
-          {addr && (
-            <div className="pt-2 border-t border-white/10">
-              <div className="text-[10px] font-mono uppercase text-neutral-500 mb-1 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#F8138D]" />
-                <span>Alamat Pengiriman Utama ({addr.label})</span>
-              </div>
-              <div className="text-neutral-200">
-                {addr.street}, {addr.city}, {addr.province} {addr.postalCode}
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href="/address"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#F8138D] to-[#f570b7] hover:brightness-110 text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(248,19,141,0.4)]"
-          >
-            <span>Buka Halaman Alamat & Checkout</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
-          <a
-            href="/store"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 hover:text-white font-semibold text-xs uppercase tracking-wider transition-all"
-          >
-            Lihat Official Merch
-          </a>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="w-full max-w-md mx-auto relative">
