@@ -133,9 +133,13 @@ export default function CheckoutIsland() {
     orderId: string;
     date: string;
     items: typeof items;
+    subtotalRupiah: number;
+    shippingFee: number;
+    platformFee: number;
     totalRupiah: number;
     payment: PaymentOption;
     address: UserAddress;
+    orderNotes?: string;
   } | null>(null);
 
   const [copiedCode, setCopiedCode] = useState<boolean>(false);
@@ -280,9 +284,13 @@ export default function CheckoutIsland() {
       orderId: randomOrderId,
       date: formattedDate,
       items: [...items],
+      subtotalRupiah: subtotalRupiah,
+      shippingFee: shippingFee,
+      platformFee: platformFee,
       totalRupiah: totalRupiah,
       payment: paymentObj,
       address: selectedAddress,
+      orderNotes: orderNotes,
     };
 
     try {
@@ -321,7 +329,17 @@ export default function CheckoutIsland() {
   };
 
   if (orderSuccess && orderSummaryData) {
-    const { orderId, date, items: orderItems, totalRupiah: finalTotal, payment, address } = orderSummaryData;
+    const {
+      orderId,
+      date,
+      items: orderItems,
+      subtotalRupiah: finalSubtotal,
+      shippingFee: finalShipping,
+      platformFee: finalPlatform,
+      totalRupiah: finalTotal,
+      payment,
+      address,
+    } = orderSummaryData;
 
     return (
       <div className="w-full max-w-4xl mx-auto py-8 px-4 sm:px-6 animate-in fade-in zoom-in-95 duration-300">
@@ -455,7 +473,35 @@ export default function CheckoutIsland() {
               </div>
             </div>
 
-            <div className="pt-4 flex items-center justify-between text-sm sm:text-base font-bold text-white">
+            <div className="pt-4 border-t border-white/10 space-y-2.5 text-xs">
+              <div className="flex justify-between text-neutral-300">
+                <span>Subtotal Produk</span>
+                <span className="font-mono text-white font-semibold">
+                  Rp {finalSubtotal.toLocaleString('id-ID')}
+                </span>
+              </div>
+              <div className="flex justify-between text-neutral-400">
+                <span className="flex items-center gap-1.5">
+                  <Truck className="w-3.5 h-3.5 text-neutral-500" />
+                  Pengiriman Reguler
+                </span>
+                <span className="font-mono text-neutral-200">
+                  {finalShipping === 0 ? (
+                    <span className="text-emerald-400 font-bold">GRATIS</span>
+                  ) : (
+                    `Rp ${finalShipping.toLocaleString('id-ID')}`
+                  )}
+                </span>
+              </div>
+              <div className="flex justify-between text-neutral-400">
+                <span>Biaya Layanan & Asuransi</span>
+                <span className="font-mono text-neutral-200">
+                  Rp {finalPlatform.toLocaleString('id-ID')}
+                </span>
+              </div>
+            </div>
+
+            <div className="pt-4 flex items-center justify-between text-sm sm:text-base font-bold text-white border-t border-white/10">
               <span>Total Pembayaran</span>
               <span className="text-xl sm:text-2xl font-mono text-[#f570b7]">
                 Rp {finalTotal.toLocaleString('id-ID')}

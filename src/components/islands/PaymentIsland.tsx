@@ -11,7 +11,11 @@ import {
   Building2,
   Wallet,
   RefreshCw,
-  Sparkles
+  Sparkles,
+  Truck,
+  Receipt,
+  Package,
+  MapPin
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -28,17 +32,24 @@ interface OrderData {
   orderId: string;
   date: string;
   items: OrderItem[];
+  subtotal: number;
+  shippingFee: number;
+  platformFee: number;
   total: number;
   paymentMethod: 'qris' | 'va_bca' | 'va_mandiri' | 'va_bni' | 'ewallet_gopay';
   customerName?: string;
   customerPhone?: string;
   shippingAddress?: string;
+  orderNotes?: string;
 }
 
 const DEFAULT_REFERENCE_ORDER: OrderData = {
   orderId: '1877HI98ARS',
   date: '21 Oktober 2026, 14:00 WIB',
-  total: 160000,
+  subtotal: 160000,
+  shippingFee: 20000,
+  platformFee: 1000,
+  total: 181000,
   paymentMethod: 'qris',
   customerName: 'Faril & Mine',
   customerPhone: '+62 812 3456 7890',
@@ -109,16 +120,33 @@ export default function PaymentIsland() {
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && parsed.items && parsed.items.length > 0) {
+          const calcSubtotal = typeof parsed.subtotalRupiah === 'number'
+            ? parsed.subtotalRupiah
+            : parsed.items.reduce((s: number, i: any) => s + (Math.round((i.price || 0) * 16000) * (i.quantity || 1)), 0);
+          const calcShipping = typeof parsed.shippingFee === 'number'
+            ? parsed.shippingFee
+            : (calcSubtotal > 600000 ? 0 : 20000);
+          const calcPlatform = typeof parsed.platformFee === 'number'
+            ? parsed.platformFee
+            : 1000;
+          const calcTotal = typeof parsed.totalRupiah === 'number'
+            ? parsed.totalRupiah
+            : (calcSubtotal + calcShipping + calcPlatform);
+
           const adaptedOrder: OrderData = {
             orderId: parsed.orderId || urlOrderId || '1877HI98ARS',
             date: parsed.date || new Date().toLocaleString('id-ID'),
-            total: parsed.totalRupiah || parsed.total || 160000,
+            subtotal: calcSubtotal,
+            shippingFee: calcShipping,
+            platformFee: calcPlatform,
+            total: calcTotal,
             paymentMethod: (parsed.payment?.id as any) || 'qris',
             customerName: parsed.address?.recipientName || 'Aulia Rahma',
             customerPhone: parsed.address?.phone || '+62 812 3456 7890',
             shippingAddress: parsed.address
               ? `${parsed.address.street}, ${parsed.address.city}, ${parsed.address.province} ${parsed.address.postalCode}`
               : undefined,
+            orderNotes: parsed.orderNotes,
             items: parsed.items.map((i: any, idx: number) => ({
               id: `${i.id || 'item'}-${idx}`,
               name: i.name,
@@ -228,10 +256,26 @@ export default function PaymentIsland() {
       if (stored) {
         try {
           const parsed = JSON.parse(stored);
+          const calcSubtotal = typeof parsed.subtotalRupiah === 'number'
+            ? parsed.subtotalRupiah
+            : parsed.items?.reduce((s: number, i: any) => s + (Math.round((i.price || 0) * 16000) * (i.quantity || 1)), 0) || 160000;
+          const calcShipping = typeof parsed.shippingFee === 'number'
+            ? parsed.shippingFee
+            : (calcSubtotal > 600000 ? 0 : 20000);
+          const calcPlatform = typeof parsed.platformFee === 'number'
+            ? parsed.platformFee
+            : 1000;
+          const calcTotal = typeof parsed.totalRupiah === 'number'
+            ? parsed.totalRupiah
+            : (calcSubtotal + calcShipping + calcPlatform);
+
           setOrder({
             orderId: parsed.orderId || 'TXT-982134',
             date: parsed.date || new Date().toLocaleString('id-ID'),
-            total: parsed.totalRupiah || 160000,
+            subtotal: calcSubtotal,
+            shippingFee: calcShipping,
+            platformFee: calcPlatform,
+            total: calcTotal,
             paymentMethod: (['qris', 'va_bca', 'va_mandiri', 'va_bni', 'ewallet_gopay'].includes(parsed.payment?.id)
               ? parsed.payment.id
               : 'qris') as any,
@@ -240,7 +284,8 @@ export default function PaymentIsland() {
             shippingAddress: parsed.address
               ? `${parsed.address.street}, ${parsed.address.city}, ${parsed.address.province} ${parsed.address.postalCode}`
               : undefined,
-            items: parsed.items.map((i: any, idx: number) => ({
+            orderNotes: parsed.orderNotes,
+            items: (parsed.items || []).map((i: any, idx: number) => ({
               id: `${i.id || 'item'}-${idx}`,
               name: i.name,
               subtitle: [i.size, i.color].filter(Boolean).join(' • ') || 'Official Merch',
@@ -391,6 +436,24 @@ export default function PaymentIsland() {
                   <span className="font-mono font-bold text-white">{order.orderId}</span>
                 </div>
                 <div className="flex justify-between border-b border-white/10 pb-2.5">
+                  <span className="text-neutral-400">Subtotal Produk</span>
+                  <span className="font-mono text-white">Rp {order.subtotal.toLocaleString('id-ID')}</span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-2.5">
+                  <span className="text-neutral-400">Ongkos Kirim</span>
+                  <span className="font-mono text-white">
+                    {order.shippingFee === 0 ? 'GRATIS' : `Rp ${order.shippingFee.toLocaleString('id-ID')}`}
+                  </span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-2.5">
+                  <span className="text-neutral-400">Biaya Layanan & Aplikasi</span>
+                  <span className="font-mono text-white">Rp {order.platformFee.toLocaleString('id-ID')}</span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-2.5">
+                  <span className="text-neutral-400">Total Dibayar</span>
+                  <span className="font-mono font-bold text-[#f570b7]">Rp {order.total.toLocaleString('id-ID')}</span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-2.5">
                   <span className="text-neutral-400">Metode Pembayaran</span>
                   <span className="font-bold text-[#f570b7] uppercase">{selectedMethod}</span>
                 </div>
@@ -420,7 +483,7 @@ export default function PaymentIsland() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
-              <div className="md:col-span-6 flex flex-col justify-between space-y-6">
+              <div className="md:col-span-6 flex flex-col justify-between space-y-5">
                 <div>
                   <h1 className="text-2xl sm:text-[26px] font-bold text-white tracking-tight leading-tight">
                     Ringkasan Pembayaran
@@ -430,33 +493,118 @@ export default function PaymentIsland() {
                   </div>
                 </div>
 
-                <div className="space-y-4 pt-1 divide-y divide-white/5">
-                  {order.items.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-start justify-between gap-4 pt-3 first:pt-0"
-                    >
-                      <div className="min-w-0">
-                        <div className="text-sm font-bold text-white leading-tight">
-                          {item.name}
-                        </div>
-                        <div className="text-xs text-neutral-400 mt-0.5 leading-tight">
-                          {item.subtitle}
-                        </div>
-                        <div className="text-xs text-[#f570b7] font-semibold mt-1 font-mono">
-                          {item.quantity}x
-                        </div>
+                {order.shippingAddress && (
+                  <div className="p-3 rounded-xl bg-black/40 border border-white/10 flex items-start gap-2.5 text-xs">
+                    <MapPin className="w-4 h-4 text-[#F8138D] shrink-0 mt-0.5" />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between text-[10px] text-neutral-400 mb-0.5">
+                        <span className="uppercase font-mono tracking-wider">Tujuan Pengiriman</span>
+                        {order.customerPhone && (
+                          <span className="font-mono text-neutral-300">{order.customerPhone}</span>
+                        )}
                       </div>
-                      <div className="text-right shrink-0">
-                        <div className="text-sm font-bold text-white font-mono">
-                          Rp. {item.price.toLocaleString('en-US')}
-                        </div>
+                      <div className="font-semibold text-white truncate">{order.customerName}</div>
+                      <div className="text-[11px] text-neutral-400 line-clamp-1">
+                        {order.shippingAddress}
                       </div>
                     </div>
-                  ))}
+                  </div>
+                )}
+
+                <div className="space-y-2.5 pt-1">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 uppercase tracking-wider font-semibold">
+                    <span>Rincian Barang</span>
+                    <span>{order.items.reduce((s, i) => s + i.quantity, 0)} item</span>
+                  </div>
+                  <div className="space-y-2 max-h-44 overflow-y-auto pr-1">
+                    {order.items.map((item) => (
+                      <div
+                        key={item.id}
+                        className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-black/40 border border-white/5"
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          {item.image ? (
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="w-10 h-10 rounded-lg object-cover bg-black/50 border border-white/10 shrink-0"
+                            />
+                          ) : (
+                            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#f570b7]">
+                              <Package className="w-5 h-5" />
+                            </div>
+                          )}
+                          <div className="min-w-0">
+                            <div className="text-xs sm:text-sm font-bold text-white truncate">
+                              {item.name}
+                            </div>
+                            <div className="text-[11px] text-neutral-400 truncate">
+                              {item.subtitle}
+                            </div>
+                            <div className="text-[10px] text-[#f570b7] font-semibold font-mono">
+                              {item.quantity}x • Rp {item.price.toLocaleString('id-ID')}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-right shrink-0">
+                          <div className="text-xs sm:text-sm font-bold text-white font-mono">
+                            Rp {(item.price * item.quantity).toLocaleString('id-ID')}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="bg-black/60 border border-[#F8138D]/30 rounded-2xl p-4 sm:p-5 mt-4 space-y-3 relative overflow-hidden shadow-[0_0_20px_rgba(248,19,141,0.15)]">
+                <div className="border-t border-white/10 pt-3.5 space-y-2 text-xs">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 uppercase tracking-wider font-semibold mb-1">
+                    <span>Rincian Biaya</span>
+                    <span>Tarif Resmi</span>
+                  </div>
+
+                  <div className="flex justify-between text-neutral-300">
+                    <span className="flex items-center gap-1.5">
+                      <Package className="w-3.5 h-3.5 text-neutral-500" />
+                      <span>Subtotal Produk ({order.items.reduce((s, i) => s + i.quantity, 0)} item)</span>
+                    </span>
+                    <span className="font-mono text-white font-semibold">
+                      Rp {order.subtotal.toLocaleString('id-ID')}
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between text-neutral-300">
+                    <span className="flex items-center gap-1.5">
+                      <Truck className="w-3.5 h-3.5 text-neutral-500" />
+                      <span>Ongkos Kirim (Reguler)</span>
+                    </span>
+                    <span className="font-mono">
+                      {order.shippingFee === 0 ? (
+                        <span className="text-emerald-400 font-bold">GRATIS</span>
+                      ) : (
+                        <span className="text-neutral-200">Rp {order.shippingFee.toLocaleString('id-ID')}</span>
+                      )}
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between text-neutral-300">
+                    <span className="flex items-center gap-1.5">
+                      <Receipt className="w-3.5 h-3.5 text-neutral-500" />
+                      <span>Biaya Layanan & Aplikasi</span>
+                    </span>
+                    <span className="font-mono text-neutral-200">
+                      Rp {order.platformFee.toLocaleString('id-ID')}
+                    </span>
+                  </div>
+
+                  {order.orderNotes && (
+                    <div className="pt-1.5 text-[11px] text-neutral-400 bg-white/5 p-2 rounded-lg border border-white/5">
+                      <span className="text-neutral-500 font-mono uppercase text-[9px] block">Catatan Pesanan:</span>
+                      <span className="italic text-neutral-300">"{order.orderNotes}"</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="bg-black/60 border border-[#F8138D]/30 rounded-2xl p-4 sm:p-5 mt-2 space-y-3 relative overflow-hidden shadow-[0_0_20px_rgba(248,19,141,0.15)]">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#F8138D]/10 rounded-full blur-2xl pointer-events-none" />
 
                   <div className="flex items-center justify-between relative z-10">
@@ -465,7 +613,7 @@ export default function PaymentIsland() {
                         Total Tagihan
                       </span>
                       <span className="text-xl sm:text-2xl font-bold font-mono text-[#f570b7]">
-                        Rp. {order.total.toLocaleString('en-US')}
+                        Rp {order.total.toLocaleString('id-ID')}
                       </span>
                     </div>
 
