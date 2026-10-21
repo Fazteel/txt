@@ -56,55 +56,55 @@ const PAYMENT_METHODS: PaymentOption[] = [
     badge: 'Instan & Otomatis',
     description: 'GoPay, OVO, ShopeePay, DANA, BCA Mobile, Livin, dll.',
   },
-  {
-    id: 'va_bca',
-    name: 'BCA Virtual Account',
-    category: 'va',
-    badge: 'Verifikasi Otomatis',
-    description: 'Transfer via BCA Mobile, KlikBCA, atau ATM BCA',
-    accountNumber: '8910 8123 4567 8901',
-  },
-  {
-    id: 'va_mandiri',
-    name: 'Mandiri Virtual Account',
-    category: 'va',
-    badge: 'Verifikasi Otomatis',
-    description: 'Transfer via Livin by Mandiri atau ATM Mandiri',
-    accountNumber: '8870 8123 4567 8902',
-  },
-  {
-    id: 'va_bni',
-    name: 'BNI Virtual Account',
-    category: 'va',
-    badge: 'Verifikasi Otomatis',
-    description: 'Transfer via BNI Mobile Banking atau ATM BNI',
-    accountNumber: '8277 8123 4567 8903',
-  },
-  {
-    id: 'ewallet_gopay',
-    name: 'GoPay / GoPay Later',
-    category: 'ewallet',
-    description: 'Bayar langsung lewat aplikasi Gojek',
-  },
-  {
-    id: 'ewallet_shopeepay',
-    name: 'ShopeePay',
-    category: 'ewallet',
-    description: 'Notifikasi otomatis di aplikasi Shopee',
-  },
-  {
-    id: 'card_credit',
-    name: 'Kartu Kredit / Debit Online',
-    category: 'card',
-    badge: 'Visa / Mastercard / JCB',
-    description: 'Pembayaran aman 3D-Secure 256-bit SSL',
-  },
-  {
-    id: 'global_weverse',
-    name: 'Weverse Pay / PayPal Global',
-    category: 'global',
-    description: 'Untuk MOA internasional dan Weverse Shop direct checkout',
-  },
+  // {
+  //   id: 'va_bca',
+  //   name: 'BCA Virtual Account',
+  //   category: 'va',
+  //   badge: 'Verifikasi Otomatis',
+  //   description: 'Transfer via BCA Mobile, KlikBCA, atau ATM BCA',
+  //   accountNumber: '8910 8123 4567 8901',
+  // },
+  // {
+  //   id: 'va_mandiri',
+  //   name: 'Mandiri Virtual Account',
+  //   category: 'va',
+  //   badge: 'Verifikasi Otomatis',
+  //   description: 'Transfer via Livin by Mandiri atau ATM Mandiri',
+  //   accountNumber: '8870 8123 4567 8902',
+  // },
+  // {
+  //   id: 'va_bni',
+  //   name: 'BNI Virtual Account',
+  //   category: 'va',
+  //   badge: 'Verifikasi Otomatis',
+  //   description: 'Transfer via BNI Mobile Banking atau ATM BNI',
+  //   accountNumber: '8277 8123 4567 8903',
+  // },
+  // {
+  //   id: 'ewallet_gopay',
+  //   name: 'GoPay / GoPay Later',
+  //   category: 'ewallet',
+  //   description: 'Bayar langsung lewat aplikasi Gojek',
+  // },
+  // {
+  //   id: 'ewallet_shopeepay',
+  //   name: 'ShopeePay',
+  //   category: 'ewallet',
+  //   description: 'Notifikasi otomatis di aplikasi Shopee',
+  // },
+  // {
+  //   id: 'card_credit',
+  //   name: 'Kartu Kredit / Debit Online',
+  //   category: 'card',
+  //   badge: 'Visa / Mastercard / JCB',
+  //   description: 'Pembayaran aman 3D-Secure 256-bit SSL',
+  // },
+  // {
+  //   id: 'global_weverse',
+  //   name: 'Weverse Pay / PayPal Global',
+  //   category: 'global',
+  //   description: 'Untuk MOA internasional dan Weverse Shop direct checkout',
+  // },
 ];
 
 export default function CheckoutIsland() {
@@ -113,7 +113,6 @@ export default function CheckoutIsland() {
   const subtotal = useStore(cartSubtotal);
 
   const [selectedPayment, setSelectedPayment] = useState<string>('qris');
-  const [shippingOption, setShippingOption] = useState<'reguler' | 'express'>('reguler');
   const [orderNotes, setOrderNotes] = useState<string>('');
 
   const [isAddressModalOpen, setIsAddressModalOpen] = useState<boolean>(false);
@@ -163,7 +162,7 @@ export default function CheckoutIsland() {
     addresses[0];
 
   const subtotalRupiah = Math.round(subtotal * 16000);
-  const shippingFee = subtotalRupiah > 600000 ? 0 : shippingOption === 'express' ? 35000 : 20000;
+  const shippingFee = subtotalRupiah > 600000 ? 0 : 20000;
   const platformFee = 1000;
   const totalRupiah = subtotalRupiah + shippingFee + platformFee;
 
@@ -286,6 +285,11 @@ export default function CheckoutIsland() {
       address: selectedAddress,
     };
 
+    try {
+      sessionStorage.setItem('txt_active_payment', JSON.stringify(snapshot));
+      localStorage.setItem('txt_active_payment', JSON.stringify(snapshot));
+    } catch {}
+
     setTimeout(() => {
       setIsProcessing(false);
       setOrderSummaryData(snapshot);
@@ -300,6 +304,8 @@ export default function CheckoutIsland() {
           colors: ['#F8138D', '#f570b7', '#00f2fe', '#ffffff', '#ffd700'],
         });
       } catch {}
+
+      window.location.href = `/payment?orderId=${randomOrderId}&method=${selectedPayment}`;
     }, 1100);
   };
 
@@ -459,10 +465,11 @@ export default function CheckoutIsland() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <a
-              href="/"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#F8138D] to-[#f570b7] hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(248,19,141,0.4)] text-center cursor-pointer"
+              href={`/payment?orderId=${orderId}&method=${payment.id}`}
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#F8138D] to-[#f570b7] hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(248,19,141,0.4)] text-center cursor-pointer flex items-center justify-center gap-2"
             >
-              Kembali ke Beranda
+              <QrCode className="w-4 h-4" />
+              <span>Buka Halaman Pembayaran QRIS</span>
             </a>
             <a
               href="/store"
@@ -485,14 +492,14 @@ export default function CheckoutIsland() {
             <span>Tomorrow X Together Official Portal</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-display font-black text-white tracking-tight uppercase">
-            Ringkasan Pembelian & Checkout
+            Ringkasan Pembelian
           </h1>
         </div>
 
         <div className="flex items-center gap-2 text-xs text-neutral-400">
           <span className="text-[#F8138D] font-semibold">1. Keranjang</span>
           <ChevronRight className="w-3 h-3 text-neutral-600" />
-          <span className="text-white font-semibold">2. Ringkasan & Alamat</span>
+          <span className="text-white font-semibold">2. Alamat & Pesanan</span>
           <ChevronRight className="w-3 h-3 text-neutral-600" />
           <span>3. Selesai</span>
         </div>
@@ -503,141 +510,19 @@ export default function CheckoutIsland() {
           <div className="bg-neutral-900/80 backdrop-blur-2xl border border-white/10 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
             <div className="flex items-center justify-between pb-3.5 border-b border-white/10 mb-4">
               <div className="flex items-center gap-2.5">
-                <Package className="w-5 h-5 text-[#F8138D]" />
-                <h2 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider font-display">
-                  Barang yang Dibeli ({items.reduce((s, i) => s + i.quantity, 0)})
-                </h2>
-              </div>
-              <a
-                href="/store"
-                className="text-xs text-[#F8138D] hover:underline flex items-center gap-1 font-semibold"
-              >
-                + Tambah Barang
-              </a>
-            </div>
-
-            {items.length === 0 ? (
-              <div className="py-10 text-center space-y-4">
-                <ShoppingBag className="w-12 h-12 text-neutral-600 mx-auto stroke-[1.5]" />
-                <div className="space-y-1">
-                  <h3 className="text-base font-bold text-white">Keranjang belanja Anda masih kosong</h3>
-                  <p className="text-xs text-neutral-400 max-w-sm mx-auto">
-                    Pilih merchandise official TXT seperti album, lightstick, atau apparel untuk melanjutkan transaksi.
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                  <button
-                    type="button"
-                    onClick={handleQuickAddSample}
-                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#F8138D] to-[#f570b7] text-white font-bold text-xs uppercase tracking-wider hover:brightness-110 shadow-[0_0_15px_rgba(248,19,141,0.4)] cursor-pointer"
-                  >
-                    + Masukkan Album Sample
-                  </button>
-                  <a
-                    href="/store"
-                    className="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 text-xs font-semibold uppercase tracking-wider transition-all"
-                  >
-                    Buka Official Store
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-3.5">
-                {items.map((item) => (
-                  <div
-                    key={`${item.id}-${item.size || ''}-${item.color || ''}`}
-                    className="flex gap-3.5 p-3.5 rounded-xl bg-black/40 border border-white/10 hover:border-white/20 transition-all items-center"
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-xl bg-black/60 border border-white/10 shrink-0"
-                    />
-
-                    <div className="flex-1 min-w-0">
-                      <a
-                        href={`/store/${item.id}`}
-                        className="text-xs sm:text-sm font-bold text-white hover:text-[#F8138D] transition-colors line-clamp-1"
-                      >
-                        {item.name}
-                      </a>
-                      <div className="flex flex-wrap items-center gap-2 text-[11px] text-neutral-400 mt-1">
-                        {item.size && (
-                          <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">
-                            {item.size}
-                          </span>
-                        )}
-                        {item.color && (
-                          <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">
-                            {item.color}
-                          </span>
-                        )}
-                      </div>
-                      <div className="text-xs sm:text-sm font-bold text-[#F8138D] font-mono mt-1.5">
-                        Rp {(Math.round(item.price * 16000)).toLocaleString('id-ID')}
-                        <span className="text-[10px] text-neutral-500 font-normal ml-1.5 font-sans">
-                          (${item.price.toFixed(2)} USD / item)
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col items-end gap-2 shrink-0">
-                      <div className="flex items-center border border-white/15 bg-black/60 rounded-lg">
-                        <button
-                          type="button"
-                          onClick={() => updateQuantity(item.id, item.quantity - 1, item.size, item.color)}
-                          className="px-2 py-1 text-neutral-400 hover:text-white transition-colors cursor-pointer text-xs"
-                        >
-                          -
-                        </button>
-                        <span className="px-2 py-1 text-xs font-bold text-white font-mono">
-                          {item.quantity}
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => updateQuantity(item.id, item.quantity + 1, item.size, item.color)}
-                          className="px-2 py-1 text-neutral-400 hover:text-white transition-colors cursor-pointer text-xs"
-                        >
-                          +
-                        </button>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={() => removeFromCart(item.id, item.size, item.color)}
-                        className="p-1 text-neutral-500 hover:text-rose-400 transition-colors cursor-pointer"
-                        title="Hapus barang"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="bg-neutral-900/80 backdrop-blur-2xl border border-white/10 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
-            <div className="flex items-center justify-between pb-3.5 border-b border-white/10 mb-4">
-              <div className="flex items-center gap-2.5">
                 <MapPin className="w-5 h-5 text-[#F8138D]" />
                 <h2 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider font-display">
-                  Pemilihan Alamat Pengiriman
+                  Alamat Pengiriman
                 </h2>
               </div>
               <button
                 type="button"
                 onClick={handleOpenAddAddress}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#F8138D] to-[#f570b7] hover:brightness-110 text-white text-xs font-bold transition-all shadow-[0_0_12px_rgba(248,19,141,0.3)] cursor-pointer"
+                className="text-xs text-[#F8138D] hover:underline flex items-center gap-1 font-semibold cursor-pointer"
               >
-                <Plus className="w-3.5 h-3.5" />
-                <span>Tambah Alamat Baru</span>
+                + Tambah Alamat
               </button>
             </div>
-
-            <p className="text-xs text-neutral-400 mb-4 leading-relaxed">
-              Pilih alamat tujuan pengiriman merchandise Anda atau buat alamat baru di bawah ini.
-            </p>
 
             <div className="space-y-3">
               {addresses.map((addr) => {
@@ -706,16 +591,126 @@ export default function CheckoutIsland() {
           </div>
 
           <div className="bg-neutral-900/80 backdrop-blur-2xl border border-white/10 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+            <div className="flex items-center justify-between pb-3.5 border-b border-white/10 mb-4">
+              <div className="flex items-center gap-2.5">
+                <Package className="w-5 h-5 text-[#F8138D]" />
+                <h2 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider font-display">
+                  Barang yang Dibeli ({items.reduce((s, i) => s + i.quantity, 0)})
+                </h2>
+              </div>
+              <a
+                href="/store"
+                className="text-xs text-[#F8138D] hover:underline flex items-center gap-1 font-semibold"
+              >
+                + Tambah Barang
+              </a>
+            </div>
+
+            {items.length === 0 ? (
+              <div className="py-8 text-center space-y-3">
+                <ShoppingBag className="w-10 h-10 text-neutral-600 mx-auto stroke-[1.5]" />
+                <div className="space-y-1">
+                  <h3 className="text-sm font-bold text-white">Keranjang belanja kosong</h3>
+                  <p className="text-xs text-neutral-400 max-w-sm mx-auto">
+                    Pilih merchandise official TXT untuk melanjutkan transaksi.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-1">
+                  <button
+                    type="button"
+                    onClick={handleQuickAddSample}
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#F8138D] to-[#f570b7] text-white font-bold text-xs uppercase tracking-wider hover:brightness-110 shadow-[0_0_12px_rgba(248,19,141,0.3)] cursor-pointer"
+                  >
+                    + Masukkan Album Sample
+                  </button>
+                  <a
+                    href="/store"
+                    className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 text-xs font-semibold uppercase tracking-wider transition-all"
+                  >
+                    Buka Store
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {items.map((item) => (
+                  <div
+                    key={`${item.id}-${item.size || ''}-${item.color || ''}`}
+                    className="flex gap-3.5 p-3 rounded-xl bg-black/40 border border-white/10 hover:border-white/20 transition-all items-center"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl bg-black/60 border border-white/10 shrink-0"
+                    />
+
+                    <div className="flex-1 min-w-0">
+                      <a
+                        href={`/store/${item.id}`}
+                        className="text-xs sm:text-sm font-bold text-white hover:text-[#F8138D] transition-colors line-clamp-1"
+                      >
+                        {item.name}
+                      </a>
+                      <div className="flex flex-wrap items-center gap-2 text-[11px] text-neutral-400 mt-0.5">
+                        {item.size && (
+                          <span className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[10px]">
+                            {item.size}
+                          </span>
+                        )}
+                        {item.color && (
+                          <span className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[10px]">
+                            {item.color}
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-xs sm:text-sm font-bold text-[#F8138D] font-mono mt-1">
+                        Rp {(Math.round(item.price * 16000)).toLocaleString('id-ID')}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col items-end gap-1.5 shrink-0">
+                      <div className="flex items-center border border-white/15 bg-black/60 rounded-lg">
+                        <button
+                          type="button"
+                          onClick={() => updateQuantity(item.id, item.quantity - 1, item.size, item.color)}
+                          className="px-2 py-0.5 text-neutral-400 hover:text-white transition-colors cursor-pointer text-xs"
+                        >
+                          -
+                        </button>
+                        <span className="px-2 py-0.5 text-xs font-bold text-white font-mono">
+                          {item.quantity}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => updateQuantity(item.id, item.quantity + 1, item.size, item.color)}
+                          className="px-2 py-0.5 text-neutral-400 hover:text-white transition-colors cursor-pointer text-xs"
+                        >
+                          +
+                        </button>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => removeFromCart(item.id, item.size, item.color)}
+                        className="p-1 text-neutral-500 hover:text-rose-400 transition-colors cursor-pointer"
+                        title="Hapus barang"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="bg-neutral-900/80 backdrop-blur-2xl border border-white/10 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
             <div className="flex items-center gap-2.5 pb-3.5 border-b border-white/10 mb-4">
               <CreditCard className="w-5 h-5 text-[#F8138D]" />
               <h2 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider font-display">
                 Metode Pembayaran
               </h2>
             </div>
-
-            <p className="text-xs text-neutral-400 mb-4 leading-relaxed">
-              Pilih metode pembayaran yang ingin Anda gunakan untuk menyelesaikan transaksi ini.
-            </p>
 
             <div className="space-y-2.5">
               {PAYMENT_METHODS.map((pm) => {
@@ -779,46 +774,59 @@ export default function CheckoutIsland() {
                 <Package className="w-5 h-5 text-[#F8138D]" />
                 Ringkasan Belanja
               </h3>
-              <span className="text-[10px] font-mono text-emerald-400 tracking-wider">
-                ● 100% Weverse Official
-              </span>
             </div>
 
-            <div className="mb-5 space-y-2">
-              <label className="text-xs font-semibold text-neutral-300 block">Opsi Kurir Pengiriman</label>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => setShippingOption('reguler')}
-                  className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
-                    shippingOption === 'reguler'
-                      ? 'bg-neutral-800 border-[#F8138D] text-white shadow-[0_0_10px_rgba(248,19,141,0.2)]'
-                      : 'bg-black/40 border-white/10 text-neutral-400 hover:text-white'
-                  }`}
-                >
-                  <div className="text-xs font-bold">Reguler (2-3 hari)</div>
-                  <div className="text-[10px] text-neutral-400 mt-0.5">
-                    {subtotalRupiah > 600000 ? 'Gratis Ongkir' : 'Rp 20.000'}
+            {selectedAddress && (
+              <div className="mb-4 p-3 rounded-xl bg-black/40 border border-white/10 flex items-start gap-2.5 text-xs">
+                <MapPin className="w-4 h-4 text-[#F8138D] shrink-0 mt-0.5" />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between text-[10px] text-neutral-400 mb-0.5">
+                    <span className="uppercase font-mono tracking-wider">Tujuan Pengiriman</span>
+                    <span className="text-[#f570b7] font-semibold">{selectedAddress.label}</span>
                   </div>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShippingOption('express')}
-                  className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
-                    shippingOption === 'express'
-                      ? 'bg-neutral-800 border-[#F8138D] text-white shadow-[0_0_10px_rgba(248,19,141,0.2)]'
-                      : 'bg-black/40 border-white/10 text-neutral-400 hover:text-white'
-                  }`}
-                >
-                  <div className="text-xs font-bold">Next Day (1 hari)</div>
-                  <div className="text-[10px] text-neutral-400 mt-0.5">
-                    {subtotalRupiah > 600000 ? 'Rp 15.000' : 'Rp 35.000'}
+                  <div className="font-semibold text-white truncate">{selectedAddress.recipientName}</div>
+                  <div className="text-[11px] text-neutral-400 truncate">
+                    {selectedAddress.street}, {selectedAddress.city}
                   </div>
-                </button>
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="mb-5">
+            {items.length > 0 && (
+              <div className="mb-4 space-y-2">
+                <div className="flex items-center justify-between text-[11px] text-neutral-400 font-mono uppercase tracking-wider font-semibold">
+                  <span>Rincian Item</span>
+                  <span>{items.reduce((s, i) => s + i.quantity, 0)} pcs</span>
+                </div>
+                <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+                  {items.map((item) => (
+                    <div
+                      key={`summary-${item.id}-${item.size || ''}-${item.color || ''}`}
+                      className="flex items-center justify-between gap-3 p-2 rounded-xl bg-black/30 border border-white/5"
+                    >
+                      <div className="flex items-center gap-2 min-w-0">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-9 h-9 rounded-lg object-cover bg-black/50 border border-white/10 shrink-0"
+                        />
+                        <div className="min-w-0">
+                          <div className="font-semibold text-white truncate text-xs">{item.name}</div>
+                          <div className="text-[10px] text-neutral-400 font-mono">
+                            {item.quantity}x • Rp {(Math.round(item.price * 16000)).toLocaleString('id-ID')}
+                          </div>
+                        </div>
+                      </div>
+                      <span className="font-mono text-white text-xs shrink-0 font-semibold">
+                        Rp {(Math.round(item.price * 16000) * item.quantity).toLocaleString('id-ID')}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="mb-4">
               <label className="text-xs font-semibold text-neutral-300 block mb-1">Catatan Tambahan (Opsional)</label>
               <input
                 type="text"
@@ -840,7 +848,7 @@ export default function CheckoutIsland() {
               <div className="flex justify-between text-neutral-400">
                 <span className="flex items-center gap-1.5">
                   <Truck className="w-3.5 h-3.5 text-neutral-500" />
-                  Biaya Pengiriman
+                  Pengiriman Reguler
                 </span>
                 <span className="font-mono text-neutral-200">
                   {shippingFee === 0 ? (
@@ -859,17 +867,10 @@ export default function CheckoutIsland() {
               </div>
 
               <div className="flex justify-between items-center text-sm font-bold text-white pt-3 border-t border-white/10">
-                <div>
-                  <div>Total Tagihan</div>
-                  <div className="text-[10px] text-neutral-500 font-normal">
-                    ≈ ${(totalRupiah / 16000).toFixed(2)} USD
-                  </div>
-                </div>
-                <div className="text-right">
-                  <span className="text-xl font-mono text-[#f570b7]">
-                    Rp {totalRupiah.toLocaleString('id-ID')}
-                  </span>
-                </div>
+                <span>Total Tagihan</span>
+                <span className="text-xl font-mono text-[#f570b7]">
+                  Rp {totalRupiah.toLocaleString('id-ID')}
+                </span>
               </div>
             </div>
 

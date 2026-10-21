@@ -1,0 +1,12 @@
+---
+import RootLayout from '../layouts/RootLayout.astro';
+import PaymentIsland from '../components/islands/PaymentIsland';
+---
+
+<RootLayout
+  title="Pembayaran QRIS & Gateway | TOMORROW X TOGETHER"
+  description="Halaman pembayaran resmi untuk pesanan merchandise dan tiket TOMORROW X TOGETHER."
+  hideNavbar={true}
+>
+  <PaymentIsland client:load />
+</RootLayout>
